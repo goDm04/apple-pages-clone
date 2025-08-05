@@ -6,10 +6,10 @@ const ServicesSection = () => {
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         {/* Left content */}
         <div className="space-y-8">
-          <div className="space-y-4">
+          <div className="space-y-2">
             <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
             <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
-              Sociální síť
+              Socialní sítě
             </h2>
           </div>
           
