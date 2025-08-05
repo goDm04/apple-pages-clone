@@ -43,7 +43,7 @@ const ServicesSection = () => {
             <img 
               src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
               alt="Smartphone mockup"
-              className="w-80 h-auto object-contain"
+              className="w-96 h-auto object-contain"
             />
           </div>
         </div>
