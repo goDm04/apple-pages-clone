@@ -21,7 +21,7 @@ const Navigation = () => {
               onClick={() => setActiveItem(item.name)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeItem === item.name
-                  ? "bg-black/10 text-black shadow-lg"
+                  ? "bg-black/10 text-black shadow"
                   : "text-black/70 hover:text-black hover:bg-black/5"
               }`}
             >
