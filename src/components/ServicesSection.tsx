@@ -7,13 +7,13 @@ const ServicesSection = () => {
         {/* Left content */}
         <div className="space-y-8">
           <div className="space-y-4">
-            <p className="text-muted-foreground text-lg">Služby</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+            <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
+            <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
               Sociální síť
             </h2>
           </div>
           
-          <div className="space-y-6 text-muted-foreground leading-relaxed">
+          <div className="space-y-6 leading-relaxed font-sf text-[#1D1D1F]">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
               Quisque sollicitudin elementum egestas. 
