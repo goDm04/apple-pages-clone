@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Settings } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
-  const [activeItem, setActiveItem] = useState("Home");
+  const [activeItem, setActiveItem] = useState("Domu");
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Posts", href: "#posts" },
-    { name: "About", href: "#about" },
+    { name: "Domu", href: "#domu" },
+    { name: "Služby", href: "#sluzby" },
+    { name: "Portfolio", href: "#portfolio" },
+    { name: "O nás", href: "#o-nas" },
+    { name: "Kontakt", href: "#kontakt" },
   ];
 
   return (
@@ -28,16 +28,6 @@ const Navigation = () => {
               {item.name}
             </button>
           ))}
-          
-          <div className="w-px h-6 bg-black/20 mx-2" />
-          
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-black/70 hover:text-black hover:bg-black/5 rounded-full h-10 w-10"
-          >
-            <Settings className="h-4 w-4" />
-          </Button>
         </div>
       </div>
     </nav>
