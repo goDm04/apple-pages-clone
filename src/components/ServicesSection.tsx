@@ -4,8 +4,19 @@ const ServicesSection = () => {
   return (
     <section className="py-24 px-8 max-w-7xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
-        {/* Left content */}
-        <div className="space-y-8">
+        {/* Left image */}
+        <div className="flex justify-center lg:justify-start lg:order-1">
+          <div className="relative">
+            <img 
+              src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
+              alt="Smartphone mockup"
+              className="w-296 h-auto object-contain"
+            />
+          </div>
+        </div>
+        
+        {/* Right content */}
+        <div className="space-y-8 lg:order-2">
           <div className="space-y-2">
             <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
             <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
@@ -34,17 +45,6 @@ const ServicesSection = () => {
               Morbi pellentesque ultrices tempus. Nullam a fermentum nunc, vitae consectetur eros. 
               Duis eu libero at dui viverra rhoncus non eu tellus.
             </p>
-          </div>
-        </div>
-        
-        {/* Right image */}
-        <div className="flex justify-center lg:justify-end">
-          <div className="relative">
-            <img 
-              src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
-              alt="Smartphone mockup"
-              className="w-296 h-auto object-contain"
-            />
           </div>
         </div>
       </div>
