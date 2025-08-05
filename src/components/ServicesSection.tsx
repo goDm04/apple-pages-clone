@@ -41,7 +41,7 @@ const ServicesSection = () => {
         <div className="flex justify-center lg:justify-end">
           <div className="relative">
             <img 
-              src="/lovable-uploads/553ea5b6-e9b6-4935-882b-dc1ffa581745.png" 
+              src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
               alt="Smartphone mockup"
               className="w-80 h-auto object-contain"
             />
