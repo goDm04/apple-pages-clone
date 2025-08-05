@@ -13,7 +13,7 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
-      <div className="bg-white/80 backdrop-blur-xl border border-black/10 rounded-full px-2 py-2 shadow-lg">
+      <div className="bg-white/80 backdrop-blur-xl border border-black/10 rounded-full px-2 py-2 shadow-2xl">
         <div className="flex items-center space-x-2">
           {navItems.map((item) => (
             <button
