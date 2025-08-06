@@ -13,7 +13,7 @@ const Navigation = () => {
   return (
     <>
       {/* Logo - pouze pro desktop/laptop */}
-      <div className="fixed top-8 left-8 z-50 hidden lg:block">
+      <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center h-12">
         <img 
           src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
           alt="Logo" 
