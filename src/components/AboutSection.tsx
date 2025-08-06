@@ -23,7 +23,7 @@ const AboutSection = () => {
 
           {/* Photo placeholder */}
           <div className="flex justify-center">
-            <div className="w-80 h-80 bg-muted rounded-2xl flex items-center justify-center">
+            <div className="w-80 h-96 rounded-2xl flex items-center justify-center" style={{backgroundColor: '#F5F5F8'}}>
               <div className="text-center text-muted-foreground">
                 <div className="w-16 h-16 bg-muted-foreground/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
