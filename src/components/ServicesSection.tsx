@@ -4,7 +4,7 @@ const ServicesSection = () => {
   return (
     <>
       {/* First section - original layout */}
-      <section className="py-24 px-8 max-w-7xl mx-auto">
+      <section id="sluzby" className="py-24 px-8 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left content */}
           <div className="space-y-8">

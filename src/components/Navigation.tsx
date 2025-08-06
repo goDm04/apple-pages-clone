@@ -13,8 +13,9 @@ return (
 <div className="bg-white/80 backdrop-blur-xl border border-black/10 rounded-full px-2 py-2 shadow-sm">
 <div className="flex items-center space-x-2">
           {navItems.map((item) => (
-            <button
+            <a
               key={item.name}
+              href={item.href}
               onClick={() => setActiveItem(item.name)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeItem === item.name
@@ -23,7 +24,7 @@ return (
               }`}
             >
               {item.name}
-            </button>
+            </a>
           ))}
  </div>
       </div>
