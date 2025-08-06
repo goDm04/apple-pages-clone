@@ -2,6 +2,7 @@ import AppleCardsCarouselDemo from "@/components/apple-cards-carousel-demo";
 import Navigation from "@/components/Navigation";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
+import AboutSection from "@/components/AboutSection";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
       <AppleCardsCarouselDemo />
       <ServicesSection />
       <ProcessSection />
+      <AboutSection />
     </div>
   );
 };
