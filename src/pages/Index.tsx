@@ -9,8 +9,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <AppleCardsCarouselDemo />
       <ServicesSection />
+      <AppleCardsCarouselDemo />
       <ProcessSection />
       <AboutSection />
       <FAQSection />
