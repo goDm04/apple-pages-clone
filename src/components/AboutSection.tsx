@@ -3,7 +3,7 @@ import React from 'react';
 const AboutSection = () => {
   return (
     <section className="py-16 px-8 max-w-7xl mx-auto">
-      <div className="bg-muted/50 rounded-3xl p-8 md:p-12">
+      <div className="rounded-3xl p-8 md:p-12" style={{backgroundColor: '#F5F5F8'}}>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Text content */}
           <div className="space-y-6">
