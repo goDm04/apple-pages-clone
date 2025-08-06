@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Domu");
   const navItems = [
@@ -8,8 +9,20 @@ const Navigation = () => {
     { name: "O nás", href: "#o-nas" },
     { name: "Kontakt", href: "#kontakt" },
   ];
-return (
-    <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
+
+  return (
+    <>
+      {/* Logo - pouze pro desktop/laptop */}
+      <div className="fixed top-8 left-8 z-50 hidden lg:block">
+        <img 
+          src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
+          alt="Logo" 
+          className="h-12 w-auto"
+        />
+      </div>
+      
+      {/* Navigation */}
+      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
 <div className="bg-white/80 backdrop-blur-xl border border-black/10 rounded-full px-2 py-2 shadow-sm">
 <div className="flex items-center space-x-2">
           {navItems.map((item) => (
@@ -27,8 +40,9 @@ return (
             </a>
           ))}
  </div>
-      </div>
+     </div>
     </nav>
+    </>
   );
 };
 
