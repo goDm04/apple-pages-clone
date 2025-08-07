@@ -33,39 +33,38 @@ const ServicesSection = () => {
       </div>
 
       {/* Cards Container */}
-      <div className="relative w-full">
-        <div className="flex items-center justify-center overflow-hidden px-4">
-          <div 
-            className="flex transition-transform duration-500 ease-in-out w-full"
-            style={{ transform: `translateX(calc(-${activeIndex * 100}% + ${activeIndex * 2}rem))` }}
-          >
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className={`flex-shrink-0 transition-all duration-500 cursor-pointer mx-2 ${
-                  index === activeIndex 
-                    ? 'w-full max-w-4xl' 
-                    : 'w-32 opacity-60'
-                }`}
-                onClick={() => setActiveIndex(index)}
-              >
-                <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-lg bg-muted">
-                  {index === activeIndex && (
-                    <div className="absolute inset-0 bg-black/40">
-                      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white max-w-md">
-                        <h3 className="text-3xl font-bold font-sf mb-4">
-                          {service.title}
-                        </h3>
-                        <p className="text-base font-sf leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
+      <div className="relative w-full overflow-hidden">
+        <div 
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ 
+            transform: `translateX(calc(-${activeIndex * 60}% + 20%))`,
+            width: `${services.length * 60}%`
+          }}
+        >
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              className="flex-shrink-0 w-3/5 px-4 cursor-pointer"
+              onClick={() => setActiveIndex(index)}
+            >
+              <div className={`relative w-full h-80 rounded-3xl overflow-hidden shadow-lg bg-muted transition-all duration-500 ${
+                index === activeIndex ? 'scale-100 opacity-100' : 'scale-90 opacity-60'
+              }`}>
+                {index === activeIndex && (
+                  <div className="absolute inset-0 bg-black/20">
+                    <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-foreground max-w-md">
+                      <h3 className="text-3xl font-bold font-sf mb-4">
+                        {service.title}
+                      </h3>
+                      <p className="text-base font-sf leading-relaxed">
+                        {service.description}
+                      </p>
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
