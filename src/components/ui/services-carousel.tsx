@@ -42,13 +42,23 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
 
   useEffect(() => {
     if (carouselRef.current) {
-      // Wait for layout to complete, then center the first card
+      // Wait for layout and fonts to load, then center the first card
       const timeoutId = setTimeout(() => {
         scrollToIndex(0);
         checkScrollability();
-      }, 200);
+      }, 300);
       
-      return () => clearTimeout(timeoutId);
+      // Also handle window resize to maintain centering
+      const handleResize = () => {
+        setTimeout(() => scrollToIndex(currentIndex), 100);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      
+      return () => {
+        clearTimeout(timeoutId);
+        window.removeEventListener('resize', handleResize);
+      };
     }
   }, [initialScroll]);
 
@@ -78,12 +88,14 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 380 : 900;
       const gap = isMobile() ? 4 : 8;
-      const containerWidth = carouselRef.current.clientWidth;
+      const viewportWidth = window.innerWidth;
       
-      // Calculate position to center the card perfectly
+      // Calculate position to center the card perfectly in viewport
       const cardPosition = (cardWidth + gap) * index;
-      const centerOffset = (containerWidth - cardWidth) / 2;
+      const centerOffset = (viewportWidth - cardWidth) / 2;
       const paddingLeft = 16; // pl-4 = 16px
+      
+      // For centering, we need to account for the container's left position
       const scrollPosition = cardPosition - centerOffset + paddingLeft;
       
       carouselRef.current.scrollTo({
