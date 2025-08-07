@@ -1,46 +1,155 @@
 import React from 'react';
-import { Card } from './ui/card';
 
 const ServicesSection = () => {
   return (
-    <section id="sluzby" className="py-24 px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-muted-foreground text-lg font-sf font-bold mb-4">Služby</p>
-          <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
-            Naše služby
-          </h2>
-        </div>
-        
-        <div className="relative w-full">
-          <div className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none]">
-            <div className="flex flex-row justify-start gap-8 pl-4 mx-auto max-w-7xl">
-              <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center flex-shrink-0 w-[calc(100vw-200px)]">
-                <div className="text-center space-y-6">
-                  <h3 className="text-3xl font-bold font-sf">Služby obsah</h3>
-                  <p className="text-lg text-muted-foreground max-w-2xl">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Quisque sollicitudin elementum egestas. 
-                    In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas.
-                  </p>
-                </div>
-              </Card>
+    <>
+      {/* First section - original layout */}
+      <section id="sluzby" className="py-24 px-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left content */}
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
+              <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
+                Socialní sítě
+              </h2>
+            </div>
+            
+            <div className="space-y-6 leading-relaxed font-sf text-[#1D1D1F]">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Quisque sollicitudin elementum egestas. 
+                In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas. 
+                Integer sed iaculis quam.
+              </p>
               
-              <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center flex-shrink-0 w-[calc(100vw-200px)] last:pr-[33%]">
-                <div className="text-center space-y-6">
-                  <h3 className="text-3xl font-bold font-sf">Druhá služba</h3>
-                  <p className="text-lg text-muted-foreground max-w-2xl">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Quisque sollicitudin elementum egestas. 
-                    In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas.
-                  </p>
-                </div>
-              </Card>
+              <p>
+                Vestibulum sed eros accumsan nisl placerat porta. 
+                Donec id ipsum sed leo interdum suscipit quis vel nulla. 
+                Curabitur ut varius nunc, non eleifend justo. 
+                Aliquam erat volutpat. Integer eget laoreet arcu, at imperdiet diam. 
+                Suspendisse rhoncus molestie odio non tincidunt.
+              </p>
+              
+              <p>
+                Aenean et ligula vitae ligula gravida blandit. Integer ultrices vestibulum dapibus. 
+                Morbi pellentesque ultrices tempus. Nullam a fermentum nunc, vitae consectetur eros. 
+                Duis eu libero at dui viverra rhoncus non eu tellus.
+              </p>
+            </div>
+          </div>
+          
+          {/* Right image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
+                alt="Smartphone mockup"
+                className="w-296 h-auto object-contain"
+              />
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Second section - mirrored layout */}
+      <section className="py-24 px-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left image */}
+          <div className="flex justify-center lg:justify-start lg:order-1">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
+                alt="Smartphone mockup"
+                className="w-296 h-auto object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Right content */}
+          <div className="space-y-8 lg:order-2">
+            <div className="space-y-2">
+              <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
+              <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
+                Grafika
+              </h2>
+            </div>
+            
+            <div className="space-y-6 leading-relaxed font-sf text-[#1D1D1F]">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Quisque sollicitudin elementum egestas. 
+                In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas. 
+                Integer sed iaculis quam.
+              </p>
+              
+              <p>
+                Vestibulum sed eros accumsan nisl placerat porta. 
+                Donec id ipsum sed leo interdum suscipit quis vel nulla. 
+                Curabitur ut varius nunc, non eleifend justo. 
+                Aliquam erat volutpat. Integer eget laoreet arcu, at imperdiet diam. 
+                Suspendisse rhoncus molestie odio non tincidunt.
+              </p>
+              
+              <p>
+                Aenean et ligula vitae ligula gravida blandit. Integer ultrices vestibulum dapibus. 
+                Morbi pellentesque ultrices tempus. Nullam a fermentum nunc, vitae consectetur eros. 
+                Duis eu libero at dui viverra rhoncus non eu tellus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Third section - original layout like first */}
+      <section className="py-24 px-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left content */}
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
+              <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
+                Webové stránky
+              </h2>
+            </div>
+            
+            <div className="space-y-6 leading-relaxed font-sf text-[#1D1D1F]">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Quisque sollicitudin elementum egestas. 
+                In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas. 
+                Integer sed iaculis quam.
+              </p>
+              
+              <p>
+                Vestibulum sed eros accumsan nisl placerat porta. 
+                Donec id ipsum sed leo interdum suscipit quis vel nulla. 
+                Curabitur ut varius nunc, non eleifend justo. 
+                Aliquam erat volutpat. Integer eget laoreet arcu, at imperdiet diam. 
+                Suspendisse rhoncus molestie odio non tincidunt.
+              </p>
+              
+              <p>
+                Aenean et ligula vitae ligula gravida blandit. Integer ultrices vestibulum dapibus. 
+                Morbi pellentesque ultrices tempus. Nullam a fermentum nunc, vitae consectetur eros. 
+                Duis eu libero at dui viverra rhoncus non eu tellus.
+              </p>
+            </div>
+          </div>
+          
+          {/* Right image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
+                alt="Smartphone mockup"
+                className="w-296 h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
