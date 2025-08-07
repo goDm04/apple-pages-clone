@@ -49,12 +49,7 @@ const ServicesSection = () => {
                 }`}
                 onClick={() => setActiveIndex(index)}
               >
-                <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-lg">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-lg bg-muted">
                   {index === activeIndex && (
                     <div className="absolute inset-0 bg-black/40">
                       <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white max-w-md">
