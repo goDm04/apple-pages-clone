@@ -1,92 +1,155 @@
-import React, { useState } from 'react';
-
-const services = [
-  {
-    id: 'websites',
-    title: 'Webové stránky',
-    description: 'Webové stránky stavíme s důrazem na uživatelskou přívětivost, rychlost a obsah, který dává smysl. Neztrácíme se ve zbytečnostech – jdeme po tom, co funguje.',
-    image: '/lovable-uploads/bfdd033c-6f15-48b7-b6d1-e0c856c4f9a7.png'
-  },
-  {
-    id: 'graphics',
-    title: 'Grafika',
-    description: 'Vytváříme vizuální identitu, která promlouvá k vašemu publiku. Od loga po kompletní brand design – vše s důrazem na jedinečnost a profesionalitu.',
-    image: '/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png'
-  },
-  {
-    id: 'social',
-    title: 'Sociální sítě',
-    description: 'Pomáháme budovat vaši přítomnost na sociálních sítích. Vytváříme obsah, který zaujme a přinese výsledky pro vaše podnikání.',
-    image: '/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png'
-  }
-];
+import React from 'react';
 
 const ServicesSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
-    <section id="sluzby" className="py-24 px-8 max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground font-sf">
-          Objevte naše služby.
-        </h2>
-      </div>
-
-      {/* Cards Container */}
-      <div className="relative w-full overflow-hidden px-16">
-        <div 
-          className="flex transition-transform duration-500 ease-in-out gap-8"
-          style={{ 
-            transform: `translateX(calc(-${activeIndex * 100}% + calc(50vw - 50% - 2rem)))`,
-          }}
-        >
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              className="flex-shrink-0 w-80 cursor-pointer"
-              onClick={() => setActiveIndex(index)}
-            >
-              <div className={`relative w-full h-80 rounded-3xl overflow-hidden shadow-lg bg-muted transition-all duration-500 ${
-                index === activeIndex ? 'scale-100 opacity-100' : 'scale-90 opacity-60'
-              }`}>
-                {index === activeIndex && (
-                  <div className="absolute inset-0 bg-black/20">
-                    <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-foreground max-w-md">
-                      <h3 className="text-3xl font-bold font-sf mb-4">
-                        {service.title}
-                      </h3>
-                      <p className="text-base font-sf leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
+    <>
+      {/* First section - original layout */}
+      <section id="sluzby" className="py-24 px-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left content */}
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
+              <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
+                Socialní sítě
+              </h2>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Dot Navigation in Gray Card */}
-      <div className="flex justify-center mt-8">
-        <div className="bg-muted rounded-lg px-6 py-3">
-          <div className="flex space-x-2">
-            {services.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`transition-all duration-300 ${
-                  index === activeIndex 
-                    ? 'w-8 h-3 bg-foreground rounded-full' 
-                    : 'w-3 h-3 bg-muted-foreground/40 rounded-full hover:bg-muted-foreground/60'
-                }`}
-                aria-label={`Přejít na službu ${index + 1}`}
+            
+            <div className="space-y-6 leading-relaxed font-sf text-[#1D1D1F]">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Quisque sollicitudin elementum egestas. 
+                In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas. 
+                Integer sed iaculis quam.
+              </p>
+              
+              <p>
+                Vestibulum sed eros accumsan nisl placerat porta. 
+                Donec id ipsum sed leo interdum suscipit quis vel nulla. 
+                Curabitur ut varius nunc, non eleifend justo. 
+                Aliquam erat volutpat. Integer eget laoreet arcu, at imperdiet diam. 
+                Suspendisse rhoncus molestie odio non tincidunt.
+              </p>
+              
+              <p>
+                Aenean et ligula vitae ligula gravida blandit. Integer ultrices vestibulum dapibus. 
+                Morbi pellentesque ultrices tempus. Nullam a fermentum nunc, vitae consectetur eros. 
+                Duis eu libero at dui viverra rhoncus non eu tellus.
+              </p>
+            </div>
+          </div>
+          
+          {/* Right image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
+                alt="Smartphone mockup"
+                className="w-296 h-auto object-contain"
               />
-            ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Second section - mirrored layout */}
+      <section className="py-24 px-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left image */}
+          <div className="flex justify-center lg:justify-start lg:order-1">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
+                alt="Smartphone mockup"
+                className="w-296 h-auto object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Right content */}
+          <div className="space-y-8 lg:order-2">
+            <div className="space-y-2">
+              <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
+              <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
+                Grafika
+              </h2>
+            </div>
+            
+            <div className="space-y-6 leading-relaxed font-sf text-[#1D1D1F]">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Quisque sollicitudin elementum egestas. 
+                In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas. 
+                Integer sed iaculis quam.
+              </p>
+              
+              <p>
+                Vestibulum sed eros accumsan nisl placerat porta. 
+                Donec id ipsum sed leo interdum suscipit quis vel nulla. 
+                Curabitur ut varius nunc, non eleifend justo. 
+                Aliquam erat volutpat. Integer eget laoreet arcu, at imperdiet diam. 
+                Suspendisse rhoncus molestie odio non tincidunt.
+              </p>
+              
+              <p>
+                Aenean et ligula vitae ligula gravida blandit. Integer ultrices vestibulum dapibus. 
+                Morbi pellentesque ultrices tempus. Nullam a fermentum nunc, vitae consectetur eros. 
+                Duis eu libero at dui viverra rhoncus non eu tellus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Third section - original layout like first */}
+      <section className="py-24 px-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left content */}
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <p className="text-muted-foreground text-lg font-sf font-bold">Služby</p>
+              <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
+                Webové stránky
+              </h2>
+            </div>
+            
+            <div className="space-y-6 leading-relaxed font-sf text-[#1D1D1F]">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Quisque sollicitudin elementum egestas. 
+                In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas. 
+                Integer sed iaculis quam.
+              </p>
+              
+              <p>
+                Vestibulum sed eros accumsan nisl placerat porta. 
+                Donec id ipsum sed leo interdum suscipit quis vel nulla. 
+                Curabitur ut varius nunc, non eleifend justo. 
+                Aliquam erat volutpat. Integer eget laoreet arcu, at imperdiet diam. 
+                Suspendisse rhoncus molestie odio non tincidunt.
+              </p>
+              
+              <p>
+                Aenean et ligula vitae ligula gravida blandit. Integer ultrices vestibulum dapibus. 
+                Morbi pellentesque ultrices tempus. Nullam a fermentum nunc, vitae consectetur eros. 
+                Duis eu libero at dui viverra rhoncus non eu tellus.
+              </p>
+            </div>
+          </div>
+          
+          {/* Right image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png" 
+                alt="Smartphone mockup"
+                className="w-296 h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
