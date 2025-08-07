@@ -52,32 +52,44 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
+      
+      // Calculate current index based on scroll position
+      const cardWidth = isMobile() ? 350 : 800;
+      const gap = isMobile() ? 4 : 8;
+      const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+      setCurrentIndex(Math.min(newIndex, items.length - 1));
     }
   };
 
   const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -600, behavior: "smooth" });
+    if (carouselRef.current && currentIndex > 0) {
+      const newIndex = currentIndex - 1;
+      scrollToIndex(newIndex);
     }
   };
 
   const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 600, behavior: "smooth" });
+    if (carouselRef.current && currentIndex < items.length - 1) {
+      const newIndex = currentIndex + 1;
+      scrollToIndex(newIndex);
     }
   };
 
-  const handleCardClose = (index: number) => {
+  const scrollToIndex = (index: number) => {
     if (carouselRef.current) {
-      const cardWidth = isMobile() ? 350 : 800; // Much wider cards
+      const cardWidth = isMobile() ? 350 : 800;
       const gap = isMobile() ? 4 : 8;
-      const scrollPosition = (cardWidth + gap) * (index + 1);
+      const scrollPosition = (cardWidth + gap) * index;
       carouselRef.current.scrollTo({
         left: scrollPosition,
         behavior: "smooth",
       });
       setCurrentIndex(index);
     }
+  };
+
+  const handleCardClose = (index: number) => {
+    scrollToIndex(index);
   };
 
   const isMobile = () => {
@@ -129,18 +141,33 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
             ))}
           </div>
         </div>
-        <div className="mr-10 flex justify-end gap-2">
+        <div className="flex justify-center items-center gap-4 mt-8">
           <button
             className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-muted disabled:opacity-50"
             onClick={scrollLeft}
-            disabled={!canScrollLeft}
+            disabled={currentIndex === 0}
           >
             <IconArrowNarrowLeft className="h-6 w-6 text-muted-foreground" />
           </button>
+          
+          <div className="flex items-center gap-2">
+            {items.map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'w-8 bg-foreground' 
+                    : 'w-2 bg-muted-foreground'
+                }`}
+                onClick={() => scrollToIndex(index)}
+              />
+            ))}
+          </div>
+          
           <button
             className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-muted disabled:opacity-50"
             onClick={scrollRight}
-            disabled={!canScrollRight}
+            disabled={currentIndex === items.length - 1}
           >
             <IconArrowNarrowRight className="h-6 w-6 text-muted-foreground" />
           </button>
