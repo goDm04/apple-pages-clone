@@ -1,18 +1,26 @@
 import React from "react";
-import { ServicesCarousel, ServicesCard } from "@/components/ui/services-carousel";
+import { ServicesCard } from "@/components/ui/services-carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const ServicesSection = () => {
-  const cards = servicesData.map((card, index) => (
-    <ServicesCard key={card.src} card={card} index={index} />
-  ));
-
   return (
-    <div id="sluzby" className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-foreground font-sf">
+    <section id="sluzby" className="w-full h-full py-20" aria-labelledby="services-heading">
+      <h2 id="services-heading" className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-foreground font-sf">
         Naše služby.
       </h2>
-      <ServicesCarousel items={cards} />
-    </div>
+
+      <Carousel className="mt-10" opts={{ align: "center", loop: false }}>
+        <CarouselContent>
+          {servicesData.map((card, index) => (
+            <CarouselItem key={card.src} className="basis-[380px] md:basis-[900px]">
+              <ServicesCard card={card} index={index} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden md:flex" />
+        <CarouselNext className="hidden md:flex" />
+      </Carousel>
+    </section>
   );
 };
 
