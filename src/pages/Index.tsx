@@ -4,7 +4,6 @@ import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
-import CardsWithSlider from "@/components/CardsWithSlider";
 
 const Index = () => {
   return (
@@ -12,7 +11,6 @@ const Index = () => {
       <Navigation />
       <ServicesSection />
       <AppleCardsCarouselDemo />
-      <CardsWithSlider />
       <ProcessSection />
       <AboutSection />
       <FAQSection />
