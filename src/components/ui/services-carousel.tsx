@@ -79,9 +79,15 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 350 : 800;
       const gap = isMobile() ? 4 : 8;
-      const scrollPosition = (cardWidth + gap) * index;
+      const containerWidth = carouselRef.current.clientWidth;
+      
+      // Calculate position to center the card
+      const cardPosition = (cardWidth + gap) * index;
+      const centerOffset = (containerWidth - cardWidth) / 2;
+      const scrollPosition = cardPosition - centerOffset;
+      
       carouselRef.current.scrollTo({
-        left: scrollPosition,
+        left: Math.max(0, scrollPosition),
         behavior: "smooth",
       });
       setCurrentIndex(index);
