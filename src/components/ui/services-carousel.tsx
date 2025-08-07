@@ -39,39 +39,30 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [sidePadding, setSidePadding] = useState(16);
 
   useEffect(() => {
-    if (carouselRef.current) {
-      // Wait for layout and fonts to load, then center the first card
-      const timeoutId = setTimeout(() => {
-        // Force center the first card on initial load
-        const cardWidth = isMobile() ? 380 : 900;
-        const viewportWidth = window.innerWidth;
-        const centerOffset = (viewportWidth - cardWidth) / 2;
-        const paddingLeft = 16; // pl-4 = 16px
-        
-        carouselRef.current!.scrollTo({
-          left: Math.max(0, -centerOffset + paddingLeft),
-          behavior: "auto", // Use auto for initial positioning
-        });
-        
-        setCurrentIndex(0);
-        checkScrollability();
-      }, 100);
-      
-      // Also handle window resize to maintain centering
-      const handleResize = () => {
-        setTimeout(() => scrollToIndex(currentIndex), 50);
-      };
-      
-      window.addEventListener('resize', handleResize);
-      
-      return () => {
-        clearTimeout(timeoutId);
-        window.removeEventListener('resize', handleResize);
-      };
-    }
-  }, []);
+    if (!carouselRef.current) return;
+
+    const updatePaddingAndCenter = () => {
+      const cardWidth = isMobile() ? 380 : 900;
+      const viewportWidth = window.innerWidth;
+      const computed = Math.max(16, (viewportWidth - cardWidth) / 2);
+      setSidePadding(computed);
+      // Keep the current card centered after resize/init
+      setTimeout(() => scrollToIndex(currentIndex), 0);
+    };
+
+    // Initial setup
+    requestAnimationFrame(updatePaddingAndCenter);
+
+    // Handle window resize
+    window.addEventListener('resize', updatePaddingAndCenter);
+
+    return () => {
+      window.removeEventListener('resize', updatePaddingAndCenter);
+    };
+  }, [currentIndex]);
 
   const checkScrollability = () => {
     if (carouselRef.current) {
@@ -99,21 +90,15 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 380 : 900;
       const gap = isMobile() ? 4 : 8;
-      const viewportWidth = window.innerWidth;
-      
-      // Calculate position to center the card perfectly in viewport
-      const cardPosition = (cardWidth + gap) * index;
-      const centerOffset = (viewportWidth - cardWidth) / 2;
-      const paddingLeft = 16; // pl-4 = 16px
-      
-      // For centering, we need to account for the container's left position
-      const scrollPosition = cardPosition - centerOffset + paddingLeft;
-      
+
+      const scrollPosition = Math.max(0, (cardWidth + gap) * index);
+
       carouselRef.current.scrollTo({
-        left: Math.max(0, scrollPosition),
+        left: scrollPosition,
         behavior: "smooth",
       });
       setCurrentIndex(index);
+      checkScrollability();
     }
   };
 
@@ -143,9 +128,10 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
 
           <div
             className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-              "mx-auto max-w-none w-full", // Changed from max-w-7xl to allow full width
+              "flex flex-row justify-start gap-4",
+              "mx-auto max-w-none w-full",
             )}
+            style={{ paddingLeft: sidePadding, paddingRight: sidePadding }}
           >
             {items.map((item, index) => (
               <motion.div
@@ -163,7 +149,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
                   ease: "easeOut",
                 }}
                 key={"card" + index}
-                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
+                className="rounded-3xl"
               >
                 {item}
               </motion.div>
