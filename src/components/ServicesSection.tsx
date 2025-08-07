@@ -12,17 +12,30 @@ const ServicesSection = () => {
           </h2>
         </div>
         
-        <div className="px-8">
-          <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center">
-            <div className="text-center space-y-6">
-              <h3 className="text-3xl font-bold font-sf">Služby obsah</h3>
-              <p className="text-lg text-muted-foreground max-w-2xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Quisque sollicitudin elementum egestas. 
-                In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas.
-              </p>
-            </div>
-          </Card>
+        <div className="relative overflow-hidden">
+          <div className="flex gap-8 px-8">
+            <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center flex-shrink-0" style={{width: 'calc(100vw - 64px)'}}>
+              <div className="text-center space-y-6">
+                <h3 className="text-3xl font-bold font-sf">Služby obsah</h3>
+                <p className="text-lg text-muted-foreground max-w-2xl">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Quisque sollicitudin elementum egestas. 
+                  In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas.
+                </p>
+              </div>
+            </Card>
+            
+            <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center flex-shrink-0" style={{width: 'calc(100vw - 64px)'}}>
+              <div className="text-center space-y-6">
+                <h3 className="text-3xl font-bold font-sf">Druhá služba</h3>
+                <p className="text-lg text-muted-foreground max-w-2xl">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Quisque sollicitudin elementum egestas. 
+                  In volutpat mauris blandit ipsum malesuada, laoreet lobortis neque egestas.
+                </p>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
