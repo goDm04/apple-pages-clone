@@ -42,9 +42,11 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
 
   useEffect(() => {
     if (carouselRef.current) {
-      // Center the first card on initial load
-      scrollToIndex(0);
-      checkScrollability();
+      // Small delay to ensure DOM is ready, then center the first card
+      setTimeout(() => {
+        scrollToIndex(0);
+        checkScrollability();
+      }, 100);
     }
   }, [initialScroll]);
 
@@ -72,7 +74,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
 
   const scrollToIndex = (index: number) => {
     if (carouselRef.current) {
-      const cardWidth = isMobile() ? 350 : 800;
+      const cardWidth = isMobile() ? 380 : 900;
       const gap = isMobile() ? 4 : 8;
       const containerWidth = carouselRef.current.clientWidth;
       
@@ -264,7 +266,7 @@ export const ServicesCard = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-[350px] flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[400px] md:w-[800px]"
+        className="relative z-10 flex h-96 w-[380px] flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[480px] md:w-[900px]"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
