@@ -9,8 +9,8 @@ const ServicesSection = () => {
         Naše služby.
       </h2>
 
-      <Carousel className="mt-10" opts={{ align: "center", loop: false }}>
-        <CarouselContent>
+      <Carousel className="mt-10" opts={{ align: "center", loop: false, containScroll: "keepSnaps" }}>
+        <CarouselContent className="pl-[max(16px,calc((100vw-380px)/2))] pr-[max(16px,calc((100vw-380px)/2))] md:pl-[max(16px,calc((100vw-900px)/2))] md:pr-[max(16px,calc((100vw-900px)/2))]">
           {servicesData.map((card, index) => (
             <CarouselItem key={card.src} className="basis-[380px] md:basis-[900px]">
               <ServicesCard card={card} index={index} />
