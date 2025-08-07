@@ -1,26 +1,18 @@
 import React from "react";
-import { ServicesCard } from "@/components/ui/services-carousel";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { ServicesCarousel, ServicesCard } from "@/components/ui/services-carousel";
 
 const ServicesSection = () => {
+  const cards = servicesData.map((card, index) => (
+    <ServicesCard key={card.src} card={card} index={index} />
+  ));
+
   return (
-    <section id="sluzby" className="w-full h-full py-20" aria-labelledby="services-heading">
-      <h2 id="services-heading" className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-foreground font-sf">
+    <div id="sluzby" className="w-full h-full py-20">
+      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-foreground font-sf">
         Naše služby.
       </h2>
-
-      <Carousel className="mt-10" opts={{ align: "center", loop: false, containScroll: "keepSnaps" }}>
-        <CarouselContent className="ml-0 mr-0 gap-4 pl-[max(16px,calc((100vw-320px)/2))] pr-[max(16px,calc((100vw-320px)/2))] md:pl-[max(16px,calc((100vw-320px)/2))] md:pr-[max(16px,calc((100vw-320px)/2))]">
-          {servicesData.map((card, index) => (
-            <CarouselItem key={card.src} className="pl-0 basis-[320px] md:basis-[320px]">
-              <ServicesCard card={card} index={index} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="hidden md:flex" />
-        <CarouselNext className="hidden md:flex" />
-      </Carousel>
-    </section>
+      <ServicesCarousel items={cards} />
+    </div>
   );
 };
 

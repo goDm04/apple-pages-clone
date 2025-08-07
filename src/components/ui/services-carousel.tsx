@@ -286,7 +286,7 @@ export const ServicesCard = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-96 w-full flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[480px]"
+        className="relative z-10 flex h-96 w-[380px] flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[480px] md:w-[900px]"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
