@@ -13,8 +13,8 @@ const ServicesSection = () => {
         </div>
         
         <div className="relative overflow-hidden">
-          <div className="flex gap-8 px-8">
-            <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center flex-shrink-0" style={{width: 'calc(100vw - 64px)'}}>
+          <div className="flex gap-8 pl-8 pr-4">
+            <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center flex-shrink-0 w-[calc(100vw-200px)] ml-auto mr-auto">
               <div className="text-center space-y-6">
                 <h3 className="text-3xl font-bold font-sf">Služby obsah</h3>
                 <p className="text-lg text-muted-foreground max-w-2xl">
@@ -25,7 +25,7 @@ const ServicesSection = () => {
               </div>
             </Card>
             
-            <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center flex-shrink-0" style={{width: 'calc(100vw - 64px)'}}>
+            <Card className="bg-muted/50 border-muted rounded-3xl p-16 min-h-[400px] flex items-center justify-center flex-shrink-0 w-[calc(100vw-200px)]">
               <div className="text-center space-y-6">
                 <h3 className="text-3xl font-bold font-sf">Druhá služba</h3>
                 <p className="text-lg text-muted-foreground max-w-2xl">
