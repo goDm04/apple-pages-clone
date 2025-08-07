@@ -42,12 +42,33 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
 
   useEffect(() => {
     if (carouselRef.current) {
+      // Wait for layout and fonts to load, then center the first card
       const timeoutId = setTimeout(() => {
+        // Force center the first card on initial load
+        const cardWidth = isMobile() ? 380 : 900;
+        const viewportWidth = window.innerWidth;
+        const centerOffset = (viewportWidth - cardWidth) / 2;
+        const paddingLeft = 16; // pl-4 = 16px
+        
+        carouselRef.current!.scrollTo({
+          left: Math.max(0, -centerOffset + paddingLeft),
+          behavior: "auto", // Use auto for initial positioning
+        });
+        
+        setCurrentIndex(0);
         checkScrollability();
       }, 100);
       
+      // Also handle window resize to maintain centering
+      const handleResize = () => {
+        setTimeout(() => scrollToIndex(currentIndex), 50);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      
       return () => {
         clearTimeout(timeoutId);
+        window.removeEventListener('resize', handleResize);
       };
     }
   }, []);
@@ -78,12 +99,18 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 380 : 900;
       const gap = isMobile() ? 4 : 8;
+      const viewportWidth = window.innerWidth;
       
-      // Simple scroll calculation - each card position
-      const scrollPosition = (cardWidth + gap) * index;
+      // Calculate position to center the card perfectly in viewport
+      const cardPosition = (cardWidth + gap) * index;
+      const centerOffset = (viewportWidth - cardWidth) / 2;
+      const paddingLeft = 16; // pl-4 = 16px
+      
+      // For centering, we need to account for the container's left position
+      const scrollPosition = cardPosition - centerOffset + paddingLeft;
       
       carouselRef.current.scrollTo({
-        left: scrollPosition,
+        left: Math.max(0, scrollPosition),
         behavior: "smooth",
       });
       setCurrentIndex(index);
@@ -103,36 +130,44 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
       <div className="relative w-full">
-        {/* Full width container that holds the carousel */}
-        <div className="flex justify-center w-full py-10 md:py-20">
+        <div
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
+          ref={carouselRef}
+          onScroll={checkScrollability}
+        >
           <div
-            className="overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] w-full"
-            ref={carouselRef}
-            onScroll={checkScrollability}
+            className={cn(
+              "absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l",
+            )}
+          ></div>
+
+          <div
+            className={cn(
+              "flex flex-row justify-start gap-4 pl-4",
+              "mx-auto max-w-none w-full", // Changed from max-w-7xl to allow full width
+            )}
           >
-            <div className="flex flex-row gap-4 md:gap-8">
-              {items.map((item, index) => (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.2 * index,
-                    ease: "easeOut",
-                  }}
-                  key={"card" + index}
-                  className="flex-shrink-0"
-                >
-                  {item}
-                </motion.div>
-              ))}
-            </div>
+            {items.map((item, index) => (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.2 * index,
+                  ease: "easeOut",
+                }}
+                key={"card" + index}
+                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
+              >
+                {item}
+              </motion.div>
+            ))}
           </div>
         </div>
         <div className="flex justify-center items-center gap-4 mt-8">
