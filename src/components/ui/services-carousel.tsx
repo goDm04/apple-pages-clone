@@ -50,7 +50,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
       const computed = Math.max(16, (viewportWidth - cardWidth) / 2);
       setSidePadding(computed);
       // Keep the current card centered after resize/init
-      setTimeout(() => scrollToIndex(currentIndex), 0);
+      setTimeout(() => scrollToIndex(currentIndex, computed), 0);
     };
 
     // Initial setup
@@ -86,12 +86,20 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     }
   };
 
-  const scrollToIndex = (index: number) => {
+  const scrollToIndex = (index: number, paddingOverride?: number) => {
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 380 : 900;
       const gap = 16; // Tailwind gap-4 = 1rem = 16px
+      const viewportWidth = window.innerWidth;
+      const paddingLeft = typeof paddingOverride === 'number' ? paddingOverride : sidePadding;
 
-      const scrollPosition = Math.max(0, (cardWidth + gap) * index);
+      // Calculate exact center position for the target card
+      const delta = paddingLeft + cardWidth / 2 - viewportWidth / 2;
+      const target = (cardWidth + gap) * index + delta;
+
+      // Clamp within scrollable range
+      const maxScroll = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
+      const scrollPosition = Math.max(0, Math.min(target, maxScroll));
 
       carouselRef.current.scrollTo({
         left: scrollPosition,
