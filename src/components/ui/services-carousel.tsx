@@ -42,11 +42,13 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
 
   useEffect(() => {
     if (carouselRef.current) {
-      // Small delay to ensure DOM is ready, then center the first card
-      setTimeout(() => {
+      // Wait for layout to complete, then center the first card
+      const timeoutId = setTimeout(() => {
         scrollToIndex(0);
         checkScrollability();
-      }, 100);
+      }, 200);
+      
+      return () => clearTimeout(timeoutId);
     }
   }, [initialScroll]);
 
@@ -78,10 +80,11 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
       const gap = isMobile() ? 4 : 8;
       const containerWidth = carouselRef.current.clientWidth;
       
-      // Calculate position to center the card
-      const cardPosition = (cardWidth + gap) * index + 16; // +16 for pl-4
+      // Calculate position to center the card perfectly
+      const cardPosition = (cardWidth + gap) * index;
       const centerOffset = (containerWidth - cardWidth) / 2;
-      const scrollPosition = cardPosition - centerOffset;
+      const paddingLeft = 16; // pl-4 = 16px
+      const scrollPosition = cardPosition - centerOffset + paddingLeft;
       
       carouselRef.current.scrollTo({
         left: Math.max(0, scrollPosition),
@@ -118,7 +121,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
           <div
             className={cn(
               "flex flex-row justify-start gap-4 pl-4",
-              "mx-auto max-w-7xl",
+              "mx-auto max-w-none w-full", // Changed from max-w-7xl to allow full width
             )}
           >
             {items.map((item, index) => (
