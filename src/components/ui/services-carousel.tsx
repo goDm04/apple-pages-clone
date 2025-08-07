@@ -103,10 +103,10 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
       <div className="relative w-full">
-        {/* Centered container that holds the carousel */}
+        {/* Full width container that holds the carousel */}
         <div className="flex justify-center w-full py-10 md:py-20">
           <div
-            className="overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] w-[380px] md:w-[900px]"
+            className="overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] w-full"
             ref={carouselRef}
             onScroll={checkScrollability}
           >
