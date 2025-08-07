@@ -10,9 +10,9 @@ const ServicesSection = () => {
       </h2>
 
       <Carousel className="mt-10" opts={{ align: "center", loop: false, containScroll: "keepSnaps" }}>
-        <CarouselContent className="ml-0 mr-0 gap-4 pl-[max(16px,calc((100vw-380px)/2))] pr-[max(16px,calc((100vw-380px)/2))] md:pl-[max(16px,calc((100vw-900px)/2))] md:pr-[max(16px,calc((100vw-900px)/2))]">
+        <CarouselContent className="ml-0 mr-0 gap-4 pl-[max(16px,calc((100vw-320px)/2))] pr-[max(16px,calc((100vw-320px)/2))] md:pl-[max(16px,calc((100vw-320px)/2))] md:pr-[max(16px,calc((100vw-320px)/2))]">
           {servicesData.map((card, index) => (
-            <CarouselItem key={card.src} className="pl-0 basis-[380px] md:basis-[900px]">
+            <CarouselItem key={card.src} className="pl-0 basis-[320px] md:basis-[320px]">
               <ServicesCard card={card} index={index} />
             </CarouselItem>
           ))}
