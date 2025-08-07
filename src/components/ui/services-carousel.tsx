@@ -89,7 +89,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
   const scrollToIndex = (index: number) => {
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 380 : 900;
-      const gap = isMobile() ? 4 : 8;
+      const gap = 16; // Tailwind gap-4 = 1rem = 16px
 
       const scrollPosition = Math.max(0, (cardWidth + gap) * index);
 
