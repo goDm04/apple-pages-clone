@@ -1,8 +1,30 @@
 import React from 'react';
+import CardSlider from './CardSlider';
 
 const ServicesSection = () => {
+  const sliderCards = [
+    {
+      id: 1,
+      image: "/lovable-uploads/af1d4253-bee1-47a9-a054-df83301092b1.png",
+      alt: "Socialní sítě"
+    },
+    {
+      id: 2,
+      image: "/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png",
+      alt: "Grafika"
+    },
+    {
+      id: 3,
+      image: "/lovable-uploads/553ea5b6-e9b6-4935-882b-dc1ffa581745.png",
+      alt: "Webové stránky"
+    }
+  ];
+
   return (
     <>
+      {/* Card Slider Section */}
+      <CardSlider cards={sliderCards} />
+
       {/* First section - original layout */}
       <section id="sluzby" className="py-24 px-8 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
