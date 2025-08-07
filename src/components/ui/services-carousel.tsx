@@ -44,13 +44,24 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     if (carouselRef.current) {
       // Wait for layout and fonts to load, then center the first card
       const timeoutId = setTimeout(() => {
-        scrollToIndex(0);
+        // Force center the first card on initial load
+        const cardWidth = isMobile() ? 380 : 900;
+        const viewportWidth = window.innerWidth;
+        const centerOffset = (viewportWidth - cardWidth) / 2;
+        const paddingLeft = 16; // pl-4 = 16px
+        
+        carouselRef.current!.scrollTo({
+          left: Math.max(0, -centerOffset + paddingLeft),
+          behavior: "auto", // Use auto for initial positioning
+        });
+        
+        setCurrentIndex(0);
         checkScrollability();
-      }, 300);
+      }, 100);
       
       // Also handle window resize to maintain centering
       const handleResize = () => {
-        setTimeout(() => scrollToIndex(currentIndex), 100);
+        setTimeout(() => scrollToIndex(currentIndex), 50);
       };
       
       window.addEventListener('resize', handleResize);
@@ -60,7 +71,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
         window.removeEventListener('resize', handleResize);
       };
     }
-  }, [initialScroll]);
+  }, []);
 
   const checkScrollability = () => {
     if (carouselRef.current) {
