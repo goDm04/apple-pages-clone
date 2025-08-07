@@ -42,7 +42,8 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
 
   useEffect(() => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft = initialScroll;
+      // Center the first card on initial load
+      scrollToIndex(0);
       checkScrollability();
     }
   }, [initialScroll]);
@@ -52,12 +53,6 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
-      
-      // Calculate current index based on scroll position
-      const cardWidth = isMobile() ? 350 : 800;
-      const gap = isMobile() ? 4 : 8;
-      const newIndex = Math.round(scrollLeft / (cardWidth + gap));
-      setCurrentIndex(Math.min(newIndex, items.length - 1));
     }
   };
 
@@ -82,7 +77,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
       const containerWidth = carouselRef.current.clientWidth;
       
       // Calculate position to center the card
-      const cardPosition = (cardWidth + gap) * index;
+      const cardPosition = (cardWidth + gap) * index + 16; // +16 for pl-4
       const centerOffset = (containerWidth - cardWidth) / 2;
       const scrollPosition = cardPosition - centerOffset;
       
