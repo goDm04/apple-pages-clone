@@ -33,39 +33,44 @@ const ServicesSection = () => {
       </div>
 
       {/* Cards Container */}
-      <div className="relative">
-        <div className="flex items-center justify-center space-x-6 overflow-hidden">
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              className={`relative transition-all duration-500 cursor-pointer ${
-                index === activeIndex 
-                  ? 'w-96 h-64 z-10' 
-                  : 'w-32 h-64 z-0 opacity-60'
-              }`}
-              onClick={() => setActiveIndex(index)}
-            >
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                />
-                {index === activeIndex && (
-                  <div className="absolute inset-0 bg-black/40">
-                    <div className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white max-w-xs">
-                      <h3 className="text-2xl font-bold font-sf mb-3">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm font-sf leading-relaxed">
-                        {service.description}
-                      </p>
+      <div className="relative w-full">
+        <div className="flex items-center justify-center overflow-hidden px-4">
+          <div 
+            className="flex transition-transform duration-500 ease-in-out w-full"
+            style={{ transform: `translateX(calc(-${activeIndex * 100}% + ${activeIndex * 2}rem))` }}
+          >
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                className={`flex-shrink-0 transition-all duration-500 cursor-pointer mx-2 ${
+                  index === activeIndex 
+                    ? 'w-full max-w-4xl' 
+                    : 'w-32 opacity-60'
+                }`}
+                onClick={() => setActiveIndex(index)}
+              >
+                <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-lg">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  {index === activeIndex && (
+                    <div className="absolute inset-0 bg-black/40">
+                      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white max-w-md">
+                        <h3 className="text-3xl font-bold font-sf mb-4">
+                          {service.title}
+                        </h3>
+                        <p className="text-base font-sf leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
