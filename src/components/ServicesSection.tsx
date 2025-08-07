@@ -37,18 +37,18 @@ const ServicesSection = () => {
         <div 
           className="flex transition-transform duration-500 ease-in-out"
           style={{ 
-            transform: `translateX(calc(-${activeIndex * 60}% + 20%))`,
-            width: `${services.length * 60}%`
+            transform: `translateX(-${activeIndex * 100}%)`,
+            width: `${services.length * 100}%`
           }}
         >
           {services.map((service, index) => (
             <div
               key={service.id}
-              className="flex-shrink-0 w-3/5 px-4 cursor-pointer"
+              className="flex-shrink-0 w-full px-8 cursor-pointer"
               onClick={() => setActiveIndex(index)}
             >
               <div className={`relative w-full h-80 rounded-3xl overflow-hidden shadow-lg bg-muted transition-all duration-500 ${
-                index === activeIndex ? 'scale-100 opacity-100' : 'scale-90 opacity-60'
+                index === activeIndex ? 'scale-100 opacity-100' : 'scale-95 opacity-70'
               }`}>
                 {index === activeIndex && (
                   <div className="absolute inset-0 bg-black/20">
