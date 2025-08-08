@@ -45,7 +45,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     if (!carouselRef.current) return;
 
     const updatePaddingAndCenter = () => {
-      const cardWidth = isMobile() ? 380 : 900;
+      const cardWidth = 320; // w-80 = 320px to match "O nás" card
       const viewportWidth = window.innerWidth;
       const computed = Math.max(16, (viewportWidth - cardWidth) / 2);
       setSidePadding(computed);
@@ -88,7 +88,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
 
   const scrollToIndex = (index: number, paddingOverride?: number) => {
     if (carouselRef.current) {
-      const cardWidth = isMobile() ? 380 : 900;
+      const cardWidth = 320; // w-80 = 320px to match "O nás" card
       const gap = 16; // Tailwind gap-4 = 1rem = 16px
       const viewportWidth = window.innerWidth;
       const paddingLeft = typeof paddingOverride === 'number' ? paddingOverride : sidePadding;
@@ -286,7 +286,7 @@ export const ServicesCard = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-96 w-[380px] flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[480px] md:w-[900px]"
+        className="relative z-10 flex h-96 w-80 flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
