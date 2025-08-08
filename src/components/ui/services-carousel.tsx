@@ -45,7 +45,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     if (!carouselRef.current) return;
 
     const updatePaddingAndCenter = () => {
-      const cardWidth = isMobile() ? 380 : 1200;
+      const cardWidth = isMobile() ? 380 : 900;
       const viewportWidth = window.innerWidth;
       const computed = Math.max(16, (viewportWidth - cardWidth) / 2);
       setSidePadding(computed);
