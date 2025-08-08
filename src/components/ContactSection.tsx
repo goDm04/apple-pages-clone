@@ -28,8 +28,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="kontakt" className="py-20 px-8 max-w-7xl mx-auto">
-      <div className="rounded-3xl p-8 md:p-12" style={{ backgroundColor: "#F5F5F8" }}>
+    <section id="kontakt" className="py-20 px-8" style={{ backgroundColor: "#F5F5F8" }}>
+      <div className="max-w-7xl mx-auto p-8 md:p-12">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left side - Info */}
           <div className="space-y-8">
