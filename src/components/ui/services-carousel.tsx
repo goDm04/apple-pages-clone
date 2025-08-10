@@ -124,7 +124,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     >
       <div className="relative w-full">
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20 snap-x snap-mandatory"
           ref={carouselRef}
           onScroll={checkScrollability}
         >
@@ -157,7 +157,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
                   ease: "easeOut",
                 }}
                 key={"card" + index}
-                className="rounded-3xl"
+                className="rounded-3xl snap-center snap-always"
               >
                 {item}
               </motion.div>
