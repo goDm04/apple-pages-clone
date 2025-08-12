@@ -10,7 +10,7 @@ const ServicesSection = () => {
 
         <div className="space-y-6">
           {/* Velká horní karta */}
-          <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[300px] md:min-h-[420px]">
+          <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[390px] md:min-h-[420px]">
             <h3 className="text-2xl md:text-3xl font-semibold font-sf text-foreground">
               Webové stránky
             </h3>
