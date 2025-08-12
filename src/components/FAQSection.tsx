@@ -9,12 +9,12 @@ import {
 const FAQSection = () => {
   const faqs = [
     {
-      question: "Jak dlouho trvá realizace projektu?",
-      answer: "Doba realizace závisí na složitosti projektu. Jednoduchý web nebo rebrand může být hotový za 2-4 týdny, komplexnější projekty mohou trvat 6-12 týdnů."
+      question: "Jak dlouho trvá realizace webu?",
+      answer: "Do týdne od zahájení zhotovíme vizuální návrh, který společně doladíme. Následující týden web doděláme a spustíme - už za dva týdny může být online."
     },
     {
       question: "Jaké služby poskytujete?",
-      answer: "Specializujeme se na branding, webdesign, grafický design a digitální marketing. Pomáháme značkám vytvořit silnou online přítomnost."
+      answer: "Tvoříme kompletní vizuální identity, webové stránky, spravujeme firemní profily na sociálních sítích a připravujeme grafiku pro tisk, od plakátů až po produktové potisky. Pomáháme značkám působit jednotně a profesionálně napříč všemi kanály."
     },
     {
       question: "Spolupracujete i se začínajícími firmami?",
@@ -25,8 +25,8 @@ const FAQSection = () => {
       answer: "Samozřejmě. Po dokončení projektu nabízíme průběžnou podporu, údržbu a aktualizace. Chceme, aby vaše značka fungovala dlouhodobě."
     },
     {
-      question: "Jak probíhá komunikace během projektu?",
-      answer: "Udržujeme pravidelnou komunikaci prostřednictvím emailu, telefonátů a osobních schůzek. Každý týden vás informujeme o pokroku a získáváme zpětnou vazbu."
+      question: "Co když se mi web nebude líbit?",
+      answer: "Návrh webu je pro vás zcela nezávazný. Pokud s ním nebudete spokojeni, upravíme ho podle vašich představ, nebo spolupráci v této fázi jednoduše ukončíme – bez jakýchkoliv závazků či podmínek."
     }
   ];
 
