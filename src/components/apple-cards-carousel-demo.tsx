@@ -48,7 +48,7 @@ const data = [
   {
     category: "Webové stránky",
     title: "Odstěhováno.cz",
-    src: "https://imgur.com/IzMsYAB.jpeg",
+    src: "https://imgur.com/keSNonF.jpeg",
     content: <DummyContent />,
   },
   {
