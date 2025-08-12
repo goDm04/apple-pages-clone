@@ -45,10 +45,11 @@ const AboutSection = () => {
 
           <figure className="flex justify-center">
             <img
-              src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png"
-              alt="Náš tým – ilustrační fotografie"
+              src="/lovable-uploads/6c0e56bd-f6db-4b97-bb58-27bfba0bccab.png"
+              alt="Memoji profil – tým Tension Creative"
               loading="lazy"
-              className="w-full max-w-md aspect-[4/5] rounded-2xl object-cover shadow-lg"
+              decoding="async"
+              className="w-full max-w-md aspect-square rounded-2xl object-cover shadow-lg"
             />
             <figcaption className="sr-only">Tým kreativních profesionálů připravený pomoci vaší značce růst.</figcaption>
           </figure>
