@@ -80,14 +80,14 @@ const data = [
   {
     category: "Webové stránky",
     title: "Health Brands s.r.o.",
-    src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2064&auto=format&fit=crop",
+    src: "https://imgur.com/aRCjbQq.jpeg",
     href: "https://thehealthbrands.com",
     content: <DummyContent />,
   },
   {
     category: "Grafika",
     title: "Maturitní ples Vlašim",
-    src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2340&auto=format&fit=crop",
+    src: "https://imgur.com/GCUii3f.jpeg",
     content: <DummyContent />,
   },
   {
