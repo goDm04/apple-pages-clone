@@ -1,39 +1,57 @@
 import React from 'react';
+import { Button } from "@/components/ui/button";
+
 
 const AboutSection = () => {
   return (
-    <section id="o-nas" className="py-16 px-8 max-w-7xl mx-auto">
-      <div className="rounded-3xl p-8 md:p-12" style={{backgroundColor: '#F5F5F8'}}>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          {/* Text content */}
+    <section id="o-nas" aria-labelledby="about-heading" className="py-16 px-8 max-w-7xl mx-auto">
+      <div className="rounded-3xl p-8 md:p-12 bg-muted">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">
-            <div className="space-y-4">
+            <div className="space-y-3">
               <p className="text-sm font-sf text-muted-foreground uppercase tracking-wider">
                 O nás
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
-                Jsme tým kreativních profesionálů
+              <h2 id="about-heading" className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
+                Budujeme značky, které lidé milují
               </h2>
             </div>
-            
-            <p className="text-base font-sf text-muted-foreground leading-relaxed">
-              S více než 10 lety zkušeností v oblasti digitálního marketingu a brandingu pomáháme značkám růst a dosahovat jejich cílů. Specializujeme se na vytváření autentických brandových zážitků, které rezonují s vaší cílovou skupinou.
-            </p>
-          </div>
 
-          {/* Photo placeholder */}
-          <div className="flex justify-center">
-            <div className="w-80 h-96 rounded-2xl flex items-center justify-center" style={{backgroundColor: '#F5F5F8'}}>
-              <div className="text-center text-muted-foreground">
-                <div className="w-16 h-16 bg-muted-foreground/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <p className="text-sm">Vaše fotka</p>
-              </div>
+            <p className="text-base font-sf text-muted-foreground leading-relaxed">
+              S více než 10 lety zkušeností v oblasti digitálního marketingu a brandingu pomáháme značkám růst a dosahovat jejich cílů. Tvoříme autentické zážitky, které rezonují s vaší cílovou skupinou.
+            </p>
+
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3">
+                <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
+                <span className="font-sf text-foreground">Strategie a branding s dopadem</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
+                <span className="font-sf text-foreground">Design orientovaný na výsledek</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
+                <span className="font-sf text-foreground">Rychlá realizace a transparentní komunikace</span>
+              </li>
+            </ul>
+
+            <div className="pt-2">
+              <Button size="lg" asChild className="font-sf font-semibold">
+                <a href="#kontakt">Kontaktujte nás</a>
+              </Button>
             </div>
           </div>
+
+          <figure className="flex justify-center">
+            <img
+              src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png"
+              alt="Náš tým – ilustrační fotografie"
+              loading="lazy"
+              className="w-full max-w-md aspect-[4/5] rounded-2xl object-cover shadow-lg"
+            />
+            <figcaption className="sr-only">Tým kreativních profesionálů připravený pomoci vaší značce růst.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
