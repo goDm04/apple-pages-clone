@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "@/components/ui/card";
 
 const StatsSection = () => {
   const stats = [
@@ -10,21 +9,21 @@ const StatsSection = () => {
   ];
 
   return (
-    <section aria-labelledby="stats-heading" className="py-16 md:py-20 bg-background">
-      <div className="container mx-auto">
-        <h2 id="stats-heading" className="sr-only">Statistiky</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+    <section id="statistiky" aria-labelledby="stats-heading" className="py-24 px-8 max-w-7xl mx-auto">
+      <div className="space-y-16">
+        <h2 id="stats-heading" className="text-xl md:text-5xl font-bold text-foreground font-sf">
+          Statistiky
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((item) => (
-            <Card key={item.label} className="bg-card/60 backdrop-blur border-border">
-              <div className="flex flex-col items-center justify-center text-center px-6 py-8 md:py-10">
-                <div className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary">
-                  {item.value}
-                </div>
-                <div className="mt-2 text-sm md:text-base text-muted-foreground">
-                  {item.label}
-                </div>
+            <div key={item.label} className="space-y-3">
+              <div className="text-6xl md:text-7xl font-bold font-sf text-foreground leading-none tracking-tight">
+                {item.value}
               </div>
-            </Card>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                {item.label}
+              </p>
+            </div>
           ))}
         </div>
       </div>
