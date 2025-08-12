@@ -7,12 +7,14 @@ import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import StatsSection from "@/components/StatsSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <StatsSection />
       <ServicesSection />
       <AppleCardsCarouselDemo />
       <ProcessSection />
