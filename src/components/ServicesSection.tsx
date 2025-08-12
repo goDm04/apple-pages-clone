@@ -18,13 +18,13 @@ const ServicesSection = () => {
 
           {/* Dvě menší karty pod ní */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[500px]">
+            <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[420px]">
               <h3 className="text-2xl font-semibold font-sf text-foreground">
                 Sociální sítě
               </h3>
             </article>
 
-            <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[500px]">
+            <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[420px]">
               <h3 className="text-2xl font-semibold font-sf text-foreground">
                 Grafika
               </h3>
