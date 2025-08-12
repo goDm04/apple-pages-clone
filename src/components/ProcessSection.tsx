@@ -4,8 +4,8 @@ const ProcessSection = () => {
   const processSteps = [
     {
       number: "01",
-      title: "Navrhneme vizuální strategii",
-      description: "Grafika, web nebo content – každý výstup má smysl, tón a estetiku. Vytvoříme koncept, který propojí váš brand s vaším cílovým publikem."
+      title: "Poznáme vás a váš cíl",
+      description: "Než začneme tvořit, zjistíme, co vaši značku dělá jedinečnou. Projdeme si vaše cíle, cílovou skupinu a konkurenci, abychom měli jasnou mapu, kam projekt směřuje a jaký má mít dopad."
     },
     {
       number: "02", 
