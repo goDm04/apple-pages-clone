@@ -93,7 +93,7 @@ const data = [
   {
     category: "Sociální sítě",
     title: "FINPRO21 Reality",
-    src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2064&auto=format&fit=crop",
+    src: "https://imgur.com/u3xxxdQ.jpeg",
     content: <DummyContent />,
   },
 ];
