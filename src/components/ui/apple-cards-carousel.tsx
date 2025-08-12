@@ -24,6 +24,7 @@ type Card = {
   title: string;
   category: string;
   content: React.ReactNode;
+  href?: string;
 };
 
 export const CarouselContext = createContext<{
@@ -182,9 +183,16 @@ export const Card = ({
 
   useOutsideClick(containerRef, () => handleClose());
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+const handleOpen = () => {
+  // Disabled modal open for now; open external link if provided
+  if (card.href) {
+    const url = card.href.startsWith("http") ? card.href : `https://${card.href}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    return;
+  }
+  // Intentionally do nothing to prevent modal expansion
+  // setOpen(true);
+};
 
   const handleClose = () => {
     setOpen(false);

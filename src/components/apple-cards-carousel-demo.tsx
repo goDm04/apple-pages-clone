@@ -49,6 +49,7 @@ const data = [
     category: "Webové stránky",
     title: "Odstěhováno.cz",
     src: "https://imgur.com/QEWFIRL.jpeg",
+    href: "https://odstehovano.cz",
     content: <DummyContent />,
   },
   {
@@ -61,6 +62,7 @@ const data = [
     category: "Webové stránky",
     title: "MH-Tiles.cz",
     src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2340&auto=format&fit=crop",
+    href: "https://mh-tiles.cz",
     content: <DummyContent />,
   },
   {
@@ -79,6 +81,7 @@ const data = [
     category: "Webové stránky",
     title: "Health Brands s.r.o.",
     src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2064&auto=format&fit=crop",
+    href: "https://thehealthbrands.com",
     content: <DummyContent />,
   },
   {
