@@ -70,6 +70,12 @@ const data = [
     content: <DummyContent />,
   },
   {
+    category: "Sociální sítě",
+    title: "Bar Vrtule",
+    src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2064&auto=format&fit=crop",
+    content: <DummyContent />,
+  },
+  {
     category: "Webové stránky",
     title: "Health Brands s.r.o.",
     src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2064&auto=format&fit=crop",
@@ -79,6 +85,12 @@ const data = [
     category: "Grafika",
     title: "Diskotéka Zbizuby",
     src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2340&auto=format&fit=crop",
+    content: <DummyContent />,
+  },
+  {
+    category: "Sociální sítě",
+    title: "FINPRO21 Reality",
+    src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2064&auto=format&fit=crop",
     content: <DummyContent />,
   },
 ];
