@@ -55,7 +55,7 @@ const data = [
   {
     category: "Sociální sítě",
     title: "Centrum pojištění Vlašim",
-    src: "https://imgur.com/jC8JseD.jpeg",
+    src: "https://imgur.com/gdJ5kAU.jpeg",
     content: <DummyContent />,
   },
   {
@@ -74,7 +74,7 @@ const data = [
   {
     category: "Sociální sítě",
     title: "Bar Vrtule",
-    src: "https://imgur.com/acTwHUX.jpeg",
+    src: "https://imgur.com/eRuiWWJ.jpeg",
     content: <DummyContent />,
   },
   {
