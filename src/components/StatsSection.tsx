@@ -9,14 +9,11 @@ const StatsSection = () => {
   ];
 
   return (
-    <section id="statistiky" aria-labelledby="stats-heading" className="py-24 px-8 max-w-7xl mx-auto">
+    <section id="statistiky" aria-label="Statistiky" className="pt-10 md:pt-12 pb-20 px-8 max-w-7xl mx-auto">
       <div className="space-y-16">
-        <h2 id="stats-heading" className="text-xl md:text-5xl font-bold text-foreground font-sf">
-          Statistiky
-        </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((item) => (
-            <div key={item.label} className="space-y-3">
+            <div key={item.label} className="space-y-3 text-center">
               <div className="text-6xl md:text-7xl font-bold font-sf text-foreground leading-none tracking-tight">
                 {item.value}
               </div>
