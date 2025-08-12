@@ -9,16 +9,13 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">
             <div className="space-y-3">
-              <p className="text-sm font-sf text-muted-foreground uppercase tracking-wider">
-                O nás
-              </p>
               <h2 id="about-heading" className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
-                Budujeme značky, které lidé milují
+                Jsme tým kreativců
               </h2>
             </div>
 
             <p className="text-base font-sf text-muted-foreground leading-relaxed">
-              S více než 10 lety zkušeností v oblasti digitálního marketingu a brandingu pomáháme značkám růst a dosahovat jejich cílů. Tvoříme autentické zážitky, které rezonují s vaší cílovou skupinou.
+              S našimi zkušenostmi
             </p>
 
             <ul className="space-y-3">
