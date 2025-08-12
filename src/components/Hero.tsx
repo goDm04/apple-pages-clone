@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="container mx-auto flex min-h-[95vh] md:min-h-screen flex-col items-center justify-center py-24 text-center gap-6">
         {/* Small logo above heading */}
         <img
-          src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png"
+          src="https://imgur.com/vdxJAt6.jpeg"
           alt="Logo"
           className="h-10 w-auto"
         />
