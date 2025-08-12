@@ -62,13 +62,13 @@ const data = [
     category: "Grafika",
     title: "Diskotéka Zbizuby",
     src: "https://imgur.com/tBJQaxQ.jpeg",
-    href: "https://mh-tiles.cz",
     content: <DummyContent />,
   },
   {
     category: "Webové stránky",
     title: "MH-Tiles.cz",
     src: "https://imgur.com/nYkWZPX.jpeg",
+    href: "https://mh-tiles.cz",
     content: <DummyContent />,
   },
   {
