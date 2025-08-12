@@ -68,7 +68,7 @@ const data = [
   {
     category: "Webové stránky",
     title: "MH-Tiles.cz",
-    src: "https://images.unsplash.com/photo-1626785774625-0b1c2c4eab67?q=80&w=2340&auto=format&fit=crop",
+    src: "https://imgur.com/SQ2ohju.jpeg",
     content: <DummyContent />,
   },
   {
