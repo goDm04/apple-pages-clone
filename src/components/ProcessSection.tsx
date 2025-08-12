@@ -10,7 +10,7 @@ const ProcessSection = () => {
     {
       number: "02", 
       title: "Navrhneme vizuální strategii",
-      description: "Grafika, web nebo content – každý výstup má smysl, tón a estetiku. Vytvoříme koncept, který propojí váš brand s vaším cílovým publikem."
+      description: "Proměníme vaše cíle a představy v jasný vizuální plán. Navrhneme vzhled a strukturu tak, aby každý detail podporoval vaši značku a mluvil řečí vašeho publika."
     },
     {
       number: "03",
