@@ -23,13 +23,13 @@ const Hero = () => {
         />
 
         {/* Main headline */}
-        <h1 className="font-sf text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary-foreground">
+        <h1 className="font-sf text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-primary-foreground">
           Dostaňte svůj<br />
           byznys z nuly na trend.
         </h1>
 
         {/* Subheading */}
-        <p className="mx-auto max-w-3xl text-base md:text-lg font-medium text-primary-foreground">
+        <p className="mx-auto max-w-3xl text-lg md:text-xl font-medium text-primary-foreground">
           Pomáháme značkám růst. Od prvního nápadu až<br />
           po moment, kdy se stanou těmi, o kterých se mluví.
         </p>
