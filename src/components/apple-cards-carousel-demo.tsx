@@ -48,12 +48,12 @@ const data = [
   {
     category: "Webové stránky",
     title: "Odstěhováno.cz",
-    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+    src: "https://imgur.com/IzMsYAB.jpeg",
     content: <DummyContent />,
   },
   {
-    category: "Grafika",
-    title: "Maturitní ples",
+    category: "Sociální sítě",
+    title: "Centrum pojištění Vlašim",
     src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2340&auto=format&fit=crop",
     content: <DummyContent />,
   },
@@ -64,8 +64,8 @@ const data = [
     content: <DummyContent />,
   },
   {
-    category: "Sociální sítě",
-    title: "Centrum pojištění Vlašim",
+    category: "Grafika",
+    title: "Maturitní ples Vlašim",
     src: "https://images.unsplash.com/photo-1626785774625-0b1c2c4eab67?q=80&w=2340&auto=format&fit=crop",
     content: <DummyContent />,
   },
