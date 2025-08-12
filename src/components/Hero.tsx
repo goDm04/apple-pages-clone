@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <header className="relative w-full isolate" aria-label="Hero sekce">
+    <header id="hero" className="relative w-full isolate" aria-label="Hero sekce">
       {/* Background image */}
       <img
         src="https://imgur.com/vdxJAt6.jpeg"

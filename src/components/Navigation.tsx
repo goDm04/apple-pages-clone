@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Domu");
   const navItems = [{
     name: "Domu",
-    href: "#domu"
+    href: "#hero"
   }, {
     name: "Služby",
     href: "#sluzby"
@@ -17,6 +17,37 @@ const Navigation = () => {
     name: "Kontakt",
     href: "#kontakt"
   }];
+
+  useEffect(() => {
+    const ids = ["hero", "sluzby", "portfolio", "o-nas", "kontakt"];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+    if (sections.length === 0) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = (entry.target as HTMLElement).id;
+            const match = (
+              [
+                { name: "Domu", href: "#hero" },
+                { name: "Služby", href: "#sluzby" },
+                { name: "Portfolio", href: "#portfolio" },
+                { name: "O nás", href: "#o-nas" },
+                { name: "Kontakt", href: "#kontakt" },
+              ]
+            ).find((i) => i.href.slice(1) === id);
+            if (match) setActiveItem(match.name);
+          }
+        });
+      },
+      { root: null, rootMargin: "-40% 0px -50% 0px", threshold: 0.01 }
+    );
+    sections.forEach((sec) => observer.observe(sec));
+    return () => observer.disconnect();
+  }, []);
+
   return <>
       {/* Logo - pouze pro desktop/laptop */}
       <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center h-12">
@@ -27,9 +58,21 @@ const Navigation = () => {
       <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
       <div className="backdrop-blur-xl border border-black/10 rounded-full px-2 py-2 shadow-sm bg-white/[0.69]">
         <div className="flex items-center space-x-2">
-          {navItems.map(item => <a key={item.name} href={item.href} onClick={() => setActiveItem(item.name)} className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeItem === item.name ? "bg-black/10 text-black shadow-sm" : "text-black/70 hover:text-black hover:bg-black/5"}`}>
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                const id = item.href.replace('#', '');
+                document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setActiveItem(item.name);
+              }}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeItem === item.name ? "bg-black/10 text-black shadow-sm" : "text-black/70 hover:text-black hover:bg-black/5"}`}
+            >
               {item.name}
-            </a>)}
+            </a>
+          ))}
  </div>
      </div>
     </nav>
