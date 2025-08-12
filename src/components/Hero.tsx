@@ -5,7 +5,7 @@ const Hero = () => {
     <header className="relative w-full isolate" aria-label="Hero sekce">
       {/* Background image */}
       <img
-        src="/lovable-uploads/736fd6fb-d9aa-43c5-b152-56c2d62e9984.png"
+        src="/lovable-uploads/7cc33aec-a3cc-4201-9de1-1b8d9d0991b6.png"
         alt="Abstraktní vlny – pozadí hero sekce"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
         loading="eager"
@@ -16,30 +16,19 @@ const Hero = () => {
 
       <div className="container mx-auto flex min-h-[80vh] flex-col items-center justify-center py-24 text-center gap-6">
         {/* Small logo above heading */}
-        <div
-          className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/20 bg-background/30 backdrop-blur-sm"
-          aria-hidden="true"
-        >
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 28 28"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-foreground"
-            aria-hidden="true"
-          >
-            <path d="M6 18v4h8M22 10V6h-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
+        <img
+          src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png"
+          alt="Logo"
+          className="h-10 w-auto"
+        />
 
         {/* Main headline */}
-        <h1 className="font-sf text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground">
+        <h1 className="font-sf text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary-foreground">
           Dostaňte svůj byznys z nuly na trend.
         </h1>
 
         {/* Subheading */}
-        <p className="mx-auto max-w-3xl text-base md:text-lg text-muted-foreground">
+        <p className="mx-auto max-w-3xl text-base md:text-lg text-primary-foreground">
           Pomáháme značkám růst. Od prvního nápadu až po moment, kdy se stanou těmi, o kterých se mluví.
         </p>
       </div>
