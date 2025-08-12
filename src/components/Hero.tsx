@@ -12,9 +12,7 @@ const Hero = () => {
         fetchPriority="high"
       />
       {/* Readability overlay using design tokens */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/40 to-background/70" />
-
-      <div className="container mx-auto flex min-h-[95vh] md:min-h-screen flex-col items-center justify-center py-24 text-center gap-6">
+   
         {/* Small logo above heading */}
         <img
           src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png"
