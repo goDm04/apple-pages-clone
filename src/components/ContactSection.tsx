@@ -34,6 +34,9 @@ const ContactSection = () => {
           {/* Left side - Info */}
           <div className="space-y-8">
             <div className="space-y-4">
+              <p className="text-sm font-sf text-muted-foreground uppercase tracking-wider">
+                Kontakt
+              </p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
                 Pojďme spolu vytvořit něco skvělého
               </h2>
