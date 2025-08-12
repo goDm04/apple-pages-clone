@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const AboutSection = () => {
   return (
     <section id="o-nas" aria-labelledby="about-heading" className="py-16 px-8 max-w-7xl mx-auto">
-      <div className="rounded-3xl p-8 md:p-12 bg-muted">
+      <div className="relative rounded-3xl border border-border p-8 md:p-12 bg-muted">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">
             <div className="space-y-3">
@@ -43,13 +43,13 @@ const AboutSection = () => {
             </div>
           </div>
 
-          <figure className="flex justify-center">
+          <figure className="relative flex justify-center md:justify-end">
             <img
               src="/lovable-uploads/6c0e56bd-f6db-4b97-bb58-27bfba0bccab.png"
               alt="Memoji profil – tým Tension Creative"
               loading="lazy"
               decoding="async"
-              className="w-full max-w-md aspect-square object-cover"
+              className="w-full max-w-md aspect-square object-contain md:translate-x-6 lg:translate-x-10"
             />
             <figcaption className="sr-only">Tým kreativních profesionálů připravený pomoci vaší značce růst.</figcaption>
           </figure>
