@@ -49,7 +49,7 @@ const AboutSection = () => {
               alt="Memoji profil – tým Tension Creative"
               loading="lazy"
               decoding="async"
-              className="w-full max-w-md aspect-square rounded-2xl object-cover shadow-lg"
+              className="w-full max-w-md aspect-square object-cover"
             />
             <figcaption className="sr-only">Tým kreativních profesionálů připravený pomoci vaší značce růst.</figcaption>
           </figure>
