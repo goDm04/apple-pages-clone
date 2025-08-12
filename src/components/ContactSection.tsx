@@ -53,7 +53,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold font-sf text-foreground">E-mail</h3>
-                  <p className="text-muted-foreground font-sf">kontakt@vaseznacka.cz</p>
+                  <p className="text-muted-foreground font-sf">info@tensioncreative.cz</p>
                 </div>
               </div>
 
@@ -65,7 +65,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold font-sf text-foreground">Telefon</h3>
-                  <p className="text-muted-foreground font-sf">+420 123 456 789</p>
+                  <p className="text-muted-foreground font-sf">+420 731 403 437</p>
                 </div>
               </div>
 
@@ -78,7 +78,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold font-sf text-foreground">Adresa</h3>
-                  <p className="text-muted-foreground font-sf">Praha, Česká republika</p>
+                  <p className="text-muted-foreground font-sf">Zahradní 569, Vlašim</p>
                 </div>
               </div>
             </div>

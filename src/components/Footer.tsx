@@ -92,9 +92,9 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground font-sf">Kontakt</h3>
             <div className="space-y-2 text-sm text-muted-foreground font-sf">
-              <p>kontakt@vaseznacka.cz</p>
-              <p>+420 123 456 789</p>
-              <p>Praha, Česká republika</p>
+              <p>info@tensioncreative.cz</p>
+              <p>+420 731 403 437</p>
+              <p>Zahradní 569, Vlašim</p>
             </div>
           </div>
         </div>
