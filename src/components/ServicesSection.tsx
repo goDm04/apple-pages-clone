@@ -36,10 +36,22 @@ const ServicesSection = () => {
               </div>
             </article>
 
-            <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[400px]">
-              <h3 className="text-2xl font-semibold font-sf text-foreground">
-                Grafika
-              </h3>
+            <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[400px] grid grid-cols-2 gap-8 items-center overflow-hidden relative">
+              <div className="flex flex-col justify-center">
+                <h3 className="text-2xl md:text-3xl font-semibold font-sf text-foreground mb-4">
+                  Grafika
+                </h3>
+                <p className="text-muted-foreground text-base md:text-lg">
+                  Vytváříme návrhy pro online i tisk. Od loga a vizuální identity přes bannery až po plakáty nebo grafiku pro potisk produktů.
+                </p>
+              </div>
+              <div className="absolute right-0 top-0 h-full w-1/2 flex justify-center items-center">
+                <img 
+                  src="/lovable-uploads/9ed4c587-2f34-42ea-976e-ea985bd0d0af.png"
+                  alt="Grafický design - plakát na sloupu"
+                  className="h-full w-auto object-cover"
+                />
+              </div>
             </article>
           </div>
         </div>
