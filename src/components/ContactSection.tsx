@@ -66,7 +66,7 @@ const ContactSection = () => {
       ref={elementRef}
     >
       <div className="max-w-7xl mx-auto p-8 md:p-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-none">
           {/* Left side - Info */}
           <div className="space-y-8">
             <div className="space-y-4">
@@ -121,7 +121,7 @@ const ContactSection = () => {
           </div>
 
           {/* Right side - Form */}
-          <div className="bg-background rounded-2xl p-6 md:p-8 shadow-sm">
+          <div className="bg-background rounded-2xl p-6 md:p-8 shadow-sm w-full">
             <form 
               action="https://formspree.io/f/mwpqydpd" 
               method="POST"
