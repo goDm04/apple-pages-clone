@@ -86,14 +86,6 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground font-sf">
             © {currentYear} Vaše značka. Všechna práva vyhrazena.
           </p>
-          <div className="flex space-x-6 text-sm text-muted-foreground font-sf">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Ochrana osobních údajů
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Podmínky použití
-            </a>
-          </div>
         </div>
       </div>
     </footer>
