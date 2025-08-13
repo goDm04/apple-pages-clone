@@ -14,15 +14,39 @@ const ContactSection = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    // Don't prevent default - let the form submit naturally
-    toast.success("Zpráva byla úspěšně odeslána!", {
-      description: "Ozveme se vám co nejdříve."
-    });
-    // Reset form will happen after successful submission
-    setTimeout(() => {
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 1000);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mwpqydpd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _to: "info@tensioncreative.cz",
+          _cc: "tomca@gmail.com",
+          _subject: "Nová zpráva z kontaktního formuláře - Tension Creative"
+        }),
+      });
+
+      if (response.ok) {
+        toast.success("Zpráva byla úspěšně odeslána!", {
+          description: "Ozveme se vám co nejdříve."
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error("Chyba při odesílání");
+      }
+    } catch (error) {
+      toast.error("Nepodařilo se odeslat zprávu", {
+        description: "Zkuste to prosím později nebo nás kontaktujte přímo."
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
