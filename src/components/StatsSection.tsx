@@ -1,4 +1,5 @@
 import React from "react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const StatsSection = () => {
   const stats = [
@@ -8,7 +9,7 @@ const StatsSection = () => {
     { value: "14 dní", label: "maximální doba dodání webu" },
   ];
 
-  const sectionRef = React.useRef<HTMLElement | null>(null);
+  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   const [started, setStarted] = React.useState(false);
   const [values, setValues] = React.useState<number[]>(stats.map(() => 0));
 
@@ -29,9 +30,9 @@ const StatsSection = () => {
       { threshold: 0.4 }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    if (elementRef.current) observer.observe(elementRef.current);
     return () => observer.disconnect();
-  }, []);
+  }, [elementRef]);
 
   React.useEffect(() => {
     if (!started) return;
@@ -56,8 +57,10 @@ const StatsSection = () => {
     <section
       id="statistiky"
       aria-label="Statistiky"
-      ref={sectionRef}
-      className="pt-16 md:pt-20 pb-20 px-8 max-w-7xl mx-auto animate-fade-in"
+      className={`pt-16 md:pt-20 pb-20 px-8 max-w-7xl mx-auto transition-all duration-700 ${
+        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
+      }`}
+      ref={elementRef}
     >
       <div className="space-y-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

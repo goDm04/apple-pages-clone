@@ -1,6 +1,8 @@
 import React from 'react';
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const ProcessSection = () => {
+  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   const processSteps = [
     {
       number: "01",
@@ -25,7 +27,12 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="py-24 px-8 max-w-7xl mx-auto">
+    <section 
+      className={`py-24 px-8 max-w-7xl mx-auto transition-all duration-700 ${
+        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
+      }`}
+      ref={elementRef}
+    >
       <div className="space-y-16">
         {/* Section header */}
         <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">

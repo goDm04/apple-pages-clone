@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const ContactSection = () => {
+  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,7 +33,14 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="kontakt" className="py-20 px-8" style={{ backgroundColor: "#F5F5F8" }}>
+    <section 
+      id="kontakt" 
+      className={`py-20 px-8 transition-all duration-700 ${
+        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
+      }`} 
+      style={{ backgroundColor: "#F5F5F8" }}
+      ref={elementRef}
+    >
       <div className="max-w-7xl mx-auto p-8 md:p-12">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left side - Info */}

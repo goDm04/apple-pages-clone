@@ -1,8 +1,18 @@
 import React from "react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Hero = () => {
+  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
+
   return (
-    <header id="hero" className="relative w-full isolate" aria-label="Hero sekce">
+    <header 
+      id="hero" 
+      className={`relative w-full isolate transition-all duration-700 ${
+        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
+      }`} 
+      aria-label="Hero sekce"
+      ref={elementRef}
+    >
       {/* Background image */}
       <img
         src="https://imgur.com/7oafTW3.jpeg"

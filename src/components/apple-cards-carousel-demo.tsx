@@ -1,13 +1,21 @@
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 export default function AppleCardsCarouselDemo() {
+  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
 
   return (
-    <div id="portfolio" className="w-full h-full py-20">
+    <div 
+      id="portfolio" 
+      className={`w-full h-full py-20 transition-all duration-700 ${
+        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
+      }`}
+      ref={elementRef}
+    >
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-foreground font-sf">
         Naše práce.
       </h2>

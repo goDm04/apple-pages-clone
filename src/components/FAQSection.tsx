@@ -5,8 +5,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const FAQSection = () => {
+  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   const faqs = [
     {
       question: "Jak dlouho trvá realizace webu?",
@@ -31,7 +33,12 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-16 px-8 max-w-7xl mx-auto">
+    <section 
+      className={`py-16 px-8 max-w-7xl mx-auto transition-all duration-700 ${
+        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
+      }`}
+      ref={elementRef}
+    >
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">

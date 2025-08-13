@@ -1,10 +1,20 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 
 const AboutSection = () => {
+  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
+
   return (
-    <section id="o-nas" aria-labelledby="about-heading" className="py-16 px-8 max-w-7xl mx-auto">
+    <section 
+      id="o-nas" 
+      aria-labelledby="about-heading" 
+      className={`py-16 px-8 max-w-7xl mx-auto transition-all duration-700 ${
+        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
+      }`}
+      ref={elementRef}
+    >
       <div className="rounded-3xl p-8 md:p-12 bg-muted">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">

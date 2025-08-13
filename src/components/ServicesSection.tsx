@@ -1,8 +1,17 @@
 import React from "react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const ServicesSection = () => {
+  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
+
   return (
-    <section id="sluzby" className="w-full py-20">
+    <section 
+      id="sluzby" 
+      className={`w-full py-20 transition-all duration-700 ${
+        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
+      }`}
+      ref={elementRef}
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf mb-8">
           Naše služby
