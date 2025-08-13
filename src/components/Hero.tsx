@@ -5,7 +5,7 @@ const Hero = () => {
     <header id="hero" className="relative w-full isolate" aria-label="Hero sekce">
       {/* Background image */}
       <img
-        src="https://imgur.com/vdxJAt6.jpeg"
+        src="https://imgur.com/7oafTW3.jpeg"
         alt="Tension Creative."
         className="absolute inset-0 -z-10 h-full w-full object-cover"
         loading="eager"
@@ -29,7 +29,7 @@ const Hero = () => {
         </h1>
 
         {/* Subheading */}
-        <p className="mx-auto max-w-3xl text-lg md:text-xl font-medium text-primary-foreground">
+        <p className="mx-auto max-w-3xl text-lg md:text-xl font-regular text-primary-foreground">
           Pomáháme značkám růst. Od prvního nápadu až<br />
           po moment, kdy se stanou těmi, o kterých se mluví.
         </p>
