@@ -31,7 +31,7 @@ const ServicesSection = () => {
                 <img 
                   src="/lovable-uploads/d0d4c7a2-3f0d-489a-81b9-10ab9ca50222.png"
                   alt="Mobilní telefon zobrazující sociální sítě"
-                  className="h-70 md:h-72 w-auto object-contain"
+                  className="h-48 md:h-72 w-auto object-contain"
                 />
               </div>
             </article>
