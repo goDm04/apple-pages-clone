@@ -84,7 +84,10 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground font-sf">
-            © {currentYear} Vaše značka. Všechna práva vyhrazena.
+            © {currentYear} TENSION CREATIVE. Všechna práva vyhrazena.
+          </p>
+          <p className="text-sm text-muted-foreground font-sf">
+            IČO: 22657908
           </p>
         </div>
       </div>
