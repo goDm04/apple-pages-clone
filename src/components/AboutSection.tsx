@@ -16,8 +16,8 @@ const AboutSection = () => {
       ref={elementRef}
     >
       <div className="md:rounded-3xl p-8 md:p-12 md:bg-muted">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
             <div className="space-y-3">
               <h2 id="about-heading" className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
                 Jsme tým kreativců

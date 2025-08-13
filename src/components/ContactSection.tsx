@@ -121,18 +121,18 @@ const ContactSection = () => {
           </div>
 
           {/* Right side - Form */}
-          <div className="bg-background rounded-2xl p-6 md:p-8 shadow-sm w-full">
+          <div className="bg-background rounded-2xl p-8 md:p-8 shadow-sm w-full">
             <form 
               action="https://formspree.io/f/mwpqydpd" 
               method="POST"
               onSubmit={handleSubmit} 
-              className="space-y-6"
+              className="space-y-8"
             >
               {/* Hidden fields for email routing */}
               <input type="hidden" name="_to" value="info@tensioncreative.cz" />
               <input type="hidden" name="_cc" value="tomca@gmail.com" />
               <input type="hidden" name="_subject" value="Nová zpráva z kontaktního formuláře - Tension Creative" />
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium font-sf text-foreground">
                     Jméno *
