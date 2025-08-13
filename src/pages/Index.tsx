@@ -16,8 +16,8 @@ const Index = () => {
       <Hero />
       <StatsSection />
       <ServicesSection />
-      <AppleCardsCarouselDemo />
       <ProcessSection />
+      <AppleCardsCarouselDemo />
       <AboutSection />
       <FAQSection />
       <ContactSection />
