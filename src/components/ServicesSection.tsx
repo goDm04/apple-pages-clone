@@ -18,10 +18,22 @@ const ServicesSection = () => {
 
           {/* Dvě menší karty pod ní */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[400px]">
-              <h3 className="text-2xl font-semibold font-sf text-foreground">
-                Sociální sítě
-              </h3>
+            <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[400px] relative overflow-hidden flex items-end">
+              <div className="flex-1 z-10">
+                <h3 className="text-2xl md:text-3xl font-semibold font-sf text-foreground mb-4">
+                  Sociální sítě
+                </h3>
+                <p className="text-muted-foreground text-base md:text-lg max-w-sm">
+                  Připravíme plán, obsah i vizuály. Zajistíme pravidelné publikování a postaráme se, aby vaše profily byly aktuální a působily jednotně.
+                </p>
+              </div>
+              <div className="absolute bottom-0 right-8 md:right-12">
+                <img 
+                  src="/lovable-uploads/d0d4c7a2-3f0d-489a-81b9-10ab9ca50222.png"
+                  alt="Mobilní telefon zobrazující sociální sítě"
+                  className="h-48 md:h-72 w-auto object-contain"
+                />
+              </div>
             </article>
 
             <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[400px]">
