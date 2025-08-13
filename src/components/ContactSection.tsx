@@ -13,11 +13,14 @@ const ContactSection = () => {
   });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    // Don't prevent default - let the form submit naturally
     toast.success("Zpráva byla úspěšně odeslána!", {
       description: "Ozveme se vám co nejdříve."
     });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    // Reset form will happen after successful submission
+    setTimeout(() => {
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -86,7 +89,16 @@ const ContactSection = () => {
 
           {/* Right side - Form */}
           <div className="bg-background rounded-2xl p-6 md:p-8 shadow-sm">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              action="https://formspree.io/f/xpwzgwrv" 
+              method="POST"
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
+              {/* Hidden fields for email routing */}
+              <input type="hidden" name="_to" value="info@tensioncreative.cz" />
+              <input type="hidden" name="_cc" value="tomca@gmail.com" />
+              <input type="hidden" name="_subject" value="Nová zpráva z kontaktního formuláře - Tension Creative" />
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium font-sf text-foreground">
