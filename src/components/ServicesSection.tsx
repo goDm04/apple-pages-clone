@@ -27,7 +27,7 @@ const ServicesSection = () => {
                   Připravíme plán, obsah i vizuály. Zajistíme pravidelné publikování a postaráme se, aby vaše profily byly aktuální a působily jednotně.
                 </p>
               </div>
-              <div className="flex justify-center items-end h-full">
+              <div className="flex justify-center items-end h-full pb-0">
                 <img 
                   src="/lovable-uploads/d0d4c7a2-3f0d-489a-81b9-10ab9ca50222.png"
                   alt="Mobilní telefon zobrazující sociální sítě"
