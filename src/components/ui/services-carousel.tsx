@@ -40,8 +40,6 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sidePadding, setSidePadding] = useState(16);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startPoint, setStartPoint] = useState({ x: 0, scrollLeft: 0 });
 
   useEffect(() => {
     if (!carouselRef.current) return;
@@ -120,98 +118,15 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     return window && window.innerWidth < 768;
   };
 
-  // Drag event handlers
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!carouselRef.current) return;
-    setIsDragging(true);
-    setStartPoint({
-      x: e.pageX - carouselRef.current.offsetLeft,
-      scrollLeft: carouselRef.current.scrollLeft,
-    });
-    carouselRef.current.style.cursor = 'grabbing';
-    carouselRef.current.style.scrollBehavior = 'auto';
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !carouselRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startPoint.x) * 2; // Multiply by 2 for faster scrolling
-    carouselRef.current.scrollLeft = startPoint.scrollLeft - walk;
-  };
-
-  const handleMouseUp = () => {
-    if (!carouselRef.current) return;
-    setIsDragging(false);
-    carouselRef.current.style.cursor = 'grab';
-    carouselRef.current.style.scrollBehavior = 'smooth';
-    
-    // Find the closest card and snap to it
-    const cardWidth = isMobile() ? 380 : 900;
-    const gap = 16;
-    const scrollLeft = carouselRef.current.scrollLeft;
-    const paddingLeft = sidePadding;
-    
-    // Calculate which card we're closest to
-    const cardPosition = (scrollLeft - paddingLeft + (cardWidth / 2)) / (cardWidth + gap);
-    const closestCard = Math.round(cardPosition);
-    const clampedIndex = Math.max(0, Math.min(closestCard, items.length - 1));
-    
-    scrollToIndex(clampedIndex);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (!carouselRef.current) return;
-    setIsDragging(true);
-    setStartPoint({
-      x: e.touches[0].pageX - carouselRef.current.offsetLeft,
-      scrollLeft: carouselRef.current.scrollLeft,
-    });
-    carouselRef.current.style.scrollBehavior = 'auto';
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !carouselRef.current) return;
-    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startPoint.x) * 1.5; // Adjust sensitivity for touch
-    carouselRef.current.scrollLeft = startPoint.scrollLeft - walk;
-  };
-
-  const handleTouchEnd = () => {
-    if (!carouselRef.current) return;
-    setIsDragging(false);
-    carouselRef.current.style.scrollBehavior = 'smooth';
-    
-    // Find the closest card and snap to it
-    const cardWidth = isMobile() ? 380 : 900;
-    const gap = 16;
-    const scrollLeft = carouselRef.current.scrollLeft;
-    const paddingLeft = sidePadding;
-    
-    // Calculate which card we're closest to
-    const cardPosition = (scrollLeft - paddingLeft + (cardWidth / 2)) / (cardWidth + gap);
-    const closestCard = Math.round(cardPosition);
-    const clampedIndex = Math.max(0, Math.min(closestCard, items.length - 1));
-    
-    scrollToIndex(clampedIndex);
-  };
-
   return (
     <CarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
       <div className="relative w-full">
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20 snap-x snap-mandatory cursor-grab select-none"
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20 snap-x snap-mandatory"
           ref={carouselRef}
           onScroll={checkScrollability}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
         >
           <div
             className={cn(
