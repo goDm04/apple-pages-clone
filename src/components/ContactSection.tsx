@@ -121,7 +121,7 @@ const ContactSection = () => {
           </div>
 
           {/* Right side - Form */}
-          <div className="bg-background rounded-2xl p-8 md:p-8 shadow-sm w-full">
+          <div className="md:bg-background md:rounded-2xl p-8 md:p-8 md:shadow-sm w-full">
             <form 
               action="https://formspree.io/f/mwpqydpd" 
               method="POST"
