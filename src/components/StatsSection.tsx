@@ -57,7 +57,7 @@ const StatsSection = () => {
       id="statistiky"
       aria-label="Statistiky"
       ref={sectionRef}
-      className="pt-10 md:pt-12 pb-20 px-8 max-w-7xl mx-auto animate-fade-in"
+      className="pt-16 md:pt-20 pb-20 px-8 max-w-7xl mx-auto animate-fade-in"
     >
       <div className="space-y-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
