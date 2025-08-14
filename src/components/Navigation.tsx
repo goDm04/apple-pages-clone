@@ -58,7 +58,7 @@ const Navigation = () => {
       {/* Mobile/Tablet sticky navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-black/10">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="h-12 flex items-center justify-between">
+          <div className="h-14 flex items-center justify-between">
             <a href="#hero" onClick={e => {
             e.preventDefault();
             document.getElementById("hero")?.scrollIntoView({
@@ -108,12 +108,12 @@ const Navigation = () => {
       </header>
 
       {/* Logo - pouze pro desktop/laptop */}
-      <div className="fixed top-4 left-8 z-50 hidden lg:flex items-center h-12">
+      <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center h-12">
         <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Tension Creative logo" className="h-6 w-auto" />
       </div>
       
       {/* Navigation - desktop */}
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 hidden lg:block">
+      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 hidden lg:block">
         <div className="backdrop-blur-xl border border-black/10 rounded-full px-2 py-2 shadow-sm bg-white/55">
           <div className="flex items-center space-x-2">
             {navItems.map(item => <a key={item.name} href={item.href} onClick={e => {
