@@ -14,8 +14,8 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Calculate scale based on scroll position
-  const scale = Math.max(0.5, 1 - scrollY * 0.0008);
+  // Calculate scale based on scroll position (much slower shrinking)
+  const scale = Math.max(0.8, 1 - scrollY * 0.0002);
   const translateY = scrollY * 0.3;
 
   return (
@@ -31,7 +31,7 @@ const Hero = () => {
       <img
         src="https://imgur.com/7oafTW3.jpeg"
         alt="Tension Creative."
-        className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-75 ease-out"
+        className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-75 ease-out rounded-2xl"
         style={{
           transform: `scale(${scale}) translateY(${translateY}px)`
         }}
