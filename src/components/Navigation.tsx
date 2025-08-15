@@ -58,7 +58,7 @@ const Navigation = () => {
       {/* Mobile/Tablet sticky navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-black/10">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="h-14 flex items-center justify-between">
+          <div className="h-12 flex items-center justify-between">
             <a href="#hero" onClick={e => {
             e.preventDefault();
             document.getElementById("hero")?.scrollIntoView({
@@ -114,7 +114,7 @@ const Navigation = () => {
       
       {/* Navigation - desktop */}
       <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 hidden lg:block">
-        <div className="backdrop-blur-xl border border-black/10 rounded-full px-2 py-2 shadow-sm bg-white/55">
+        <div className="backdrop-blur-xl border border-black/10 rounded-full px-3 py-1 shadow-sm bg-white/55">
           <div className="flex items-center space-x-2">
             {navItems.map(item => <a key={item.name} href={item.href} onClick={e => {
             e.preventDefault();
@@ -124,7 +124,7 @@ const Navigation = () => {
               block: 'start'
             });
             setActiveItem(item.name);
-          }} className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeItem === item.name ? "bg-black/10 text-black shadow-sm" : "text-black/70 hover:text-black hover:bg-black/5"}`}>
+          }} className={`px-8 py-1 rounded-full text-sm font-medium transition-all duration-300 ${activeItem === item.name ? "bg-black/10 text-black shadow-sm" : "text-black/70 hover:text-black hover:bg-black/5"}`}>
                 {item.name}
               </a>)}
           </div>
