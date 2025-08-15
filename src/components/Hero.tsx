@@ -1,40 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Hero = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Calculate scale based on scroll position (much slower shrinking)
-  const scale = Math.max(0.8, 1 - scrollY * 0.0002);
-  const translateY = scrollY * 0.3;
 
   return (
     <header 
       id="hero" 
-      className={`relative w-full isolate transition-all duration-700 overflow-hidden ${
+      className={`relative w-full isolate transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`} 
       aria-label="Hero sekce"
       ref={elementRef}
     >
-      {/* Background image with scroll-based scaling */}
+      {/* Background image */}
       <img
         src="https://imgur.com/7oafTW3.jpeg"
         alt="Tension Creative."
-        className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-75 ease-out rounded-2xl"
-        style={{
-          transform: `scale(${scale}) translateY(${translateY}px)`
-        }}
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
         loading="eager"
         fetchPriority="high"
       />
