@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Domu");
+  const [isOnHero, setIsOnHero] = useState(true);
   const navItems = [{
     name: "Domu",
     href: "#hero"
@@ -27,6 +28,7 @@ const Navigation = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = (entry.target as HTMLElement).id;
+          setIsOnHero(id === "hero");
           const match = [{
             name: "Domu",
             href: "#hero"
@@ -109,7 +111,11 @@ const Navigation = () => {
 
       {/* Logo - pouze pro desktop/laptop */}
       <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center h-12">
-        <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Tension Creative logo" className="h-6 w-auto" />
+        <img 
+          src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
+          alt="Tension Creative logo" 
+          className={`h-6 w-auto transition-all duration-300 ${isOnHero ? 'brightness-0 invert' : ''}`} 
+        />
       </div>
       
       {/* Navigation - desktop */}
