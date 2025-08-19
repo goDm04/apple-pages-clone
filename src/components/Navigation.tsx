@@ -60,35 +60,22 @@ const Navigation = () => {
                   {language === 'cs' ? 'CZ' : language === 'en' ? 'EN' : 'DE'}
                   <ChevronDown className="h-3 w-3" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent 
-                  align="end" 
-                  className="bg-white border border-black/10 shadow-lg min-w-[48px] w-12 z-[9999] absolute"
-                  sideOffset={4}
-                >
+                <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-16 z-[60]">
                   <DropdownMenuItem 
-                    className="cursor-pointer justify-center"
-                    onClick={() => {
-                      setLanguage('cs');
-                      window.location.reload();
-                    }}
+                    className="cursor-pointer"
+                    onClick={() => setLanguage('cs')}
                   >
                     CZ
                   </DropdownMenuItem>
                   <DropdownMenuItem 
-                    className="cursor-pointer justify-center"
-                    onClick={() => {
-                      setLanguage('en');
-                      window.location.reload();
-                    }}
+                    className="cursor-pointer"
+                    onClick={() => setLanguage('en')}
                   >
                     EN
                   </DropdownMenuItem>
                   <DropdownMenuItem 
-                    className="cursor-pointer justify-center"
-                    onClick={() => {
-                      setLanguage('de');
-                      window.location.reload();
-                    }}
+                    className="cursor-pointer"
+                    onClick={() => setLanguage('de')}
                   >
                     DE
                   </DropdownMenuItem>
@@ -148,35 +135,22 @@ const Navigation = () => {
             {language === 'cs' ? 'CZ' : language === 'en' ? 'EN' : 'DE'}
             <ChevronDown className="h-3 w-3" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent 
-            align="end" 
-            className="bg-white border border-black/10 shadow-lg min-w-[48px] w-12 z-[9999] absolute"
-            sideOffset={4}
-          >
+          <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-16 z-[60]">
             <DropdownMenuItem 
-              className="cursor-pointer justify-center"
-              onClick={() => {
-                setLanguage('cs');
-                window.location.reload();
-              }}
+              className="cursor-pointer"
+              onClick={() => setLanguage('cs')}
             >
               CZ
             </DropdownMenuItem>
             <DropdownMenuItem 
-              className="cursor-pointer justify-center"
-              onClick={() => {
-                setLanguage('en');
-                window.location.reload();
-              }}
+              className="cursor-pointer"
+              onClick={() => setLanguage('en')}
             >
               EN
             </DropdownMenuItem>
             <DropdownMenuItem 
-              className="cursor-pointer justify-center"
-              onClick={() => {
-                setLanguage('de');
-                window.location.reload();
-              }}
+              className="cursor-pointer"
+              onClick={() => setLanguage('de')}
             >
               DE
             </DropdownMenuItem>
