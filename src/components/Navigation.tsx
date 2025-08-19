@@ -2,25 +2,19 @@ import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 const Navigation = () => {
-  const [activeItem, setActiveItem] = useState("Domu");
+  const { language, setLanguage, t } = useLanguage();
+  const [activeItem, setActiveItem] = useState(t("home"));
   const [isOnHero, setIsOnHero] = useState(true);
-  const navItems = [{
-    name: "Domu",
-    href: "#hero"
-  }, {
-    name: "Služby",
-    href: "#sluzby"
-  }, {
-    name: "Portfolio",
-    href: "#portfolio"
-  }, {
-    name: "O nás",
-    href: "#o-nas"
-  }, {
-    name: "Kontakt",
-    href: "#kontakt"
-  }];
+  
+  const navItems = [
+    { name: t("home"), href: "#hero" },
+    { name: t("services"), href: "#sluzby" },
+    { name: t("portfolio"), href: "#portfolio" },
+    { name: t("about"), href: "#o-nas" },
+    { name: t("contact"), href: "#kontakt" }
+  ];
   const [open, setOpen] = useState(false);
   useEffect(() => {
     const ids = ["hero", "sluzby", "portfolio", "o-nas", "kontakt"];
@@ -31,22 +25,7 @@ const Navigation = () => {
         if (entry.isIntersecting) {
           const id = (entry.target as HTMLElement).id;
           setIsOnHero(id === "hero");
-          const match = [{
-            name: "Domu",
-            href: "#hero"
-          }, {
-            name: "Služby",
-            href: "#sluzby"
-          }, {
-            name: "Portfolio",
-            href: "#portfolio"
-          }, {
-            name: "O nás",
-            href: "#o-nas"
-          }, {
-            name: "Kontakt",
-            href: "#kontakt"
-          }].find(i => i.href.slice(1) === id);
+          const match = navItems.find(i => i.href.slice(1) === id);
           if (match) setActiveItem(match.name);
         }
       });
@@ -69,7 +48,7 @@ const Navigation = () => {
               behavior: "smooth",
               block: "start"
             });
-            setActiveItem("Domu");
+            setActiveItem(t("home"));
             setOpen(false);
           }} className="flex items-center gap-2" aria-label="Přejít na úvod">
               <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Tension Creative logo" className="h-6 w-auto" />
@@ -78,12 +57,15 @@ const Navigation = () => {
             <div className="flex items-center gap-4">
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-black hover:text-black/70 transition-colors">
-                  CZ
+                  {language === 'cs' ? 'CZ' : 'EN'}
                   <ChevronDown className="h-3 w-3" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg">
-                  <DropdownMenuItem className="cursor-pointer">
-                    EN
+                <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-16">
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={() => setLanguage(language === 'cs' ? 'en' : 'cs')}
+                  >
+                    {language === 'cs' ? 'EN' : 'CZ'}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -96,9 +78,9 @@ const Navigation = () => {
                     </svg>
                   </button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-80 sm:w-96">
+                <SheetContent side="right" className="w-64 sm:w-72">
                   <SheetHeader>
-                    <SheetTitle>Navigace</SheetTitle>
+                    <SheetTitle>{t("navigation")}</SheetTitle>
                   </SheetHeader>
                   <nav className="mt-4">
                     <ul className="space-y-2">
@@ -125,22 +107,28 @@ const Navigation = () => {
         </div>
       </header>
 
-      {/* Logo a jazykový přepínač - pouze pro desktop/laptop */}
-      <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center gap-4 h-12">
+      {/* Logo - pouze pro desktop/laptop */}
+      <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center h-12">
         <img 
           src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
           alt="Tension Creative logo" 
           className={`h-6 w-auto transition-all duration-300 ${isOnHero ? 'brightness-0 invert' : ''}`} 
         />
-        
+      </div>
+      
+      {/* Jazykový přepínač - pouze pro desktop/laptop */}
+      <div className="fixed top-8 right-8 z-50 hidden lg:flex items-center h-12">
         <DropdownMenu>
           <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 hover:opacity-70 ${isOnHero ? 'text-white' : 'text-black'}`}>
-            CZ
+            {language === 'cs' ? 'CZ' : 'EN'}
             <ChevronDown className="h-3 w-3" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="bg-white border border-black/10 shadow-lg">
-            <DropdownMenuItem className="cursor-pointer">
-              EN
+          <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-16">
+            <DropdownMenuItem 
+              className="cursor-pointer"
+              onClick={() => setLanguage(language === 'cs' ? 'en' : 'cs')}
+            >
+              {language === 'cs' ? 'EN' : 'CZ'}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
