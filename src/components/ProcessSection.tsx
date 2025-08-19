@@ -1,28 +1,31 @@
 import React from 'react';
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProcessSection = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
+  const { t } = useLanguage();
+  
   const processSteps = [
     {
       number: "01",
-      title: "Poznáme vás a váš cíl",
-      description: "Než začneme tvořit, zjistíme, co vaši značku dělá jedinečnou. Projdeme si vaše cíle, cílovou skupinu a konkurenci, abychom měli jasnou mapu, kam projekt směřuje a jaký má mít dopad."
+      title: t("process1Title"),
+      description: t("process1Desc")
     },
     {
       number: "02", 
-      title: "Navrhneme vizuální strategii",
-      description: "Proměníme vaše cíle a představy v jasný vizuální plán. Navrhneme vzhled a strukturu tak, aby každý detail podporoval vaši značku a mluvil řečí vašeho publika."
+      title: t("process2Title"),
+      description: t("process2Desc")
     },
     {
       number: "03",
-      title: "Vytvoříme a společně spustíme", 
-      description: "Kreativu převedeme do funkční reality – weby, vizuály i kampaně připravujeme tak, aby nejen vypadaly skvěle, ale taky měly dopad."
+      title: t("process3Title"), 
+      description: t("process3Desc")
     },
     {
       number: "04",
-      title: "Spravujeme a posouváme dál",
-      description: "Značka nekončí spuštěním. Sledujeme, co funguje, co je potřeba ladit a jak vás dál rozvpět – třeba skrze správu sítí nebo další obsah."
+      title: t("process4Title"),
+      description: t("process4Desc")
     }
   ];
 
@@ -36,7 +39,7 @@ const ProcessSection = () => {
       <div className="space-y-16">
         {/* Section header */}
         <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
-          Jak to probíhá?
+          {t("processTitle")}
         </h2>
         
         {/* Process steps grid */}

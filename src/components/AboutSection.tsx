@@ -1,10 +1,12 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 
 const AboutSection = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
+  const { t } = useLanguage();
 
   return (
     <section 
@@ -20,32 +22,32 @@ const AboutSection = () => {
           <div className="space-y-8">
             <div className="space-y-3">
               <h2 id="about-heading" className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
-                Jsme tým kreativců
+                {t("aboutTitle")}
               </h2>
             </div>
 
             <p className="text-base font-sf text-muted-foreground leading-relaxed">
-              S našimi zkušenostmi v oblasti digitálního marketingu a brandingu pomáháme značkám růst a dosahovat jejich cílů. Tvoříme autentické zážitky, které rezonují s vaší cílovou skupinou.
+              {t("aboutDesc")}
             </p>
 
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                <span className="font-sf text-foreground">Strategie a branding s dopadem</span>
+                <span className="font-sf text-foreground">{t("aboutPoint1")}</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                <span className="font-sf text-foreground">Design orientovaný na výsledek</span>
+                <span className="font-sf text-foreground">{t("aboutPoint2")}</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                <span className="font-sf text-foreground">Rychlá realizace a transparentní komunikace</span>
+                <span className="font-sf text-foreground">{t("aboutPoint3")}</span>
               </li>
             </ul>
 
             <div className="pt-2">
               <Button size="lg" asChild className="font-sf font-semibold">
-                <a href="#kontakt">Kontaktujte nás</a>
+                <a href="#kontakt">{t("contactUs")}</a>
               </Button>
             </div>
           </div>

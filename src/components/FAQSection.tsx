@@ -6,29 +6,32 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQSection = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
+  const { t } = useLanguage();
+  
   const faqs = [
     {
-      question: "Jak dlouho trvá realizace webu?",
-      answer: "Do týdne od zahájení zhotovíme vizuální návrh, který společně doladíme. Následující týden web doděláme a spustíme - už za dva týdny může být online."
+      question: t("faq1Q"),
+      answer: t("faq1A")
     },
     {
-      question: "Jaké služby poskytujete?",
-      answer: "Tvoříme kompletní vizuální identity, webové stránky, spravujeme firemní profily na sociálních sítích a připravujeme grafiku pro tisk, od plakátů až po produktové potisky. Pomáháme značkám působit jednotně a profesionálně napříč všemi kanály."
+      question: t("faq2Q"),
+      answer: t("faq2A")
     },
     {
-      question: "Spolupracujete i se začínajícími firmami?",
-      answer: "Ano, rádi spolupracujeme jak se začínajícími startupy, tak se zavedenými firmami. Každému klientovi přizpůsobujeme naše služby podle potřeb a rozpočtu."
+      question: t("faq3Q"),
+      answer: t("faq3A")
     },
     {
-      question: "Poskytujete i průběžnou podporu?",
-      answer: "Samozřejmě. Po dokončení projektu nabízíme průběžnou podporu, údržbu a aktualizace. Chceme, aby vaše značka fungovala dlouhodobě."
+      question: t("faq4Q"),
+      answer: t("faq4A")
     },
     {
-      question: "Co když se mi web nebude líbit?",
-      answer: "Návrh webu je pro vás zcela nezávazný. Pokud s ním nebudete spokojeni, upravíme ho podle vašich představ, nebo spolupráci v této fázi jednoduše ukončíme – bez jakýchkoliv závazků či podmínek."
+      question: t("faq5Q"),
+      answer: t("faq5A")
     }
   ];
 
@@ -42,7 +45,7 @@ const FAQSection = () => {
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
-            Často kladené otázky
+            {t("faqTitle")}
           </h2>
         </div>
 

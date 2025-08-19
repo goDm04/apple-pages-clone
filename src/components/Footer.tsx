@@ -1,14 +1,16 @@
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t, language } = useLanguage();
 
   const navLinks = [
-    { name: "Domu", href: "#domu" },
-    { name: "Služby", href: "#sluzby" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "O nás", href: "#o-nas" },
-    { name: "Kontakt", href: "#kontakt" },
+    { name: t("home"), href: "#domu" },
+    { name: t("services"), href: "#sluzby" },
+    { name: t("portfolio"), href: "#portfolio" },
+    { name: t("about"), href: "#o-nas" },
+    { name: t("contact"), href: "#kontakt" },
   ];
 
   const socialLinks = [
@@ -37,8 +39,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-muted-foreground font-sf text-sm leading-relaxed max-w-md">
-              Vytváříme digitální zážitky, které inspirují a spojují značky s jejich publikem. 
-              Naše mise je pomáhat firmám růst prostřednictvím kreativity a inovací.
+              {t("footerDesc")}
             </p>
             <div className="flex space-x-4 pt-2">
               {socialLinks.map((social) => (
@@ -56,7 +57,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground font-sf">Navigace</h3>
+            <h3 className="font-semibold text-foreground font-sf">{t("footerNav")}</h3>
             <nav className="space-y-2">
               {navLinks.map((link) => (
                 <a
@@ -72,7 +73,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground font-sf">Kontakt</h3>
+            <h3 className="font-semibold text-foreground font-sf">{t("footerContact")}</h3>
             <div className="space-y-2 text-sm text-muted-foreground font-sf">
               <p>info@tensioncreative.cz</p>
               <p>+420 731 403 437</p>
@@ -84,7 +85,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground font-sf">
-            © {currentYear} TENSION CREATIVE. Všechna práva vyhrazena.
+            © {currentYear} {t("footerCopyright")}
           </p>
           <p className="text-sm text-muted-foreground font-sf">
             IČO: 22657908

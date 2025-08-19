@@ -1,8 +1,10 @@
 import React from "react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
+  const { t } = useLanguage();
 
   return (
     <section 
@@ -14,7 +16,7 @@ const ServicesSection = () => {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf mb-8">
-          Naše služby
+          {t("servicesTitle")}
         </h2>
 
         <div className="space-y-6">
@@ -22,10 +24,10 @@ const ServicesSection = () => {
           <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[390px] md:min-h-[500px] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden relative">
             <div className="flex flex-col justify-center">
               <h3 className="text-2xl md:text-3xl font-semibold font-sf text-foreground mb-4">
-                Webové stránky
+                {t("websitesTitle")}
               </h3>
               <p className="text-muted-foreground text-base md:text-lg">
-                Navrhneme a vytvoříme web přesně podle vašich potřeb. Postaráme se o strukturu, design, obsah i technické řešení, aby byl připraven k okamžitému použití.
+                {t("websitesDesc")}
               </p>
             </div>
             <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
@@ -42,10 +44,10 @@ const ServicesSection = () => {
             <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[400px] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden relative">
               <div className="flex flex-col justify-center">
                 <h3 className="text-2xl md:text-3xl font-semibold font-sf text-foreground mb-4">
-                  Sociální sítě
+                  {t("socialMediaTitle")}
                 </h3>
                 <p className="text-muted-foreground text-base md:text-lg">
-                  Připravíme plán, obsah i vizuály. Zajistíme pravidelné publikování a postaráme se, aby vaše profily byly aktuální a působily jednotně.
+                  {t("socialMediaDesc")}
                 </p>
               </div>
               <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
@@ -60,10 +62,10 @@ const ServicesSection = () => {
             <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[240px] md:min-h-[400px] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden relative">
               <div className="flex flex-col justify-center">
                 <h3 className="text-2xl md:text-3xl font-semibold font-sf text-foreground mb-4">
-                  Grafika
+                  {t("graphicsTitle")}
                 </h3>
                 <p className="text-muted-foreground text-base md:text-lg">
-                  Vytváříme návrhy pro online i tisk. Od loga a vizuální identity přes bannery až po plakáty nebo grafiku pro potisk produktů.
+                  {t("graphicsDesc")}
                 </p>
               </div>
               <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">

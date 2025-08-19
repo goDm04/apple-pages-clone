@@ -1,12 +1,15 @@
 import React from "react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const StatsSection = () => {
+  const { t, language } = useLanguage();
+  
   const stats = [
-    { value: "20+", label: "dokončených projektů" },
-    { value: "100%", label: "spokojených klientů" },
-    { value: "3+", label: "roky zkušeností" },
-    { value: "14 dní", label: "maximální doba dodání webu" },
+    { value: "20+", label: t("stat1") },
+    { value: "100%", label: t("stat2") },
+    { value: "3+", label: t("stat3") },
+    { value: language === 'cs' ? "14 dní" : "14 days", label: t("stat4") },
   ];
 
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });

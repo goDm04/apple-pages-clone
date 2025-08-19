@@ -1,8 +1,10 @@
 import React from "react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
+  const { t } = useLanguage();
 
   return (
     <header 
@@ -34,14 +36,14 @@ const Hero = () => {
 
         {/* Main headline */}
         <h1 className="font-sf text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-primary-foreground">
-          Dostaňte svůj<br />
-          byznys z nuly na trend.
+          {t("heroTitle")}<br />
+          {t("heroTitleLine2")}
         </h1>
 
         {/* Subheading */}
         <p className="mx-auto max-w-3xl text-lg md:text-xl font-regular text-primary-foreground">
-          Pomáháme značkám růst. Od prvního nápadu až<br />
-          po moment, kdy se stanou těmi, o kterých se mluví.
+          {t("heroSubtitle")}<br />
+          {t("heroSubtitleLine2")}
         </p>
       </div>
     </header>
