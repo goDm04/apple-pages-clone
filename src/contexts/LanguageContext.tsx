@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-type Language = 'cs' | 'en';
+type Language = 'cs' | 'en' | 'de';
 
 interface LanguageContextType {
   language: Language;
@@ -176,6 +176,89 @@ const translations = {
     footerNav: "Navigation",
     footerContact: "Contact",
     footerCopyright: "TENSION CREATIVE. All rights reserved."
+  },
+  de: {
+    // Navigation
+    home: "Start",
+    services: "Dienstleistungen",
+    portfolio: "Portfolio",
+    about: "Über uns",
+    contact: "Kontakt",
+    navigation: "Navigation",
+    
+    // Hero section
+    heroTitle: "Bringen Sie Ihr",
+    heroTitleLine2: "Business von null auf Trend.",
+    heroSubtitle: "Wir helfen Marken zu wachsen. Von der ersten Idee",
+    heroSubtitleLine2: "bis zu dem Moment, in dem sie zu denen werden, über die alle sprechen.",
+    
+    // Services
+    servicesTitle: "Unsere Dienstleistungen",
+    websitesTitle: "Webseiten",
+    websitesDesc: "Wir entwerfen und erstellen Webseiten genau nach Ihren Bedürfnissen. Wir kümmern uns um Struktur, Design, Inhalt und technische Lösungen, damit sie sofort einsatzbereit sind.",
+    socialMediaTitle: "Social Media",
+    socialMediaDesc: "Wir bereiten Plan, Inhalt und Visuals vor. Wir sorgen für regelmäßige Veröffentlichungen und stellen sicher, dass Ihre Profile aktuell und einheitlich sind.",
+    graphicsTitle: "Grafik",
+    graphicsDesc: "Wir erstellen Designs für Online und Print. Von Logos und visueller Identität über Banner bis hin zu Plakaten oder Grafiken für Produktdrucke.",
+    
+    // About
+    aboutTitle: "Wir sind ein Team von Kreativen",
+    aboutDesc: "Mit unserer Erfahrung im digitalen Marketing und Branding helfen wir Marken zu wachsen und ihre Ziele zu erreichen. Wir schaffen authentische Erfahrungen, die bei Ihrer Zielgruppe ankommen.",
+    aboutPoint1: "Strategie und Branding mit Wirkung",
+    aboutPoint2: "Ergebnisorientiertes Design",
+    aboutPoint3: "Schnelle Umsetzung und transparente Kommunikation",
+    contactUs: "Kontaktieren Sie uns",
+    
+    // Contact
+    contactTitle: "Lassen Sie uns gemeinsam etwas Großartiges schaffen",
+    contactDesc: "Haben Sie eine Idee oder ein Projekt? Schreiben Sie uns und gemeinsam finden wir die beste Lösung für Ihre Marke. Wir freuen uns auf die Zusammenarbeit mit Ihnen.",
+    email: "E-Mail",
+    phone: "Telefon",
+    address: "Adresse",
+    name: "Name",
+    namePlaceholder: "Ihr Name",
+    emailPlaceholder: "ihre@email.de",
+    subject: "Betreff",
+    subjectPlaceholder: "Worüber sprechen wir?",
+    message: "Nachricht",
+    messagePlaceholder: "Beschreiben Sie Ihr Projekt oder Ihre Frage...",
+    sendMessage: "Nachricht senden",
+    
+    // Process
+    processTitle: "Wie funktioniert es?",
+    process1Title: "Wir lernen Sie und Ihr Ziel kennen",
+    process1Desc: "Bevor wir mit der Erstellung beginnen, finden wir heraus, was Ihre Marke einzigartig macht. Wir gehen Ihre Ziele, Zielgruppe und Konkurrenz durch, damit wir eine klare Karte haben, wohin das Projekt führt und welche Wirkung es haben soll.",
+    process2Title: "Wir entwickeln eine visuelle Strategie",
+    process2Desc: "Wir verwandeln Ihre Ziele und Ideen in einen klaren visuellen Plan. Wir entwerfen das Aussehen und die Struktur so, dass jedes Detail Ihre Marke unterstützt und die Sprache Ihres Publikums spricht.",
+    process3Title: "Wir erstellen und starten gemeinsam",
+    process3Desc: "Wir verwandeln Kreativität in funktionale Realität – wir bereiten Webseiten, Visuals und Kampagnen so vor, dass sie nicht nur großartig aussehen, sondern auch Wirkung haben.",
+    process4Title: "Wir verwalten und entwickeln weiter",
+    process4Desc: "Die Marke endet nicht mit dem Start. Wir überwachen, was funktioniert, was feinabgestimmt werden muss und wie wir Sie weiterentwickeln können – zum Beispiel durch Social Media Management oder zusätzliche Inhalte.",
+    
+    // FAQ
+    faqTitle: "Häufig gestellte Fragen",
+    faq1Q: "Wie lange dauert die Website-Entwicklung?",
+    faq1A: "Innerhalb einer Woche nach dem Start erstellen wir ein visuelles Design, das wir gemeinsam verfeinern werden. In der folgenden Woche werden wir die Website fertigstellen und starten - sie kann bereits in zwei Wochen online sein.",
+    faq2Q: "Welche Dienstleistungen bieten Sie an?",
+    faq2A: "Wir erstellen komplette visuelle Identitäten, Webseiten, verwalten Unternehmensprofile in sozialen Netzwerken und bereiten Grafiken für den Druck vor, von Plakaten bis zu Produktdrucken. Wir helfen Marken, konsistent und professionell über alle Kanäle zu erscheinen.",
+    faq3Q: "Arbeiten Sie auch mit Startups zusammen?",
+    faq3A: "Ja, wir arbeiten gerne sowohl mit aufstrebenden Startups als auch mit etablierten Unternehmen zusammen. Wir passen unsere Dienstleistungen an jeden Kunden entsprechend seinen Bedürfnissen und seinem Budget an.",
+    faq4Q: "Bieten Sie laufende Unterstützung?",
+    faq4A: "Natürlich. Nach Projektabschluss bieten wir laufende Unterstützung, Wartung und Updates an. Wir möchten, dass Ihre Marke langfristig funktioniert.",
+    faq5Q: "Was ist, wenn mir die Website nicht gefällt?",
+    faq5A: "Das Website-Design ist für Sie völlig unverbindlich. Wenn Sie damit nicht zufrieden sind, werden wir es nach Ihren Vorstellungen ändern oder die Zusammenarbeit in dieser Phase einfach beenden – ohne jegliche Verpflichtungen oder Bedingungen.",
+    
+    // Stats
+    stat1: "abgeschlossene Projekte",
+    stat2: "zufriedene Kunden",
+    stat3: "Jahre Erfahrung",
+    stat4: "maximale Website-Lieferzeit",
+    
+    // Footer
+    footerDesc: "Wir schaffen digitale Erfahrungen, die inspirieren und Marken mit ihrem Publikum verbinden. Unsere Mission ist es, Unternehmen durch Kreativität und Innovation beim Wachstum zu helfen.",
+    footerNav: "Navigation",
+    footerContact: "Kontakt",
+    footerCopyright: "TENSION CREATIVE. Alle Rechte vorbehalten."
   }
 };
 

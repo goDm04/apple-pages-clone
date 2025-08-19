@@ -57,15 +57,27 @@ const Navigation = () => {
             <div className="flex items-center gap-4">
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-black hover:text-black/70 transition-colors">
-                  {language === 'cs' ? 'CZ' : 'EN'}
+                  {language === 'cs' ? 'CZ' : language === 'en' ? 'EN' : 'DE'}
                   <ChevronDown className="h-3 w-3" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-16 z-[60]">
                   <DropdownMenuItem 
                     className="cursor-pointer"
-                    onClick={() => setLanguage(language === 'cs' ? 'en' : 'cs')}
+                    onClick={() => setLanguage('cs')}
                   >
-                    {language === 'cs' ? 'EN' : 'CZ'}
+                    CZ
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={() => setLanguage('en')}
+                  >
+                    EN
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={() => setLanguage('de')}
+                  >
+                    DE
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -120,15 +132,27 @@ const Navigation = () => {
       <div className="fixed top-8 right-8 z-50 hidden lg:flex items-center h-12">
         <DropdownMenu>
           <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 hover:opacity-70 ${isOnHero ? 'text-white' : 'text-black'}`}>
-            {language === 'cs' ? 'CZ' : 'EN'}
+            {language === 'cs' ? 'CZ' : language === 'en' ? 'EN' : 'DE'}
             <ChevronDown className="h-3 w-3" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-16 z-[60]">
             <DropdownMenuItem 
               className="cursor-pointer"
-              onClick={() => setLanguage(language === 'cs' ? 'en' : 'cs')}
+              onClick={() => setLanguage('cs')}
             >
-              {language === 'cs' ? 'EN' : 'CZ'}
+              CZ
+            </DropdownMenuItem>
+            <DropdownMenuItem 
+              className="cursor-pointer"
+              onClick={() => setLanguage('en')}
+            >
+              EN
+            </DropdownMenuItem>
+            <DropdownMenuItem 
+              className="cursor-pointer"
+              onClick={() => setLanguage('de')}
+            >
+              DE
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
