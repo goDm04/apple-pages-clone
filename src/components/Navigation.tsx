@@ -60,7 +60,7 @@ const Navigation = () => {
                   {language === 'cs' ? 'CZ' : language === 'en' ? 'EN' : 'DE'}
                   <ChevronDown className="h-3 w-3" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-16 z-[60]">
+                <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-12 z-[60]">
                   <DropdownMenuItem 
                     className="cursor-pointer"
                     onClick={() => setLanguage('cs')}
@@ -135,7 +135,7 @@ const Navigation = () => {
             {language === 'cs' ? 'CZ' : language === 'en' ? 'EN' : 'DE'}
             <ChevronDown className="h-3 w-3" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-16 z-[60]">
+          <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-12 z-[60]">
             <DropdownMenuItem 
               className="cursor-pointer"
               onClick={() => setLanguage('cs')}
