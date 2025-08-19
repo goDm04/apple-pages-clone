@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Domu");
   const [isOnHero, setIsOnHero] = useState(true);
@@ -73,49 +75,75 @@ const Navigation = () => {
               <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Tension Creative logo" className="h-6 w-auto" />
             </a>
 
-            <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild>
-                <button aria-label="Otevřít menu" className="p-2 rounded-md border border-black/10 bg-white text-black">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                </button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-80 sm:w-96">
-                <SheetHeader>
-                  <SheetTitle>Navigace</SheetTitle>
-                </SheetHeader>
-                <nav className="mt-4">
-                  <ul className="space-y-2">
-                    {navItems.map(item => <li key={item.name}>
-                        <a href={item.href} onClick={e => {
-                      e.preventDefault();
-                      const id = item.href.replace('#', '');
-                      document.getElementById(id)?.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                      setActiveItem(item.name);
-                      setOpen(false);
-                    }} className={`block px-3 py-2 rounded-md text-base font-medium ${activeItem === item.name ? "bg-black/10 text-black" : "text-black/80 hover:bg-black/5"}`}>
-                          {item.name}
-                        </a>
-                      </li>)}
-                  </ul>
-                </nav>
-              </SheetContent>
-            </Sheet>
+            <div className="flex items-center gap-4">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-black hover:text-black/70 transition-colors">
+                  CZ
+                  <ChevronDown className="h-3 w-3" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg">
+                  <DropdownMenuItem className="cursor-pointer">
+                    EN
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Sheet open={open} onOpenChange={setOpen}>
+                <SheetTrigger asChild>
+                  <button aria-label="Otevřít menu" className="p-2 rounded-md border border-black/10 bg-white text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-80 sm:w-96">
+                  <SheetHeader>
+                    <SheetTitle>Navigace</SheetTitle>
+                  </SheetHeader>
+                  <nav className="mt-4">
+                    <ul className="space-y-2">
+                      {navItems.map(item => <li key={item.name}>
+                          <a href={item.href} onClick={e => {
+                        e.preventDefault();
+                        const id = item.href.replace('#', '');
+                        document.getElementById(id)?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                        setActiveItem(item.name);
+                        setOpen(false);
+                      }} className={`block px-3 py-2 rounded-md text-base font-medium ${activeItem === item.name ? "bg-black/10 text-black" : "text-black/80 hover:bg-black/5"}`}>
+                            {item.name}
+                          </a>
+                        </li>)}
+                    </ul>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Logo - pouze pro desktop/laptop */}
-      <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center h-12">
+      {/* Logo a jazykový přepínač - pouze pro desktop/laptop */}
+      <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center gap-4 h-12">
         <img 
           src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
           alt="Tension Creative logo" 
           className={`h-6 w-auto transition-all duration-300 ${isOnHero ? 'brightness-0 invert' : ''}`} 
         />
+        
+        <DropdownMenu>
+          <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 hover:opacity-70 ${isOnHero ? 'text-white' : 'text-black'}`}>
+            CZ
+            <ChevronDown className="h-3 w-3" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" className="bg-white border border-black/10 shadow-lg">
+            <DropdownMenuItem className="cursor-pointer">
+              EN
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       
       {/* Navigation - desktop */}
