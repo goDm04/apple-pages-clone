@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 type Language = 'cs' | 'en' | 'de';
 
@@ -289,15 +290,52 @@ const translations = {
   }
 };
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('cs');
+export const LanguageProvider: React.FC<{ 
+  children: React.ReactNode;
+  initialLanguage?: Language;
+}> = ({ children, initialLanguage }) => {
+  const navigate = useNavigate();
+  const params = useParams();
+  
+  // Determine initial language from URL parameter or prop
+  const getInitialLanguage = (): Language => {
+    if (initialLanguage) return initialLanguage;
+    if (params.lang && ['cs', 'en', 'de'].includes(params.lang)) {
+      return params.lang as Language;
+    }
+    return 'cs'; // default fallback
+  };
+
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
+
+  // Update language when URL changes
+  useEffect(() => {
+    const newLang = getInitialLanguage();
+    if (newLang !== language) {
+      setLanguage(newLang);
+    }
+  }, [params.lang, initialLanguage]);
+
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang);
+    
+    // Navigate to appropriate URL
+    if (lang === 'cs') {
+      navigate('/');
+    } else {
+      navigate(`/${lang}`);
+    }
+    
+    // Reload page to ensure all components re-render with new language
+    window.location.reload();
+  };
 
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations.cs] || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
