@@ -9,11 +9,13 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Wrapper component to handle language parameter
-const LanguageWrapper = () => {
-  const { lang } = useParams();
+// Wrapper component to extract language from URL and pass to provider
+const LanguageRoute = () => {
+  const { lang } = useParams<{ lang: string }>();
+  const validLanguage = lang && ['en', 'de'].includes(lang) ? lang as 'en' | 'de' : 'cs';
+  
   return (
-    <LanguageProvider initialLanguage={lang as 'cs' | 'en' | 'de'}>
+    <LanguageProvider initialLanguage={validLanguage}>
       <Index />
     </LanguageProvider>
   );
@@ -31,7 +33,7 @@ const App = () => (
               <Index />
             </LanguageProvider>
           } />
-          <Route path="/:lang" element={<LanguageWrapper />} />
+          <Route path="/:lang" element={<LanguageRoute />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

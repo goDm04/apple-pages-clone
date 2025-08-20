@@ -293,28 +293,14 @@ const translations = {
 export const LanguageProvider: React.FC<{ 
   children: React.ReactNode;
   initialLanguage?: Language;
-}> = ({ children, initialLanguage }) => {
+}> = ({ children, initialLanguage = 'cs' }) => {
   const navigate = useNavigate();
-  const params = useParams();
-  
-  // Determine initial language from URL parameter or prop
-  const getInitialLanguage = (): Language => {
-    if (initialLanguage) return initialLanguage;
-    if (params.lang && ['cs', 'en', 'de'].includes(params.lang)) {
-      return params.lang as Language;
-    }
-    return 'cs'; // default fallback
-  };
+  const [language, setLanguage] = useState<Language>(initialLanguage);
 
-  const [language, setLanguage] = useState<Language>(getInitialLanguage);
-
-  // Update language when URL changes
+  // Update language when initialLanguage prop changes
   useEffect(() => {
-    const newLang = getInitialLanguage();
-    if (newLang !== language) {
-      setLanguage(newLang);
-    }
-  }, [params.lang, initialLanguage]);
+    setLanguage(initialLanguage);
+  }, [initialLanguage]);
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -331,7 +317,12 @@ export const LanguageProvider: React.FC<{
   };
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations.cs] || key;
+    const languageTranslations = translations[language];
+    if (!languageTranslations) {
+      console.warn(`Language '${language}' not found in translations, falling back to Czech`);
+      return translations.cs[key as keyof typeof translations.cs] || key;
+    }
+    return languageTranslations[key as keyof typeof translations.cs] || key;
   };
 
   return (
