@@ -1,10 +1,12 @@
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function AppleCardsCarouselDemo() {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
-  const cards = data.map((card, index) => (
+  const { t } = useLanguage();
+  const cards = data(t).map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
 
@@ -17,14 +19,14 @@ export default function AppleCardsCarouselDemo() {
       ref={elementRef}
     >
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-foreground font-sf">
-        Naše práce.
+        {t('portfolioTitle')}.
       </h2>
       <Carousel items={cards} />
     </div>
   );
 }
 
-const DummyContent = () => {
+const DummyContent = ({ t }: { t: (key: string) => string }) => {
   return (
     <>
       {[...new Array(3).fill(1)].map((_, index) => {
@@ -35,14 +37,13 @@ const DummyContent = () => {
           >
             <p className="text-muted-foreground text-base md:text-2xl font-sf max-w-3xl mx-auto">
               <span className="font-bold text-foreground">
-                Krásné webové stránky a aplikace.
+                {t('portfolioDescription')}
               </span>{" "}
-              Vytváříme moderní, funkční a uživatelsky přívětivé digitální řešení. 
-              Naše práce kombinuje estetiku s funkcionalitou a vytváří nezapomenutelné zážitky.
+              {t('portfolioDetailText')}
             </p>
             <img
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
-              alt="Ukázka naší práce"
+              alt={t('portfolioImageAlt')}
               className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg mt-8"
             />
           </div>
@@ -52,56 +53,56 @@ const DummyContent = () => {
   );
 };
 
-const data = [
+const data = (t: (key: string) => string) => [
   {
-    category: "Webové stránky",
+    category: t('categoryWebsites'),
     title: "Odstěhováno.cz",
     src: "https://imgur.com/QEWFIRL.jpeg",
     href: "https://odstehovano.cz",
-    content: <DummyContent />,
+    content: <DummyContent t={t} />,
   },
   {
-    category: "Sociální sítě",
+    category: t('categorySocialMedia'),
     title: "Centrum pojištění Vlašim",
     src: "https://imgur.com/gdJ5kAU.jpeg",
-    content: <DummyContent />,
+    content: <DummyContent t={t} />,
   },
   {
-    category: "Grafika",
+    category: t('categoryGraphics'),
     title: "Diskotéka Zbizuby",
     src: "https://imgur.com/tBJQaxQ.jpeg",
-    content: <DummyContent />,
+    content: <DummyContent t={t} />,
   },
   {
-    category: "Webové stránky",
+    category: t('categoryWebsites'),
     title: "MH-Tiles.cz",
     src: "https://imgur.com/nYkWZPX.jpeg",
     href: "https://mh-tiles.cz",
-    content: <DummyContent />,
+    content: <DummyContent t={t} />,
   },
   {
-    category: "Sociální sítě",
+    category: t('categorySocialMedia'),
     title: "Bar Vrtule",
     src: "https://imgur.com/eRuiWWJ.jpeg",
-    content: <DummyContent />,
+    content: <DummyContent t={t} />,
   },
   {
-    category: "Webové stránky",
+    category: t('categoryWebsites'),
     title: "Health Brands s.r.o.",
     src: "https://imgur.com/aRCjbQq.jpeg",
     href: "https://thehealthbrands.com",
-    content: <DummyContent />,
+    content: <DummyContent t={t} />,
   },
   {
-    category: "Grafika",
+    category: t('categoryGraphics'),
     title: "Maturitní ples Vlašim",
     src: "https://imgur.com/GCUii3f.jpeg",
-    content: <DummyContent />,
+    content: <DummyContent t={t} />,
   },
   {
-    category: "Sociální sítě",
+    category: t('categorySocialMedia'),
     title: "FINPRO21 Reality",
     src: "https://imgur.com/u3xxxdQ.jpeg",
-    content: <DummyContent />,
+    content: <DummyContent t={t} />,
   },
 ];

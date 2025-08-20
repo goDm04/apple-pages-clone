@@ -92,7 +92,16 @@ const translations = {
     footerDesc: "Vytváříme digitální zážitky, které inspirují a spojují značky s jejich publikem. Naše mise je pomáhat firmám růst prostřednictvím kreativity a inovací.",
     footerNav: "Navigace",
     footerContact: "Kontakt",
-    footerCopyright: "TENSION CREATIVE. Všechna práva vyhrazena."
+    footerCopyright: "TENSION CREATIVE. Všechna práva vyhrazena.",
+    
+    // Portfolio
+    portfolioTitle: "Naše práce",
+    portfolioDescription: "Krásné webové stránky a aplikace.",
+    portfolioDetailText: "Vytváříme moderní, funkční a uživatelsky přívětivé digitální řešení. Naše práce kombinuje estetiku s funkcionalitou a vytváří nezapomenutelné zážitky.",
+    portfolioImageAlt: "Ukázka naší práce",
+    categoryWebsites: "Webové stránky",
+    categorySocialMedia: "Sociální sítě", 
+    categoryGraphics: "Grafika"
   },
   en: {
     // Navigation
@@ -175,7 +184,16 @@ const translations = {
     footerDesc: "We create digital experiences that inspire and connect brands with their audience. Our mission is to help companies grow through creativity and innovation.",
     footerNav: "Navigation",
     footerContact: "Contact",
-    footerCopyright: "TENSION CREATIVE. All rights reserved."
+    footerCopyright: "TENSION CREATIVE. All rights reserved.",
+    
+    // Portfolio
+    portfolioTitle: "Our work",
+    portfolioDescription: "Beautiful websites and applications.",
+    portfolioDetailText: "We create modern, functional and user-friendly digital solutions. Our work combines aesthetics with functionality and creates unforgettable experiences.",
+    portfolioImageAlt: "Sample of our work",
+    categoryWebsites: "Websites",
+    categorySocialMedia: "Social Media",
+    categoryGraphics: "Graphics"
   },
   de: {
     // Navigation
@@ -258,7 +276,16 @@ const translations = {
     footerDesc: "Wir schaffen digitale Erfahrungen, die inspirieren und Marken mit ihrem Publikum verbinden. Unsere Mission ist es, Unternehmen durch Kreativität und Innovation beim Wachstum zu helfen.",
     footerNav: "Navigation",
     footerContact: "Kontakt",
-    footerCopyright: "TENSION CREATIVE. Alle Rechte vorbehalten."
+    footerCopyright: "TENSION CREATIVE. Alle Rechte vorbehalten.",
+    
+    // Portfolio
+    portfolioTitle: "Unsere Arbeit",
+    portfolioDescription: "Schöne Webseiten und Anwendungen.",
+    portfolioDetailText: "Wir erstellen moderne, funktionale und benutzerfreundliche digitale Lösungen. Unsere Arbeit kombiniert Ästhetik mit Funktionalität und schafft unvergessliche Erfahrungen.",
+    portfolioImageAlt: "Beispiel unserer Arbeit",
+    categoryWebsites: "Webseiten",
+    categorySocialMedia: "Social Media",
+    categoryGraphics: "Grafik"
   }
 };
 
