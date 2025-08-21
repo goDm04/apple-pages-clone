@@ -9,11 +9,8 @@ const Hero = () => {
   return (
     <header 
       id="hero" 
-      className={`relative w-full isolate transition-all duration-700 ${
-        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
-      }`} 
+      className="relative w-full isolate" 
       aria-label="Hero sekce"
-      ref={elementRef}
     >
       {/* Background image */}
       <img
