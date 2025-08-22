@@ -184,14 +184,20 @@ export const Card = ({
   useOutsideClick(containerRef, () => handleClose());
 
 const handleOpen = () => {
-  // Disabled modal open for now; open external link if provided
+  // Enable modal open only for FINPRO21 Reality
+  if (card.title === "FINPRO21 Reality") {
+    setOpen(true);
+    return;
+  }
+  
+  // For other cards, open external link if provided
   if (card.href) {
     const url = card.href.startsWith("http") ? card.href : `https://${card.href}`;
     window.open(url, "_blank", "noopener,noreferrer");
     return;
   }
-  // Intentionally do nothing to prevent modal expansion
-  // setOpen(true);
+  
+  // Intentionally do nothing for cards without href
 };
 
   const handleClose = () => {
