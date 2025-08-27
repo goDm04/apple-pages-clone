@@ -60,9 +60,9 @@ const CentrumPojisteniContent = () => {
         return (
           <div
             key={"centrum-pojisteni-content" + index}
-            className="bg-muted p-8 md:p-14 rounded-3xl mb-4"
+            className="bg-muted p-8 md:p-14 rounded-3xl mb-4 flex flex-col h-full"
           >
-            <p className="text-muted-foreground text-base md:text-2xl font-sf max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-base md:text-2xl font-sf max-w-3xl mx-auto mb-8">
               {index === 0 && (
                 <>
                   <span className="font-bold text-foreground">
@@ -86,13 +86,13 @@ const CentrumPojisteniContent = () => {
               <img
                 src="/lovable-uploads/c9acf8b6-f142-4787-bb81-1263008cd0b5.png"
                 alt="Centrum pojištění Vlašim - cestovní pojištění"
-                className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg mt-8"
+                className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg mt-auto"
               />
             ) : (
               <img
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
                 alt="Centrum pojištění Vlašim portfolio image"
-                className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg mt-8"
+                className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg mt-auto"
               />
             )}
           </div>
