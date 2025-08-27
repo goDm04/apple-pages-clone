@@ -86,7 +86,7 @@ const CentrumPojisteniContent = () => {
               <img
                 src="/lovable-uploads/96faa918-38d6-488e-8fc7-1f52b00ecee2.png"
                 alt="Centrum pojištění Vlašim - marketingové materiály"
-                className="md:w-2/3 md:h-2/3 h-full w-full mx-auto object-contain rounded-lg mt-auto"
+                className="md:w-3/3 md:h-3/3 h-full w-full mx-auto object-contain rounded-lg mt-auto"
               />
             ) : (
               <img
