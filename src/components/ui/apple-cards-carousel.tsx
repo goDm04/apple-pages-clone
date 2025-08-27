@@ -184,8 +184,8 @@ export const Card = ({
   useOutsideClick(containerRef, () => handleClose());
 
 const handleOpen = () => {
-  // Enable modal open only for FINPRO21 Reality
-  if (card.title === "FINPRO21 Reality") {
+  // Enable modal open for FINPRO21 Reality and Centrum pojištění Vlašim
+  if (card.title === "FINPRO21 Reality" || card.title === "Centrum pojištění Vlašim") {
     setOpen(true);
     return;
   }
