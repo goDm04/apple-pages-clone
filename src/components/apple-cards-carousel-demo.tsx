@@ -78,10 +78,7 @@ const CentrumPojisteniContent = () => {
               )}
               {index === 2 && (
                 <>
-                  <span className="font-bold text-foreground">
-                    Pojištěno i na sociálních sítích.
-                  </span>{" "}
-                  Cílem bylo ukázat širokou nabídku pojištění moderně, srozumitelně a tak, aby působila blíže lidem.
+                  Kladli jsme důraz na konzistentní vizuální styl a tón komunikace, který odpovídá hodnotám značky. Díky tomu vznikl obsah, který nejen informuje, ale také buduje povědomí a zapamatovatelnost.
                 </>
               )}
             </p>
