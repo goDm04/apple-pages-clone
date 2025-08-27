@@ -63,10 +63,27 @@ const CentrumPojisteniContent = () => {
             className="bg-muted p-8 md:p-14 rounded-3xl mb-4"
           >
             <p className="text-muted-foreground text-base md:text-2xl font-sf max-w-3xl mx-auto">
-              <span className="font-bold text-foreground">
-                Pojištěno i na sociálních sítích.
-              </span>{" "}
-              Cílem bylo ukázat širokou nabídku pojištění moderně, srozumitelně a tak, aby působila blíže lidem.
+              {index === 0 && (
+                <>
+                  <span className="font-bold text-foreground">
+                    Pojištěno i na sociálních sítích.
+                  </span>{" "}
+                  Cílem bylo ukázat širokou nabídku pojištění moderně, srozumitelně a tak, aby působila blíže lidem.
+                </>
+              )}
+              {index === 1 && (
+                <>
+                  Připravili sérii postů, které kombinují vizuální čistotu s jasně formulovanými sděleními. Každý příspěvek měl ukázat konkrétní přínos služeb a zároveň posílit důvěryhodnost značky.
+                </>
+              )}
+              {index === 2 && (
+                <>
+                  <span className="font-bold text-foreground">
+                    Pojištěno i na sociálních sítích.
+                  </span>{" "}
+                  Cílem bylo ukázat širokou nabídku pojištění moderně, srozumitelně a tak, aby působila blíže lidem.
+                </>
+              )}
             </p>
             <img
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
