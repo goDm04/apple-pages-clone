@@ -39,7 +39,7 @@ const Navigation = () => {
   }, []);
   return <>
       {/* Mobile/Tablet sticky navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 block lg:hidden bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-50 block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-black/10">
         <div className="mx-auto max-w-7xl px-4">
           <div className="h-14 flex items-center justify-between">
             <a href="#hero" onClick={e => {
@@ -119,72 +119,63 @@ const Navigation = () => {
         </div>
       </header>
 
-      {/* Desktop Navigation - Arsturn style */}
-      <header className="fixed top-0 left-0 right-0 z-50 hidden lg:block bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-8">
-          <div className="h-16 flex items-center justify-between">
-            <div className="flex items-center">
-              <img 
-                src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
-                alt="Tension Creative logo" 
-                className="h-6 w-auto" 
-              />
-            </div>
-            
-            <nav className="flex items-center space-x-8">
-              {navItems.map(item => (
-                <a 
-                  key={item.name} 
-                  href={item.href} 
-                  onClick={e => {
-                    e.preventDefault();
-                    const id = item.href.replace('#', '');
-                    document.getElementById(id)?.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                    setActiveItem(item.name);
-                  }} 
-                  className={`text-sm font-medium transition-colors hover:text-gray-600 ${
-                    activeItem === item.name ? "text-black" : "text-gray-700"
-                  }`}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </nav>
-
-            <div className="flex items-center gap-4">
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-600 transition-colors">
-                  {language === 'cs' ? 'CZ' : language === 'en' ? 'EN' : 'DE'}
-                  <ChevronDown className="h-3 w-3" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-white border border-gray-200 shadow-lg w-12 z-[60]">
-                  <DropdownMenuItem 
-                    className="cursor-pointer hover:bg-gray-50"
-                    onClick={() => setLanguage('cs')}
-                  >
-                    CZ
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    className="cursor-pointer hover:bg-gray-50"
-                    onClick={() => setLanguage('en')}
-                  >
-                    EN
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    className="cursor-pointer hover:bg-gray-50"
-                    onClick={() => setLanguage('de')}
-                  >
-                    DE
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+      {/* Logo - pouze pro desktop/laptop */}
+      <div className="fixed top-8 left-8 z-50 hidden lg:flex items-center h-12">
+        <img 
+          src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
+          alt="Tension Creative logo" 
+          className={`h-6 w-auto transition-all duration-300 ${isOnHero ? 'brightness-0 invert' : ''}`} 
+        />
+      </div>
+      
+      {/* Jazykový přepínač - pouze pro desktop/laptop */}
+      <div className="fixed top-8 right-8 z-50 hidden lg:flex items-center h-12">
+        <DropdownMenu>
+          <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 hover:opacity-70 ${isOnHero ? 'text-white' : 'text-black'}`}>
+            {language === 'cs' ? 'CZ' : language === 'en' ? 'EN' : 'DE'}
+            <ChevronDown className="h-3 w-3" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg w-12 z-[60]">
+            <DropdownMenuItem 
+              className="cursor-pointer"
+              onClick={() => setLanguage('cs')}
+            >
+              CZ
+            </DropdownMenuItem>
+            <DropdownMenuItem 
+              className="cursor-pointer"
+              onClick={() => setLanguage('en')}
+            >
+              EN
+            </DropdownMenuItem>
+            <DropdownMenuItem 
+              className="cursor-pointer"
+              onClick={() => setLanguage('de')}
+            >
+              DE
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+      
+      {/* Navigation - desktop */}
+      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 hidden lg:block">
+        <div className="backdrop-blur-xl border border-black/10 rounded-full px-2 py-2 shadow-sm bg-white/55">
+          <div className="flex items-center space-x-2">
+            {navItems.map(item => <a key={item.name} href={item.href} onClick={e => {
+            e.preventDefault();
+            const id = item.href.replace('#', '');
+            document.getElementById(id)?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            setActiveItem(item.name);
+          }} className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeItem === item.name ? "bg-black/10 text-black shadow-sm" : "text-black/70 hover:text-black hover:bg-black/5"}`}>
+                {item.name}
+              </a>)}
           </div>
         </div>
-      </header>
+      </nav>
     </>;
 };
 export default Navigation;
