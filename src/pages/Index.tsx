@@ -8,7 +8,6 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import StatsSection from "@/components/StatsSection";
-import CTASection from "@/components/CTASection";
 
 const Index = () => {
   return (
@@ -19,7 +18,6 @@ const Index = () => {
       <ServicesSection />
       <ProcessSection />
       <AppleCardsCarouselDemo />
-      <CTASection />
       <AboutSection />
       <FAQSection />
       <ContactSection />
