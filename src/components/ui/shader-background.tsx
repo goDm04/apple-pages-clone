@@ -181,7 +181,7 @@ export default function ShaderBackground() {
   const camera = useMemo(() => ({ position: [0, 0, 1] as [number, number, number], fov: 75, near: 0.1, far: 1000 }), []);
   
   return (
-    <div className="absolute inset-0 -z-10 w-full h-full bg-black" aria-hidden>
+    <div className="absolute inset-0 -z-10 w-full h-full" style={{ backgroundColor: '#004CE6' }} aria-hidden>
       <Canvas
         camera={camera}
         gl={{ antialias: true, alpha: false }}
@@ -190,8 +190,7 @@ export default function ShaderBackground() {
       >
         <ShaderPlane />
       </Canvas>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20" />
-      <div className="pointer-events-none absolute inset-0 bg-[#004CE6]/20 mix-blend-multiply" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#004CE6]/40 via-transparent to-[#004CE6]/20" />
     </div>
   );
 }
