@@ -15,7 +15,7 @@ const Hero = () => {
       {/* Background image */}
       <img
         src="https://imgur.com/7oafTW3.jpeg"
-        alt="Tension Creative."
+        alt="Moderní kancelář s kreativním týmem pracujícím na digitálních projektech a brandingu"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
         loading="eager"
         fetchPriority="high"
@@ -27,7 +27,7 @@ const Hero = () => {
         {/* Small logo above heading */}
         <img
           src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png"
-          alt="Logo"
+          alt="Tension Creative logo - digitální kreativní agentura"
           className="h-10 w-auto"
         />
 

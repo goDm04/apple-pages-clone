@@ -9,11 +9,11 @@ const Navigation = () => {
   const [isOnHero, setIsOnHero] = useState(true);
   
   const navItems = [
-    { name: t("home"), href: "#hero" },
-    { name: t("services"), href: "#sluzby" },
-    { name: t("portfolio"), href: "#portfolio" },
-    { name: t("about"), href: "#o-nas" },
-    { name: t("contact"), href: "#kontakt" }
+    { name: t("home"), href: "/" },
+    { name: t("services"), href: "/services" },
+    { name: "Blog", href: "/blog" },
+    { name: t("about"), href: "/#o-nas" },
+    { name: t("contact"), href: "/#kontakt" }
   ];
   const [open, setOpen] = useState(false);
   useEffect(() => {
