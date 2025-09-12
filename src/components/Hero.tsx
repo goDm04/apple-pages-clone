@@ -1,6 +1,7 @@
 import React from "react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ShaderBackground from "@/components/ui/shader-background";
 
 const Hero = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
@@ -12,15 +13,8 @@ const Hero = () => {
       className="relative w-full isolate" 
       aria-label="Hero sekce"
     >
-      {/* Background image */}
-      <img
-        src="https://imgur.com/7oafTW3.jpeg"
-        alt="Tension Creative."
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
-        loading="eager"
-        fetchPriority="high"
-      />
-      {/* Readability overlay using design tokens */}
+      {/* Neural network shader background */}
+      <ShaderBackground />
       
 
       <div className="container mx-auto flex min-h-[95vh] md:min-h-screen flex-col items-center justify-center py-24 text-center gap-6">
