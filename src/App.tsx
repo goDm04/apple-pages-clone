@@ -25,45 +25,48 @@ const LanguageRoute = () => {
   );
 };
 
-const AppWithAnalytics = () => {
+// Component that uses Google Analytics inside Router context
+const RoutesWithAnalytics = () => {
   const { trackEvent } = useGoogleAnalytics('G-XXXXXXXXXX'); // Replace with actual GA4 Measurement ID
   
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={
-                <LanguageProvider initialLanguage="cs">
-                  <Index />
-                </LanguageProvider>
-              } />
-              <Route path="/services" element={
-                <LanguageProvider initialLanguage="cs">
-                  <Services />
-                </LanguageProvider>
-              } />
-              <Route path="/blog" element={
-                <LanguageProvider initialLanguage="cs">
-                  <Blog />
-                </LanguageProvider>
-              } />
-              <Route path="/:lang" element={<LanguageRoute />} />
-              <Route path="/:lang/services" element={<LanguageRoute />} />
-              <Route path="/:lang/blog" element={<LanguageRoute />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </HelmetProvider>
+    <Routes>
+      <Route path="/" element={
+        <LanguageProvider initialLanguage="cs">
+          <Index />
+        </LanguageProvider>
+      } />
+      <Route path="/services" element={
+        <LanguageProvider initialLanguage="cs">
+          <Services />
+        </LanguageProvider>
+      } />
+      <Route path="/blog" element={
+        <LanguageProvider initialLanguage="cs">
+          <Blog />
+        </LanguageProvider>
+      } />
+      <Route path="/:lang" element={<LanguageRoute />} />
+      <Route path="/:lang/services" element={<LanguageRoute />} />
+      <Route path="/:lang/blog" element={<LanguageRoute />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
-const App = () => <AppWithAnalytics />;
+const App = () => (
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <RoutesWithAnalytics />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
+);
 
 export default App;
