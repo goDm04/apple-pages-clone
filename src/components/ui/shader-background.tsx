@@ -148,13 +148,14 @@ const fragmentShader = `
   }
 `;
 
-const CPPNShaderMaterial = shaderMaterial(
+// Create and extend the shader material with proper naming
+const NeuralShaderMaterial = shaderMaterial(
   { iTime: 0, iResolution: new THREE.Vector2(1, 1) },
   vertexShader,
   fragmentShader
 );
 
-extend({ CPPNShaderMaterial });
+extend({ NeuralShaderMaterial });
 
 function ShaderPlane() {
   const meshRef = useRef<THREE.Mesh>(null!);
@@ -170,7 +171,7 @@ function ShaderPlane() {
   return (
     <mesh ref={meshRef} position={[0, -0.75, -0.5]}>
       <planeGeometry args={[4, 4]} />
-      <cPPNShaderMaterial ref={materialRef} side={THREE.DoubleSide} />
+      <neuralShaderMaterial ref={materialRef} side={THREE.DoubleSide} />
     </mesh>
   );
 }
@@ -195,6 +196,6 @@ export default function ShaderBackground() {
 
 declare module '@react-three/fiber' {
   interface ThreeElements {
-    cPPNShaderMaterial: any;
+    neuralShaderMaterial: any;
   }
 }
