@@ -105,20 +105,17 @@ const Navigation = () => {
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden lg:block">
         <div className="backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84]">
           <div className="flex items-center justify-between min-w-[800px]">
-            {/* Logo and Navigation */}
-            <div className="flex items-center space-x-8">
-              {/* Logo */}
-              <a href="#hero" onClick={e => handleNavClick(e, "#hero", "Domů")} className="flex items-center">
-                <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
-              </a>
+            {/* Logo */}
+            <a href="#hero" onClick={e => handleNavClick(e, "#hero", "Domů")} className="flex items-center">
+              <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
+            </a>
 
-              {/* Navigation menu */}
-              <nav className="flex items-center space-x-6">
-                {navItems.map(item => <a key={item.name} href={item.href} onClick={e => handleNavClick(e, item.href, item.name)} className={`text-sm font-medium transition-colors ${activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"}`}>
-                    {item.name}
-                  </a>)}
-              </nav>
-            </div>
+            {/* Centered Navigation menu */}
+            <nav className="flex items-center space-x-6">
+              {navItems.map(item => <a key={item.name} href={item.href} onClick={e => handleNavClick(e, item.href, item.name)} className={`text-sm font-medium transition-colors ${activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"}`}>
+                  {item.name}
+                </a>)}
+            </nav>
 
             {/* CTA Button */}
             <Button className="rounded-full px-6 bg-black text-white hover:bg-black/90">
