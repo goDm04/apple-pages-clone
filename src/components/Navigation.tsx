@@ -122,7 +122,7 @@ const Navigation = () => {
         <div className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${
           showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'
         }`}>
-          <div className="flex items-center justify-between w-full">
+          <div className="flex items-center w-full relative">
             {/* Logo */}
             <a 
               href="#hero" 
@@ -135,7 +135,7 @@ const Navigation = () => {
             </a>
 
             {/* Centered Navigation menu */}
-            <nav className={`flex items-center space-x-6 transition-all duration-300 ${
+            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
               showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
               {navItems.map((item, index) => 
@@ -157,7 +157,7 @@ const Navigation = () => {
 
             {/* CTA Button */}
             <Button 
-              className={`rounded-full px-6 bg-black text-white hover:bg-black/90 transition-all duration-300 ${
+              className={`rounded-full px-6 bg-black text-white hover:bg-black/90 transition-all duration-300 ml-auto ${
                 showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
               }`} 
               onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}
