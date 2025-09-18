@@ -15,7 +15,7 @@ export default function CustomBanner() {
     <div className="w-full bg-primary py-12">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-6">
-          Každý web na míru a návrh zdarma
+          Váš web na míru začíná bezplatným návrhem
         </h3>
         <Button 
           variant="secondary" 
