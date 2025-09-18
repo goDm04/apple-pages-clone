@@ -18,8 +18,8 @@ const Index = () => {
       <StatsSection />
       <ServicesSection />
       <ProcessSection />
-      <AppleCardsCarouselDemo />
       <CustomBanner />
+      <AppleCardsCarouselDemo />
       <AboutSection />
       <FAQSection />
       <ContactSection />
