@@ -12,16 +12,19 @@ export default function CustomBanner() {
   };
 
   return (
-    <div className="w-full bg-primary py-12">
+    <div className="w-full bg-black py-16">
       <div className="max-w-7xl mx-auto px-4 text-center">
-        <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-6">
-          Váš web na míru začíná bezplatným návrhem
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          Nejste si jistí? Připravíme vám nezávazný návrh webu zdarma
         </h3>
+        <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+          Získejte vizualizaci vašeho budoucího webu ještě před tím, než se rozhodnete. Ukážeme vám, jak může vypadat váš nový web.
+        </p>
         <Button 
           variant="secondary" 
           size="lg"
           onClick={scrollToContact}
-          className="bg-background text-foreground hover:bg-background/90"
+          className="bg-white text-black hover:bg-white/90 rounded-full px-8"
         >
           Kontaktujte nás
         </Button>
