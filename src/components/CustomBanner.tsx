@@ -24,7 +24,7 @@ export default function CustomBanner() {
           variant="secondary" 
           size="lg"
           onClick={scrollToContact}
-          className="bg-white text-black hover:bg-white/90 rounded-full px-8"
+          className="bg-black text-white hover:bg-black/90 px-8"
         >
           Kontaktujte nás
         </Button>

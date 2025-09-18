@@ -106,7 +106,7 @@ const Navigation = () => {
                       </li>)}
                   </ul>
                   <div className="mt-8">
-                    <Button className="w-full bg-black text-white hover:bg-black/90 rounded-full" onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}>
+                    <Button className="w-full bg-black text-white hover:bg-black/90" onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}>
                       Mám zájem
                     </Button>
                   </div>
