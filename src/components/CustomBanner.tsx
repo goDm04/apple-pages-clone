@@ -21,10 +21,10 @@ export default function CustomBanner() {
           Získejte vizualizaci vašeho budoucího webu ještě před tím, než se rozhodnete. Ukážeme vám, jak může vypadat váš nový web.
         </p>
         <Button 
-          variant="secondary" 
+          variant="outline" 
           size="lg"
           onClick={scrollToContact}
-          className="bg-black text-white hover:bg-black/90 px-8"
+          className="bg-white text-black hover:bg-white/90 border-white px-8"
         >
           Kontaktujte nás
         </Button>
