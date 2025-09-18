@@ -5,25 +5,30 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 const ContactSection = () => {
-  const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
-  const { t, language } = useLanguage();
+  const {
+    elementRef,
+    isInView
+  } = useIntersectionObserver({
+    threshold: 0.1
+  });
+  const {
+    t,
+    language
+  } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: ""
   });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     try {
       const response = await fetch("https://formspree.io/f/mwpqydpd", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           name: formData.name,
@@ -33,14 +38,18 @@ const ContactSection = () => {
           _to: "info@tensioncreative.cz",
           _cc: "tomca@gmail.com",
           _subject: language === 'cs' ? "Nová zpráva z kontaktního formuláře - Tension Creative" : "New message from contact form - Tension Creative"
-        }),
+        })
       });
-
       if (response.ok) {
         toast.success(language === 'cs' ? "Zpráva byla úspěšně odeslána!" : "Message sent successfully!", {
           description: language === 'cs' ? "Ozveme se vám co nejdříve." : "We'll get back to you as soon as possible."
         });
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
       } else {
         throw new Error("Chyba při odesílání");
       }
@@ -50,23 +59,15 @@ const ContactSection = () => {
       });
     }
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-
-  return (
-    <section 
-      id="kontakt" 
-      className={`py-20 px-4 md:px-8 transition-all duration-700 ${
-        isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
-      }`} 
-      style={{ backgroundColor: "#F5F5F8" }}
-      ref={elementRef}
-    >
+  return <section id="kontakt" className={`py-20 px-4 md:px-8 transition-all duration-700 ${isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`} style={{
+    backgroundColor: "#F5F5F8"
+  }} ref={elementRef}>
       <div className="max-w-7xl mx-auto p-4 md:p-8 lg:p-12">
         <div className="grid lg:grid-cols-2 gap-12 items-start max-w-none">
           {/* Left side - Info */}
@@ -123,12 +124,7 @@ const ContactSection = () => {
 
           {/* Right side - Form */}
           <div className="md:bg-background md:rounded-2xl p-4 md:p-8 md:shadow-sm w-full">
-            <form 
-              action="https://formspree.io/f/mwpqydpd" 
-              method="POST"
-              onSubmit={handleSubmit} 
-              className="space-y-8"
-            >
+            <form action="https://formspree.io/f/mwpqydpd" method="POST" onSubmit={handleSubmit} className="space-y-8">
               {/* Hidden fields for email routing */}
               <input type="hidden" name="_to" value="info@tensioncreative.cz" />
               <input type="hidden" name="_cc" value="tomca@gmail.com" />
@@ -138,31 +134,14 @@ const ContactSection = () => {
                   <label htmlFor="name" className="text-sm font-medium font-sf text-foreground">
                     {t("name")} *
                   </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder={t("namePlaceholder")}
-                    required
-                    className="font-sf"
-                  />
+                  <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder={t("namePlaceholder")} required className="font-sf" />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium font-sf text-foreground">
                     {t("email")} *
                   </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder={t("emailPlaceholder")}
-                    required
-                    className="font-sf"
-                  />
+                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder={t("emailPlaceholder")} required className="font-sf" />
                 </div>
               </div>
 
@@ -170,45 +149,23 @@ const ContactSection = () => {
                 <label htmlFor="subject" className="text-sm font-medium font-sf text-foreground">
                   {t("subject")}
                 </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder={t("subjectPlaceholder")}
-                  className="font-sf"
-                />
+                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder={t("subjectPlaceholder")} className="font-sf" />
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium font-sf text-foreground">
                   {t("message")} *
                 </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder={t("messagePlaceholder")}
-                  rows={6}
-                  required
-                  className="font-sf"
-                />
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder={t("messagePlaceholder")} rows={6} required className="font-sf" />
               </div>
 
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full md:w-auto font-sf font-semibold bg-black text-white hover:bg-black/90"
-              >
+              <Button type="submit" size="lg" className="w-full md:w-auto font-sf font-semibold bg-black text-white hover:bg-black/90 rounded-full">
                 {t("sendMessage")}
               </Button>
             </form>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
