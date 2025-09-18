@@ -116,9 +116,9 @@ const Navigation = () => {
       </header>
 
       {/* Desktop navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 hidden lg:block bg-white/80 backdrop-blur-md border-b border-border">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="h-16 flex items-center justify-between">
+      <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden lg:block">
+        <div className="bg-white/20 backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg">
+          <div className="flex items-center justify-between min-w-[800px]">
             {/* Logo */}
             <a 
               href="#hero" 
@@ -141,8 +141,8 @@ const Navigation = () => {
                   onClick={(e) => handleNavClick(e, item.href, item.name)}
                   className={`text-sm font-medium transition-colors ${
                     activeItem === item.name 
-                      ? "text-primary" 
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "text-white" 
+                      : "text-white/80 hover:text-white"
                   }`}
                 >
                   {item.name}
@@ -151,7 +151,7 @@ const Navigation = () => {
             </nav>
 
             {/* CTA Button */}
-            <Button>
+            <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">
               Mám zájem
             </Button>
           </div>
