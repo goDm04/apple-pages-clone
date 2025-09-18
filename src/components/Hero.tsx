@@ -28,13 +28,13 @@ const Hero = () => {
         />
 
         {/* Main headline */}
-        <h1 className="font-sf text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white">
+        <h1 className="font-sf text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
           {t("heroTitle")}<br />
           {t("heroTitleLine2")}
         </h1>
 
         {/* Subheading */}
-        <p className="mx-auto max-w-3xl text-lg md:text-xl font-regular text-gray-300">
+        <p className="mx-auto max-w-3xl text-lg md:text-xl font-regular text-neutral-300 text-center">
           {t("heroSubtitle")}<br />
           {t("heroSubtitleLine2")}
         </p>
