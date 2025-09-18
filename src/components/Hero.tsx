@@ -12,15 +12,8 @@ const Hero = () => {
       className="relative w-full isolate" 
       aria-label="Hero sekce"
     >
-      {/* Background image */}
-      <img
-        src="/hero-background.png"
-        alt="Hero background"
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
-        loading="eager"
-        fetchPriority="high"
-      />
-      {/* Readability overlay using design tokens */}
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-500 animate-gradient-x"></div>
       
 
       <div className="container mx-auto flex min-h-[95vh] md:min-h-screen flex-col items-center justify-center py-24 text-center gap-6">
