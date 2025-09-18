@@ -19,7 +19,7 @@ const Hero = () => {
       {/* Spotlight Effect */}
       <Spotlight />
 
-      <div className="relative z-50 container mx-auto flex flex-col items-center justify-center min-h-[95vh] md:min-h-screen py-24 text-center gap-6">
+      <div className="relative z-10 container mx-auto flex flex-col items-center justify-center min-h-[95vh] md:min-h-screen py-24 text-center gap-6">
         {/* Small logo above heading */}
         <img
           src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png"

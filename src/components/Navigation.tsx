@@ -62,7 +62,7 @@ const Navigation = () => {
   };
   return <>
       {/* Mobile navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border">
+      <header className="fixed top-0 left-0 right-0 z-[100] block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border">
         <div className="mx-auto max-w-7xl px-4">
           <div className="h-16 flex items-center justify-between">
             {/* Logo */}
@@ -102,7 +102,7 @@ const Navigation = () => {
       </header>
 
       {/* Desktop navbar */}
-      <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden lg:block">
+      <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] hidden lg:block">
         <div className="backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84]">
           <div className="flex items-center justify-between min-w-[800px]">
             {/* Logo */}
