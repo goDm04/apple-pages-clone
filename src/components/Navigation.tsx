@@ -90,7 +90,7 @@ const Navigation = () => {
                       </li>)}
                   </ul>
                   <div className="mt-8">
-                    <Button className="w-full">
+                    <Button className="w-full" onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}>
                       Mám zájem
                     </Button>
                   </div>
@@ -110,15 +110,18 @@ const Navigation = () => {
               <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
             </a>
 
+            {/* Spacer */}
+            <div className="flex-1"></div>
+
             {/* Centered Navigation menu */}
-            <nav className="flex items-center space-x-6">
+            <nav className="flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
               {navItems.map(item => <a key={item.name} href={item.href} onClick={e => handleNavClick(e, item.href, item.name)} className={`text-sm font-medium transition-colors ${activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"}`}>
                   {item.name}
                 </a>)}
             </nav>
 
             {/* CTA Button */}
-            <Button className="rounded-full px-6 bg-black text-white hover:bg-black/90">
+            <Button className="rounded-full px-6 bg-black text-white hover:bg-black/90" onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}>
               Mám zájem
             </Button>
           </div>
