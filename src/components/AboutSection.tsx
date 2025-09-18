@@ -46,7 +46,7 @@ const AboutSection = () => {
             </ul>
 
             <div className="pt-2">
-              <Button size="lg" asChild className="font-sf font-semibold">
+              <Button size="lg" asChild className="font-sf font-semibold bg-black text-white hover:bg-black/90 rounded-full">
                 <a href="#kontakt">{t("contactUs")}</a>
               </Button>
             </div>

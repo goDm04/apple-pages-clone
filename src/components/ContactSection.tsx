@@ -199,7 +199,7 @@ const ContactSection = () => {
               <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full md:w-auto font-sf font-semibold"
+                className="w-full md:w-auto font-sf font-semibold bg-black text-white hover:bg-black/90 rounded-full"
               >
                 {t("sendMessage")}
               </Button>
