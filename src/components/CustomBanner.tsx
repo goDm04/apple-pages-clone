@@ -17,7 +17,7 @@ export default function CustomBanner() {
         <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
           Nejste si jistí? Připravíme vám nezávazný návrh webu zdarma
         </h3>
-        <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto hidden md:block">
           Získejte vizualizaci vašeho budoucího webu ještě před tím, než se rozhodnete. Ukážeme vám, jak může vypadat váš nový web.
         </p>
         <Button 
