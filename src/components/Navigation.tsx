@@ -119,36 +119,39 @@ const Navigation = () => {
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden lg:block">
         <div className="bg-white/20 backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg">
           <div className="flex items-center justify-between min-w-[800px]">
-            {/* Logo */}
-            <a 
-              href="#hero" 
-              onClick={(e) => handleNavClick(e, "#hero", "Domů")}
-              className="flex items-center"
-            >
-              <img 
-                src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" 
-                alt="Logo" 
-                className="h-6 w-auto" 
-              />
-            </a>
+            {/* Logo and Navigation */}
+            <div className="flex items-center space-x-8">
+              {/* Logo */}
+              <a 
+                href="#hero" 
+                onClick={(e) => handleNavClick(e, "#hero", "Domů")}
+                className="flex items-center"
+              >
+                <img 
+                  src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" 
+                  alt="Logo" 
+                  className="h-6 w-auto" 
+                />
+              </a>
 
-            {/* Navigation menu */}
-            <nav className="flex items-center space-x-8">
-              {navItems.map(item => (
-                <a 
-                  key={item.name}
-                  href={item.href} 
-                  onClick={(e) => handleNavClick(e, item.href, item.name)}
-                  className={`text-sm font-medium transition-colors ${
-                    activeItem === item.name 
-                      ? (isOnHero ? "text-white" : "text-black") 
-                      : (isOnHero ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black")
-                  }`}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </nav>
+              {/* Navigation menu */}
+              <nav className="flex items-center space-x-6">
+                {navItems.map(item => (
+                  <a 
+                    key={item.name}
+                    href={item.href} 
+                    onClick={(e) => handleNavClick(e, item.href, item.name)}
+                    className={`text-sm font-medium transition-colors ${
+                      activeItem === item.name 
+                        ? (isOnHero ? "text-white" : "text-black") 
+                        : (isOnHero ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black")
+                    }`}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </nav>
+            </div>
 
             {/* CTA Button */}
             <Button className={`rounded-full px-6 ${
