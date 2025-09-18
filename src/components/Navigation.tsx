@@ -120,9 +120,9 @@ const Navigation = () => {
       {/* Desktop navbar */}
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] hidden lg:block">
         <div className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${
-          showNavbar ? 'w-[800px] opacity-100' : 'w-4 opacity-0'
+          showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'
         }`}>
-          <div className="flex items-center justify-between min-w-[800px]">
+          <div className="flex items-center justify-between min-w-[950px]">
             {/* Logo */}
             <a 
               href="#hero" 
