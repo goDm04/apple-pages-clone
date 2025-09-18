@@ -141,8 +141,8 @@ const Navigation = () => {
                   onClick={(e) => handleNavClick(e, item.href, item.name)}
                   className={`text-sm font-medium transition-colors ${
                     activeItem === item.name 
-                      ? "text-white" 
-                      : "text-white/80 hover:text-white"
+                      ? (isOnHero ? "text-white" : "text-black") 
+                      : (isOnHero ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black")
                   }`}
                 >
                   {item.name}
@@ -151,7 +151,11 @@ const Navigation = () => {
             </nav>
 
             {/* CTA Button */}
-            <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">
+            <Button className={`rounded-full px-6 ${
+              isOnHero 
+                ? "bg-white text-black hover:bg-white/90" 
+                : "bg-black text-white hover:bg-black/90"
+            }`}>
               Mám zájem
             </Button>
           </div>
