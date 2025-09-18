@@ -67,7 +67,7 @@ const Navigation = () => {
           <div className="h-16 flex items-center justify-between">
             {/* Logo */}
             <a href="#hero" onClick={e => handleNavClick(e, "#hero", "Domů")} className="flex items-center">
-              <img src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" alt="Logo" className="h-6 w-auto" />
+              <img src="/lovable-uploads/7cc33aec-a3cc-4201-9de1-1b8d9d0991b6.png" alt="Logo" className="h-6 w-auto" />
             </a>
 
             {/* Mobile menu button */}
@@ -109,19 +109,19 @@ const Navigation = () => {
             <div className="flex items-center space-x-8">
               {/* Logo */}
               <a href="#hero" onClick={e => handleNavClick(e, "#hero", "Domů")} className="flex items-center">
-                <img src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" alt="Logo" className="h-6 w-auto" />
+                <img src="/lovable-uploads/7cc33aec-a3cc-4201-9de1-1b8d9d0991b6.png" alt="Logo" className="h-6 w-auto" />
               </a>
 
               {/* Navigation menu */}
               <nav className="flex items-center space-x-6">
-                {navItems.map(item => <a key={item.name} href={item.href} onClick={e => handleNavClick(e, item.href, item.name)} className={`text-sm font-medium transition-colors ${activeItem === item.name ? isOnHero ? "text-white" : "text-black" : isOnHero ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black"}`}>
+                {navItems.map(item => <a key={item.name} href={item.href} onClick={e => handleNavClick(e, item.href, item.name)} className={`text-sm font-medium transition-colors ${activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"}`}>
                     {item.name}
                   </a>)}
               </nav>
             </div>
 
             {/* CTA Button */}
-            <Button className={`rounded-full px-6 ${isOnHero ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90"}`}>
+            <Button className="rounded-full px-6 bg-black text-white hover:bg-black/90">
               Mám zájem
             </Button>
           </div>
