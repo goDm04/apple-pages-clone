@@ -14,8 +14,8 @@ const Hero = () => {
     >
       {/* Background image */}
       <img
-        src="https://imgur.com/7oafTW3.jpeg"
-        alt="Tension Creative."
+        src="/hero-background.png"
+        alt="Hero background"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
         loading="eager"
         fetchPriority="high"
