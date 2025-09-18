@@ -122,7 +122,7 @@ const Navigation = () => {
         <div className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${
           showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'
         }`}>
-          <div className="flex items-center justify-between min-w-[950px]">
+          <div className="flex items-center justify-between w-full">
             {/* Logo */}
             <a 
               href="#hero" 
@@ -134,11 +134,8 @@ const Navigation = () => {
               <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
             </a>
 
-            {/* Spacer */}
-            <div className="flex-1"></div>
-
             {/* Centered Navigation menu */}
-            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
+            <nav className={`flex items-center space-x-6 transition-all duration-300 ${
               showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
               {navItems.map((item, index) => 
