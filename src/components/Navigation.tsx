@@ -155,46 +155,15 @@ const Navigation = () => {
               )}
             </nav>
 
-            {/* Language Dropdown and CTA Button */}
-            <div className={`flex items-center gap-4 ml-auto transition-all duration-300 ${
-              showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
-            }`}>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-black/80 hover:text-black hover:bg-black/5">
-                    {language.toUpperCase()}
-                    <ChevronDown className="ml-1 h-3 w-3" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-white border border-black/10 shadow-lg">
-                  <DropdownMenuItem 
-                    onClick={() => setLanguage('cs')}
-                    className="cursor-pointer hover:bg-black/5"
-                  >
-                    CZ
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => setLanguage('en')}
-                    className="cursor-pointer hover:bg-black/5"
-                  >
-                    EN
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => setLanguage('de')}
-                    className="cursor-pointer hover:bg-black/5"
-                  >
-                    DE
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-
-              <Button 
-                className="rounded-full px-6 bg-black text-white hover:bg-black/90" 
-                onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}
-              >
-                Mám zájem
-              </Button>
-            </div>
+            {/* CTA Button */}
+            <Button 
+              className={`rounded-full px-6 bg-black text-white hover:bg-black/90 transition-all duration-300 ml-auto ${
+                showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+              }`} 
+              onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}
+            >
+              Mám zájem
+            </Button>
           </div>
         </div>
       </header>
