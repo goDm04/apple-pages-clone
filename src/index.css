@@ -38,6 +38,16 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    /* Aurora background variables */
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --transparent: transparent;
+    --blue-500: hsl(217, 91%, 60%);
+    --indigo-300: hsl(225, 100%, 73%);
+    --blue-300: hsl(213, 94%, 68%);
+    --violet-200: hsl(270, 100%, 86%);
+    --blue-400: hsl(213, 94%, 68%);
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
