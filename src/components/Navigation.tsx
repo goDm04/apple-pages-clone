@@ -70,7 +70,7 @@ const Navigation = () => {
               <img 
                 src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" 
                 alt="Logo" 
-                className="h-2 w-auto" 
+                className="h-6 w-auto" 
               />
             </a>
 
@@ -128,7 +128,7 @@ const Navigation = () => {
               <img 
                 src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" 
                 alt="Logo" 
-                className="h-2 w-auto" 
+                className="h-6 w-auto" 
               />
             </a>
 
