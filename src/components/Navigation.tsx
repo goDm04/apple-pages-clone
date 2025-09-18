@@ -12,6 +12,9 @@ const Navigation = () => {
   } = useLanguage();
   const [activeItem, setActiveItem] = useState("Domů");
   const [isOnHero, setIsOnHero] = useState(true);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
+  const [showLogoButton, setShowLogoButton] = useState(false);
   const navItems = [{
     name: "Domů",
     href: "#hero"
@@ -29,6 +32,19 @@ const Navigation = () => {
     href: "#kontakt"
   }];
   const [open, setOpen] = useState(false);
+  
+  // Animation sequence on page load
+  useEffect(() => {
+    const timer1 = setTimeout(() => setShowNavbar(true), 300);
+    const timer2 = setTimeout(() => setShowLinks(true), 800);
+    const timer3 = setTimeout(() => setShowLogoButton(true), 1200);
+    
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, []);
   useEffect(() => {
     const ids = ["hero", "sluzby", "portfolio", "o-nas", "kontakt"];
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
@@ -103,10 +119,18 @@ const Navigation = () => {
 
       {/* Desktop navbar */}
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] hidden lg:block">
-        <div className="backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84]">
+        <div className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${
+          showNavbar ? 'w-[800px] opacity-100' : 'w-4 opacity-0'
+        }`}>
           <div className="flex items-center justify-between min-w-[800px]">
             {/* Logo */}
-            <a href="#hero" onClick={e => handleNavClick(e, "#hero", "Domů")} className="flex items-center">
+            <a 
+              href="#hero" 
+              onClick={e => handleNavClick(e, "#hero", "Domů")} 
+              className={`flex items-center transition-all duration-300 ${
+                showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+              }`}
+            >
               <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
             </a>
 
@@ -114,14 +138,33 @@ const Navigation = () => {
             <div className="flex-1"></div>
 
             {/* Centered Navigation menu */}
-            <nav className="flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
-              {navItems.map(item => <a key={item.name} href={item.href} onClick={e => handleNavClick(e, item.href, item.name)} className={`text-sm font-medium transition-colors ${activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"}`}>
+            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
+              showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+            }`}>
+              {navItems.map((item, index) => 
+                <a 
+                  key={item.name} 
+                  href={item.href} 
+                  onClick={e => handleNavClick(e, item.href, item.name)} 
+                  className={`text-sm font-medium transition-all duration-300 ${
+                    activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"
+                  } ${showLinks ? 'opacity-100' : 'opacity-0'}`}
+                  style={{ 
+                    transitionDelay: showLinks ? `${index * 100}ms` : '0ms' 
+                  }}
+                >
                   {item.name}
-                </a>)}
+                </a>
+              )}
             </nav>
 
             {/* CTA Button */}
-            <Button className="rounded-full px-6 bg-black text-white hover:bg-black/90" onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}>
+            <Button 
+              className={`rounded-full px-6 bg-black text-white hover:bg-black/90 transition-all duration-300 ${
+                showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+              }`} 
+              onClick={(e) => handleNavClick(e, "#kontakt", "Kontakt")}
+            >
               Mám zájem
             </Button>
           </div>
