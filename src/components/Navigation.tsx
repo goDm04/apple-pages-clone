@@ -67,7 +67,7 @@ const Navigation = () => {
           <div className="h-16 flex items-center justify-between">
             {/* Logo */}
             <a href="#hero" onClick={e => handleNavClick(e, "#hero", "Domů")} className="flex items-center">
-              <img src="/lovable-uploads/7cc33aec-a3cc-4201-9de1-1b8d9d0991b6.png" alt="Logo" className="h-6 w-auto" />
+              <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
             </a>
 
             {/* Mobile menu button */}
@@ -109,7 +109,7 @@ const Navigation = () => {
             <div className="flex items-center space-x-8">
               {/* Logo */}
               <a href="#hero" onClick={e => handleNavClick(e, "#hero", "Domů")} className="flex items-center">
-                <img src="/lovable-uploads/7cc33aec-a3cc-4201-9de1-1b8d9d0991b6.png" alt="Logo" className="h-6 w-auto" />
+                <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
               </a>
 
               {/* Navigation menu */}
