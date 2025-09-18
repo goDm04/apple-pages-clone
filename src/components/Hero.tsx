@@ -28,7 +28,7 @@ const Hero = () => {
         />
 
         {/* Main headline */}
-        <h1 className="font-sf text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-tight py-2">
+        <h1 className="font-sf text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-tight py-2 md:py-0">
           {t("heroTitle")}<br />
           {t("heroTitleLine2")}
         </h1>
