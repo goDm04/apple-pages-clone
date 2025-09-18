@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Spotlight, GridBackground } from "@/components/ui/spotlight";
@@ -6,6 +6,12 @@ import { Spotlight, GridBackground } from "@/components/ui/spotlight";
 const Hero = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   const { t } = useLanguage();
+  const [showText, setShowText] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowText(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <header 
@@ -28,13 +34,17 @@ const Hero = () => {
         />
 
         {/* Main headline */}
-        <h1 className="font-sf text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-tight py-2 md:py-0 md:leading-tight lg:leading-tight">
+        <h1 className={`font-sf text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-tight py-2 md:py-0 md:leading-tight lg:leading-tight transition-all duration-700 ease-out ${
+          showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           {t("heroTitle")}<br />
           {t("heroTitleLine2")}
         </h1>
 
         {/* Subheading */}
-        <p className="mx-auto max-w-3xl text-lg md:text-xl font-regular text-neutral-300 text-center">
+        <p className={`mx-auto max-w-3xl text-lg md:text-xl font-regular text-neutral-300 text-center transition-all duration-700 ease-out delay-200 ${
+          showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           {t("heroSubtitle")}<br />
           {t("heroSubtitleLine2")}
         </p>
