@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Menu } from "lucide-react";
@@ -33,6 +33,10 @@ const Navigation = () => {
   }];
   const [open, setOpen] = useState(false);
   
+  // Refs for measuring nav items
+  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const [indicatorStyle, setIndicatorStyle] = useState({ width: 0, left: 0 });
+  
   // Animation sequence on page load
   useEffect(() => {
     const timer1 = setTimeout(() => setShowNavbar(true), 300);
@@ -45,6 +49,31 @@ const Navigation = () => {
       clearTimeout(timer3);
     };
   }, []);
+  
+  // Update indicator position when active item changes
+  useEffect(() => {
+    const updateIndicator = () => {
+      const activeIndex = navItems.findIndex(item => item.name === activeItem);
+      if (activeIndex !== -1 && navRefs.current[activeIndex]) {
+        const activeRef = navRefs.current[activeIndex];
+        const rect = activeRef?.getBoundingClientRect();
+        const parentRect = activeRef?.parentElement?.getBoundingClientRect();
+        
+        if (rect && parentRect) {
+          setIndicatorStyle({
+            width: rect.width,
+            left: rect.left - parentRect.left
+          });
+        }
+      }
+    };
+    
+    if (showLinks) {
+      // Small delay to ensure DOM is updated
+      setTimeout(updateIndicator, 100);
+    }
+  }, [activeItem, showLinks]);
+  
   useEffect(() => {
     const ids = ["hero", "sluzby", "portfolio", "o-nas", "kontakt"];
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
@@ -161,14 +190,15 @@ const Navigation = () => {
               <div 
                 className="absolute bottom-0 h-0.5 bg-black rounded-full transition-all duration-300 ease-out"
                 style={{
-                  width: '24px',
-                  left: `${navItems.findIndex(item => item.name === activeItem) * 96 + 36}px`,
+                  width: `${indicatorStyle.width}px`,
+                  left: `${indicatorStyle.left}px`,
                   opacity: showLinks ? 1 : 0
                 }}
               />
               {navItems.map((item, index) => 
                 <a 
                   key={item.name} 
+                  ref={el => navRefs.current[index] = el}
                   href={item.href} 
                   onClick={e => handleNavClick(e, item.href, item.name)} 
                   className={`text-sm font-medium transition-all duration-300 relative pb-2 ${
