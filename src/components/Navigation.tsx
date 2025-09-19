@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Menu } from "lucide-react";
@@ -33,10 +33,6 @@ const Navigation = () => {
   }];
   const [open, setOpen] = useState(false);
   
-  // Refs for measuring nav items
-  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-  const [indicatorStyle, setIndicatorStyle] = useState({ width: 0, left: 0 });
-  
   // Animation sequence on page load
   useEffect(() => {
     const timer1 = setTimeout(() => setShowNavbar(true), 300);
@@ -49,31 +45,6 @@ const Navigation = () => {
       clearTimeout(timer3);
     };
   }, []);
-  
-  // Update indicator position when active item changes
-  useEffect(() => {
-    const updateIndicator = () => {
-      const activeIndex = navItems.findIndex(item => item.name === activeItem);
-      if (activeIndex !== -1 && navRefs.current[activeIndex]) {
-        const activeRef = navRefs.current[activeIndex];
-        const rect = activeRef?.getBoundingClientRect();
-        const parentRect = activeRef?.parentElement?.getBoundingClientRect();
-        
-        if (rect && parentRect) {
-          setIndicatorStyle({
-            width: rect.width,
-            left: rect.left - parentRect.left
-          });
-        }
-      }
-    };
-    
-    if (showLinks) {
-      // Small delay to ensure DOM is updated
-      setTimeout(updateIndicator, 50);
-    }
-  }, [activeItem, showLinks, navItems]);
-  
   useEffect(() => {
     const ids = ["hero", "sluzby", "portfolio", "o-nas", "kontakt"];
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
@@ -98,29 +69,11 @@ const Navigation = () => {
   const handleNavClick = (e: React.MouseEvent, href: string, name: string) => {
     e.preventDefault();
     const id = href.replace('#', '');
-    
-    // Immediately update active item and indicator
-    setActiveItem(name);
-    
-    // Update indicator position immediately
-    const activeIndex = navItems.findIndex(item => item.name === name);
-    if (activeIndex !== -1 && navRefs.current[activeIndex]) {
-      const activeRef = navRefs.current[activeIndex];
-      const rect = activeRef?.getBoundingClientRect();
-      const parentRect = activeRef?.parentElement?.getBoundingClientRect();
-      
-      if (rect && parentRect) {
-        setIndicatorStyle({
-          width: rect.width,
-          left: rect.left - parentRect.left
-        });
-      }
-    }
-    
     document.getElementById(id)?.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     });
+    setActiveItem(name);
     setOpen(false);
   };
   // Check if body has overflow hidden (when modal is open)
@@ -201,38 +154,25 @@ const Navigation = () => {
             </a>
 
             {/* Centered Navigation menu */}
-            <div className="flex-1 flex justify-center">
-              <nav className={`flex items-center space-x-6 transition-all duration-300 relative ${
-                showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-              }`}>
-                {/* Animated indicator */}
-                <div 
-                  className="absolute bottom-0 h-0.5 bg-black rounded-full"
-                  style={{
-                    width: `${indicatorStyle.width}px`,
-                    left: `${indicatorStyle.left}px`,
-                    opacity: showLinks ? 1 : 0,
-                    transition: 'none'
+            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
+              showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+            }`}>
+              {navItems.map((item, index) => 
+                <a 
+                  key={item.name} 
+                  href={item.href} 
+                  onClick={e => handleNavClick(e, item.href, item.name)} 
+                  className={`text-sm font-medium transition-all duration-300 ${
+                    activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"
+                  } ${showLinks ? 'opacity-100' : 'opacity-0'}`}
+                  style={{ 
+                    transitionDelay: showLinks ? `${index * 100}ms` : '0ms' 
                   }}
-                />
-                {navItems.map((item, index) => 
-                  <a 
-                    key={item.name} 
-                    ref={el => navRefs.current[index] = el}
-                    href={item.href} 
-                    onClick={e => handleNavClick(e, item.href, item.name)} 
-                    className={`text-sm font-medium transition-all duration-300 relative pb-2 ${
-                      activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"
-                    } ${showLinks ? 'opacity-100' : 'opacity-0'}`}
-                    style={{ 
-                      transitionDelay: showLinks ? `${index * 100}ms` : '0ms' 
-                    }}
-                  >
-                    {item.name}
-                  </a>
-                )}
-              </nav>
-            </div>
+                >
+                  {item.name}
+                </a>
+              )}
+            </nav>
 
             {/* CTA Button */}
             <Button 
