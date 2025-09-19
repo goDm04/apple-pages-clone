@@ -12,12 +12,12 @@ const AboutSection = () => {
     <section 
       id="o-nas" 
       aria-labelledby="about-heading" 
-      className={`py-16 px-8 max-w-7xl mx-auto transition-all duration-700 md:bg-transparent bg-muted ${
+      className={`py-8 px-8 max-w-7xl mx-auto transition-all duration-700 md:bg-transparent bg-muted ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <div className="md:rounded-3xl p-8 md:p-12 md:bg-muted">
+      <div className="md:rounded-3xl p-6 md:p-8 md:bg-muted">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-3">
