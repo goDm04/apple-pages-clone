@@ -201,35 +201,38 @@ const Navigation = () => {
             </a>
 
             {/* Centered Navigation menu */}
-            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 relative ${
-              showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-            }`}>
-              {/* Animated indicator */}
-              <div 
-                className="absolute bottom-0 h-0.5 bg-black rounded-full transition-all duration-300 ease-out"
-                style={{
-                  width: `${indicatorStyle.width}px`,
-                  left: `${indicatorStyle.left}px`,
-                  opacity: showLinks ? 1 : 0
-                }}
-              />
-              {navItems.map((item, index) => 
-                <a 
-                  key={item.name} 
-                  ref={el => navRefs.current[index] = el}
-                  href={item.href} 
-                  onClick={e => handleNavClick(e, item.href, item.name)} 
-                  className={`text-sm font-medium transition-all duration-300 relative pb-2 ${
-                    activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"
-                  } ${showLinks ? 'opacity-100' : 'opacity-0'}`}
-                  style={{ 
-                    transitionDelay: showLinks ? `${index * 100}ms` : '0ms' 
+            <div className="flex-1 flex justify-center">
+              <nav className={`flex items-center space-x-6 transition-all duration-300 relative ${
+                showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+              }`}>
+                {/* Animated indicator */}
+                <div 
+                  className="absolute bottom-0 h-0.5 bg-black rounded-full"
+                  style={{
+                    width: `${indicatorStyle.width}px`,
+                    left: `${indicatorStyle.left}px`,
+                    opacity: showLinks ? 1 : 0,
+                    transition: 'none'
                   }}
-                >
-                  {item.name}
-                </a>
-              )}
-            </nav>
+                />
+                {navItems.map((item, index) => 
+                  <a 
+                    key={item.name} 
+                    ref={el => navRefs.current[index] = el}
+                    href={item.href} 
+                    onClick={e => handleNavClick(e, item.href, item.name)} 
+                    className={`text-sm font-medium transition-all duration-300 relative pb-2 ${
+                      activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"
+                    } ${showLinks ? 'opacity-100' : 'opacity-0'}`}
+                    style={{ 
+                      transitionDelay: showLinks ? `${index * 100}ms` : '0ms' 
+                    }}
+                  >
+                    {item.name}
+                  </a>
+                )}
+              </nav>
+            </div>
 
             {/* CTA Button */}
             <Button 
