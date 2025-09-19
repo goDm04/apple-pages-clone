@@ -45,11 +45,6 @@ const AboutSection = () => {
               </li>
             </ul>
 
-            <div className="pt-2">
-              <Button size="lg" asChild className="font-sf font-semibold bg-black text-white hover:bg-black/90">
-                <a href="#kontakt">{t("contactUs")}</a>
-              </Button>
-            </div>
           </div>
 
           <figure className="flex justify-center">
