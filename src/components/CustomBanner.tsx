@@ -5,7 +5,7 @@ export default function CustomBanner() {
     t
   } = useLanguage();
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
+    const contactSection = document.getElementById('kontakt');
     if (contactSection) {
       contactSection.scrollIntoView({
         behavior: 'smooth'
