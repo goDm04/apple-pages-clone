@@ -76,12 +76,28 @@ const Navigation = () => {
     setActiveItem(name);
     setOpen(false);
   };
-  // Check if any card modal is open
-  const isCardModalOpen = document.querySelector('.fixed.inset-0.z-\\[9999\\]') !== null;
+  // Check if body has overflow hidden (when modal is open)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  useEffect(() => {
+    const checkModalState = () => {
+      setIsModalOpen(document.body.style.overflow === "hidden");
+    };
+    
+    // Check initially and set up observer
+    checkModalState();
+    const observer = new MutationObserver(checkModalState);
+    observer.observe(document.body, { 
+      attributes: true, 
+      attributeFilter: ['style'] 
+    });
+    
+    return () => observer.disconnect();
+  }, []);
 
   return <>
       {/* Mobile navbar */}
-      <header className={`fixed top-0 left-0 right-0 z-[100] block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border transition-opacity duration-300 ${isCardModalOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-[100] block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full' : 'opacity-100 transform translate-y-0'}`}>
         <div className="mx-auto max-w-7xl px-4">
           <div className="h-16 flex items-center justify-between">
             {/* Logo */}
@@ -121,7 +137,7 @@ const Navigation = () => {
       </header>
 
       {/* Desktop navbar */}
-      <header className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] hidden lg:block transition-opacity duration-300 ${isCardModalOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <header className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] hidden lg:block transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full scale-95' : 'opacity-100 transform translate-y-0 scale-100'}`}>
         <div className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${
           showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'
         }`}>
