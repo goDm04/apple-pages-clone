@@ -70,9 +70,9 @@ const Navigation = () => {
     
     if (showLinks) {
       // Small delay to ensure DOM is updated
-      setTimeout(updateIndicator, 100);
+      setTimeout(updateIndicator, 50);
     }
-  }, [activeItem, showLinks]);
+  }, [activeItem, showLinks, navItems]);
   
   useEffect(() => {
     const ids = ["hero", "sluzby", "portfolio", "o-nas", "kontakt"];
@@ -183,7 +183,7 @@ const Navigation = () => {
             </a>
 
             {/* Centered Navigation menu */}
-            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 relative ${
+            <nav className={`flex items-center justify-center space-x-6 transition-all duration-300 relative ${
               showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
               {/* Animated indicator */}
