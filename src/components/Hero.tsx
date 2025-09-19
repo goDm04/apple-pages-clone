@@ -23,7 +23,14 @@ const Hero = () => {
       <GridBackground />
       
       {/* Spotlight Effect */}
-      <Spotlight />
+      <Spotlight 
+        gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 85%, .15) 0, hsla(210, 100%, 55%, .08) 50%, hsla(210, 100%, 45%, .03) 80%)"
+        gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 85%, .12) 0, hsla(210, 100%, 55%, .06) 80%, transparent 100%)"
+        gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 85%, .08) 0, hsla(210, 100%, 45%, .04) 80%, transparent 100%)"
+      />
+      
+      {/* Additional ambient lighting */}
+      <div className="absolute inset-0 bg-gradient-radial from-blue-500/5 via-transparent to-transparent z-5" />
 
       <div className="relative z-10 container mx-auto flex flex-col items-center justify-center min-h-[95vh] md:min-h-screen py-24 text-center gap-6">
         {/* Small logo above heading */}
