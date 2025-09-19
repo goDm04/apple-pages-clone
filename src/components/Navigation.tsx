@@ -98,11 +98,29 @@ const Navigation = () => {
   const handleNavClick = (e: React.MouseEvent, href: string, name: string) => {
     e.preventDefault();
     const id = href.replace('#', '');
+    
+    // Immediately update active item and indicator
+    setActiveItem(name);
+    
+    // Update indicator position immediately
+    const activeIndex = navItems.findIndex(item => item.name === name);
+    if (activeIndex !== -1 && navRefs.current[activeIndex]) {
+      const activeRef = navRefs.current[activeIndex];
+      const rect = activeRef?.getBoundingClientRect();
+      const parentRect = activeRef?.parentElement?.getBoundingClientRect();
+      
+      if (rect && parentRect) {
+        setIndicatorStyle({
+          width: rect.width,
+          left: rect.left - parentRect.left
+        });
+      }
+    }
+    
     document.getElementById(id)?.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     });
-    setActiveItem(name);
     setOpen(false);
   };
   // Check if body has overflow hidden (when modal is open)
@@ -183,7 +201,7 @@ const Navigation = () => {
             </a>
 
             {/* Centered Navigation menu */}
-            <nav className={`flex items-center justify-center space-x-6 transition-all duration-300 relative ${
+            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 relative ${
               showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
               {/* Animated indicator */}
