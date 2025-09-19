@@ -55,50 +55,19 @@ const DummyContent = ({ t }: { t: (key: string) => string }) => {
 
 const CentrumPojisteniContent = () => {
   return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"centrum-pojisteni-content" + index}
-            className="bg-muted p-8 md:p-14 rounded-3xl mb-4 flex flex-col h-full"
-          >
-            <p className="text-muted-foreground text-base md:text-2xl font-sf max-w-3xl mx-auto mb-8">
-              {index === 0 && (
-                <>
-                  <span className="font-bold text-foreground">
-                    Pojištěno i na sociálních sítích.
-                  </span>{" "}
-                  Cílem bylo ukázat širokou nabídku pojištění moderně, srozumitelně a tak, aby působila blíže lidem.
-                </>
-              )}
-              {index === 1 && (
-                <>
-                  Připravili sérii postů, které kombinují vizuální čistotu s jasně formulovanými sděleními. Každý příspěvek měl ukázat konkrétní přínos služeb a zároveň posílit důvěryhodnost značky.
-                </>
-              )}
-              {index === 2 && (
-                <>
-                  Kladli jsme důraz na konzistentní vizuální styl a tón komunikace, který odpovídá hodnotám značky. Díky tomu vznikl obsah, který nejen informuje, ale také buduje povědomí a zapamatovatelnost.
-                </>
-              )}
-            </p>
-            {index === 0 ? (
-              <img
-                src="/lovable-uploads/96faa918-38d6-488e-8fc7-1f52b00ecee2.png"
-                alt="Centrum pojištění Vlašim - marketingové materiály"
-                className="md:w-3/3 md:h-3/3 h-full w-full mx-auto object-contain rounded-lg mt-auto"
-              />
-            ) : (
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
-                alt="Centrum pojištění Vlašim portfolio image"
-                className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg mt-auto"
-              />
-            )}
-          </div>
-        );
-      })}
-    </>
+    <div className="bg-muted p-8 md:p-14 rounded-3xl mb-4 flex flex-col h-full">
+      <p className="text-muted-foreground text-base md:text-2xl font-sf max-w-3xl mx-auto mb-8">
+        <span className="font-bold text-foreground">
+          Pojištěno i na sociálních sítích.
+        </span>{" "}
+        Cílem bylo ukázat širokou nabídku pojištění moderně, srozumitelně a tak, aby působila blíže lidem.
+      </p>
+      <img
+        src="/lovable-uploads/96faa918-38d6-488e-8fc7-1f52b00ecee2.png"
+        alt="Centrum pojištění Vlašim - marketingové materiály"
+        className="md:w-3/3 md:h-3/3 h-full w-full mx-auto object-contain rounded-lg mt-auto"
+      />
+    </div>
   );
 };
 
