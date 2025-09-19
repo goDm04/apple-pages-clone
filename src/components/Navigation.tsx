@@ -154,15 +154,24 @@ const Navigation = () => {
             </a>
 
             {/* Centered Navigation menu */}
-            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
+            <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 relative ${
               showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
+              {/* Animated indicator */}
+              <div 
+                className="absolute bottom-0 h-0.5 bg-black rounded-full transition-all duration-300 ease-out"
+                style={{
+                  width: '24px',
+                  left: `${navItems.findIndex(item => item.name === activeItem) * 96 + 36}px`,
+                  opacity: showLinks ? 1 : 0
+                }}
+              />
               {navItems.map((item, index) => 
                 <a 
                   key={item.name} 
                   href={item.href} 
                   onClick={e => handleNavClick(e, item.href, item.name)} 
-                  className={`text-sm font-medium transition-all duration-300 ${
+                  className={`text-sm font-medium transition-all duration-300 relative pb-2 ${
                     activeItem === item.name ? "text-black" : "text-black/80 hover:text-black"
                   } ${showLinks ? 'opacity-100' : 'opacity-0'}`}
                   style={{ 
