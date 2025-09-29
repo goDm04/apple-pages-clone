@@ -68,7 +68,7 @@ const translations = {
     process3Title: "Vytvoříme a společně spustíme",
     process3Desc: "Kreativu převedeme do funkční reality – weby, vizuály i kampaně připravujeme tak, aby nejen vypadaly skvěle, ale taky měly dopad.",
     process4Title: "Spravujeme a posouváme dál",
-    process4Desc: "Značka nekončí spuštěním. Sledujeme, co funguje, co je potřeba ladit a jak vás dál rozvpět – třeba skrze správu sítí nebo další obsah.",
+    process4Desc: "Značka nekončí spuštěním. Sledujeme, co funguje, co je potřeba ladit a jak vás dál rozvíjet – třeba skrze správu sítí nebo další obsah.",
     
     // FAQ
     faqTitle: "Často kladené otázky",
