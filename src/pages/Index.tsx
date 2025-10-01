@@ -9,10 +9,12 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import StatsSection from "@/components/StatsSection";
 import CustomBanner from "@/components/CustomBanner";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background animate-fade-in">
+      <SmoothScroll />
       <Navigation />
       <Hero />
       <StatsSection />
