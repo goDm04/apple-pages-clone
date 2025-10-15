@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Czech (default) -->
+  <url>
+    <loc>https://www.yoursite.com/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.yoursite.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.yoursite.com/en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.yoursite.com/de" />
+  </url>
+  
+  <!-- English -->
+  <url>
+    <loc>https://www.yoursite.com/en</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.yoursite.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.yoursite.com/en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.yoursite.com/de" />
+  </url>
+  
+  <!-- German -->
+  <url>
+    <loc>https://www.yoursite.com/de</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.yoursite.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.yoursite.com/en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.yoursite.com/de" />
+  </url>
+  
+</urlset>
