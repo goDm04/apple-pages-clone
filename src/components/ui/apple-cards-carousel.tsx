@@ -270,7 +270,7 @@ const handleOpen = () => {
         <BlurImage
           src={card.src}
           alt={card.title}
-          className="absolute inset-0 z-10 object-cover"
+          className="absolute inset-0 z-10 object-cover scale-125"
         />
       </motion.button>
     </>
