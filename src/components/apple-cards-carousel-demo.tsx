@@ -74,6 +74,13 @@ const CentrumPojisteniContent = () => {
 const data = (t: (key: string) => string) => [
   {
     category: t('categoryWebsites'),
+    title: "MŠ K Vodárně",
+    src: "/lovable-uploads/ms-k-vodarne.png",
+    href: "https://skolka.tensioncreative.cz",
+    content: <DummyContent t={t} />,
+  },
+  {
+    category: t('categoryWebsites'),
     title: "Odstěhováno.cz",
     src: "https://imgur.com/QEWFIRL.jpeg",
     href: "https://odstehovano.cz",
