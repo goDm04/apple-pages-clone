@@ -104,65 +104,65 @@ const PricingSection = () => {
           return (
             <div
               key={card.name}
-              className={`relative rounded-3xl p-6 flex flex-col transition-all duration-300 hover:scale-105 ${
-                card.highlighted 
-                  ? 'bg-primary text-primary-foreground shadow-2xl scale-[1.02]' 
-                  : 'bg-muted'
-              }`}
+            className={`relative rounded-3xl p-6 flex flex-col transition-all duration-300 hover:scale-105 ${
+              card.highlighted 
+                ? 'bg-black text-white shadow-2xl scale-[1.02]' 
+                : 'bg-muted'
+            }`}
             >
-              {card.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-foreground text-background px-4 py-1 rounded-full text-xs font-medium font-sf">
-                  Nejoblíbenější
-                </div>
+            {card.highlighted && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 rounded-full text-xs font-medium font-sf">
+                Nejoblíbenější
+              </div>
               )}
 
-              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${
-                card.highlighted ? 'bg-primary-foreground/20' : 'bg-primary/10'
-              }`}>
-                <IconComponent className={`h-6 w-6 ${
-                  card.highlighted ? 'text-primary-foreground' : 'text-primary'
-                }`} />
-              </div>
+            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${
+              card.highlighted ? 'bg-white/20' : 'bg-primary/10'
+            }`}>
+              <IconComponent className={`h-6 w-6 ${
+                card.highlighted ? 'text-white' : 'text-primary'
+              }`} />
+            </div>
 
-              <h3 className={`text-2xl font-bold font-sf mb-1 ${
-                card.highlighted ? 'text-primary-foreground' : 'text-foreground'
-              }`}>
-                {card.name}
-              </h3>
+            <h3 className={`text-2xl font-bold font-sf mb-1 ${
+              card.highlighted ? 'text-white' : 'text-foreground'
+            }`}>
+              {card.name}
+            </h3>
 
-              <p className={`text-xs uppercase tracking-wider mb-3 font-sf ${
-                card.highlighted ? 'text-primary-foreground/60' : 'text-muted-foreground'
-              }`}>
-                {card.subtitle}
-              </p>
+            <p className={`text-xs uppercase tracking-wider mb-3 font-sf ${
+              card.highlighted ? 'text-white/60' : 'text-muted-foreground'
+            }`}>
+              {card.subtitle}
+            </p>
               
-              <p className={`text-sm mb-4 font-sf ${
-                card.highlighted ? 'text-primary-foreground/80' : 'text-muted-foreground'
-              }`}>
-                {card.description}
-              </p>
+            <p className={`text-sm mb-4 font-sf ${
+              card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+            }`}>
+              {card.description}
+            </p>
 
-              <div className="mb-6">
-                <span className={`text-4xl font-bold font-sf ${
-                  card.highlighted ? 'text-primary-foreground' : 'text-foreground'
-                }`}>
-                  {card.price}
-                </span>
-                <span className={`text-sm font-sf ${
-                  card.highlighted ? 'text-primary-foreground/80' : 'text-muted-foreground'
-                }`}>
-                  {" "}Kč
-                </span>
-              </div>
+            <div className="mb-6">
+              <span className={`text-4xl font-bold font-sf ${
+                card.highlighted ? 'text-white' : 'text-foreground'
+              }`}>
+                {card.price}
+              </span>
+              <span className={`text-sm font-sf ${
+                card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+              }`}>
+                {" "}Kč
+              </span>
+            </div>
 
               <ul className="space-y-3 flex-1">
                 {card.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <Check className={`h-4 w-4 mt-0.5 shrink-0 ${
-                      card.highlighted ? 'text-primary-foreground' : 'text-primary'
+                      card.highlighted ? 'text-white' : 'text-primary'
                     }`} />
                     <span className={`text-sm font-sf ${
-                      card.highlighted ? 'text-primary-foreground/90' : 'text-foreground'
+                      card.highlighted ? 'text-white/90' : 'text-foreground'
                     }`}>
                       {feature}
                     </span>
@@ -170,29 +170,29 @@ const PricingSection = () => {
                 ))}
               </ul>
 
-              <div className={`mt-6 pt-4 border-t ${
-                card.highlighted ? 'border-primary-foreground/20' : 'border-border'
+            <div className={`mt-6 pt-4 border-t ${
+              card.highlighted ? 'border-white/20' : 'border-border'
+            }`}>
+              <p className={`text-xs font-sf mb-4 ${
+                card.highlighted ? 'text-white/60' : 'text-muted-foreground'
               }`}>
-                <p className={`text-xs font-sf mb-4 ${
-                  card.highlighted ? 'text-primary-foreground/60' : 'text-muted-foreground'
-                }`}>
-                  Dodání: {card.deliveryTime}
-                </p>
-                <Button 
-                  className={`w-full font-sf ${
-                    card.highlighted 
-                      ? 'bg-primary-foreground text-primary hover:bg-primary-foreground/90' 
-                      : ''
-                  }`}
-                  variant={card.highlighted ? 'default' : 'default'}
-                  onClick={() => {
-                    const contactSection = document.getElementById('kontakt');
-                    contactSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Mám zájem
-                </Button>
-              </div>
+                Dodání: {card.deliveryTime}
+              </p>
+              <Button 
+                className={`w-full font-sf ${
+                  card.highlighted 
+                    ? 'bg-white text-black hover:bg-white/90' 
+                    : 'bg-black text-white hover:bg-black/90'
+                }`}
+                variant="default"
+                onClick={() => {
+                  const contactSection = document.getElementById('kontakt');
+                  contactSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Mám zájem
+              </Button>
+            </div>
             </div>
           );
         })}
