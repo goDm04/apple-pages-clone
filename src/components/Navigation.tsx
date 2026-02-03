@@ -28,6 +28,9 @@ const Navigation = () => {
     name: "O nás",
     href: "#o-nas"
   }, {
+    name: "Ceník",
+    href: "#cenik"
+  }, {
     name: "Kontakt",
     href: "#kontakt"
   }];
