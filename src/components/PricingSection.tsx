@@ -10,14 +10,12 @@ const PricingSection = () => {
   const pricingCards = [
     {
       name: "One",
-      method: "Lovable (AI)",
       target: "Startupy, řemeslníci, landing pages",
       price: "14 900",
       features: ["Jednoduchý web", "Responzivní design", "Základní SEO"],
     },
     {
       name: "One Custom",
-      method: "Figma + Custom",
       target: "Ambiciózní brandy, unikátní design",
       price: "29 900",
       features: ["Vlastní design", "Prémiový vzhled", "Pokročilé SEO"],
@@ -25,14 +23,12 @@ const PricingSection = () => {
     },
     {
       name: "Multi",
-      method: "Lovable (AI)",
       target: "Menší firmy, penziony, služby",
       price: "34 900",
       features: ["Více stránek", "CMS systém", "Kontaktní formuláře"],
     },
     {
       name: "Multi Custom",
-      method: "Figma + Custom",
       target: "Profi firmy, weby s obsahem na míru",
       price: "59 900",
       features: ["Kompletní řešení", "Individuální přístup", "Prémiová podpora"],
@@ -72,16 +68,6 @@ const PricingSection = () => {
                 Nejoblíbenější
               </div>
             )}
-            
-            <div className="mb-4">
-              <span className={`text-xs font-medium px-3 py-1 rounded-full ${
-                card.highlighted 
-                  ? 'bg-primary-foreground/20 text-primary-foreground' 
-                  : 'bg-background text-muted-foreground'
-              }`}>
-                {card.method}
-              </span>
-            </div>
 
             <h3 className={`text-2xl font-bold font-sf mb-2 ${
               card.highlighted ? 'text-primary-foreground' : 'text-foreground'
