@@ -174,7 +174,7 @@ const PricingSection = () => {
               card.highlighted ? 'border-white/20' : 'border-border'
             }`}>
               <Button 
-                className={`w-full font-sf ${
+                className={`w-full font-sf rounded-full ${
                   card.highlighted 
                     ? 'bg-white text-black hover:bg-white/90' 
                     : 'bg-black text-white hover:bg-black/90'
