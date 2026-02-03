@@ -91,7 +91,7 @@ const PricingSection = () => {
     >
       <div className="text-center mb-12">
         <h2 id="pricing-heading" className="text-3xl md:text-5xl font-bold text-foreground font-sf">
-          Ceník
+          Ceník webových stránek
         </h2>
         <p className="text-muted-foreground mt-4 max-w-2xl mx-auto font-sf">
           Vyberte si balíček, který nejlépe vyhovuje vašim potřebám
