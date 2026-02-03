@@ -173,11 +173,6 @@ const PricingSection = () => {
             <div className={`mt-6 pt-4 border-t ${
               card.highlighted ? 'border-white/20' : 'border-border'
             }`}>
-              <p className={`text-xs font-sf mb-4 ${
-                card.highlighted ? 'text-white/60' : 'text-muted-foreground'
-              }`}>
-                Dodání: {card.deliveryTime}
-              </p>
               <Button 
                 className={`w-full font-sf ${
                   card.highlighted 

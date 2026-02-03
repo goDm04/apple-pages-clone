@@ -73,7 +73,7 @@ const translations = {
     // FAQ
     faqTitle: "Často kladené otázky",
     faq1Q: "Jak dlouho trvá realizace webu?",
-    faq1A: "Do týdne od zahájení zhotovíme vizuální návrh, který společně doladíme. Následující týden web doděláme a spustíme - už za dva týdny může být online.",
+    faq1A: "Jednodušší weby zvládneme zrealizovat do 2 týdnů, komplexnější projekty do 4 týdnů. To vše za předpokladu, že máme od vás všechny potřebné podklady a informace – čím dříve je dostaneme, tím rychleji můžeme dodat.",
     faq2Q: "Jaké služby poskytujete?",
     faq2A: "Tvoříme kompletní vizuální identity, webové stránky, spravujeme firemní profily na sociálních sítích a připravujeme grafiku pro tisk, od plakátů až po produktové potisky. Pomáháme značkám působit jednotně a profesionálně napříč všemi kanály.",
     faq3Q: "Spolupracujete i se začínajícími firmami?",
@@ -165,7 +165,7 @@ const translations = {
     // FAQ
     faqTitle: "Frequently asked questions",
     faq1Q: "How long does website development take?",
-    faq1A: "Within a week of starting, we'll create a visual design that we'll fine-tune together. The following week we'll finish and launch the website - it can be online in just two weeks.",
+    faq1A: "We can complete simpler websites within 2 weeks, more complex projects within 4 weeks. This assumes we have all the necessary materials and information from you – the sooner we receive them, the faster we can deliver.",
     faq2Q: "What services do you offer?",
     faq2A: "We create complete visual identities, websites, manage corporate profiles on social networks and prepare graphics for print, from posters to product prints. We help brands appear consistent and professional across all channels.",
     faq3Q: "Do you work with startups too?",
@@ -257,7 +257,7 @@ const translations = {
     // FAQ
     faqTitle: "Häufig gestellte Fragen",
     faq1Q: "Wie lange dauert die Website-Entwicklung?",
-    faq1A: "Innerhalb einer Woche nach dem Start erstellen wir ein visuelles Design, das wir gemeinsam verfeinern werden. In der folgenden Woche werden wir die Website fertigstellen und starten - sie kann bereits in zwei Wochen online sein.",
+    faq1A: "Einfachere Websites können wir innerhalb von 2 Wochen realisieren, komplexere Projekte innerhalb von 4 Wochen. Dies setzt voraus, dass wir alle notwendigen Materialien und Informationen von Ihnen haben – je früher wir sie erhalten, desto schneller können wir liefern.",
     faq2Q: "Welche Dienstleistungen bieten Sie an?",
     faq2A: "Wir erstellen komplette visuelle Identitäten, Webseiten, verwalten Unternehmensprofile in sozialen Netzwerken und bereiten Grafiken für den Druck vor, von Plakaten bis zu Produktdrucken. Wir helfen Marken, konsistent und professionell über alle Kanäle zu erscheinen.",
     faq3Q: "Arbeiten Sie auch mit Startups zusammen?",
