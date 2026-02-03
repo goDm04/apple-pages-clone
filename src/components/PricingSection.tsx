@@ -70,11 +70,11 @@ const PricingSection = () => {
       description: "Maximální flexibilita a funkcionalita pro náročné projekty bez kompromisů.",
       features: [
         "Neomezený počet stránek",
-        "Kompletní CMS systém",
+        "Propracovaný redakční systém",
         "Pokročilé funkcionality",
         "Vícejazyčná verze",
         "Individuální funkce na míru",
-        "Automatizace a integrace",
+        "Napojení na externí systémy",
       ],
       deliveryTime: "6-8 týdnů",
     },
