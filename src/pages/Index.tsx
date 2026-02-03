@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import AboutSection from "@/components/AboutSection";
+import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -23,6 +24,7 @@ const Index = () => {
       <CustomBanner />
       <AppleCardsCarouselDemo />
       <AboutSection />
+      <PricingSection />
       <FAQSection />
       <ContactSection />
       <Footer />
