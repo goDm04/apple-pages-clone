@@ -143,6 +143,11 @@ const PricingSection = () => {
             </p>
 
             <div className="mb-6">
+              <span className={`text-sm font-sf ${
+                card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+              }`}>
+                od{" "}
+              </span>
               <span className={`text-4xl font-bold font-sf ${
                 card.highlighted ? 'text-white' : 'text-foreground'
               }`}>
