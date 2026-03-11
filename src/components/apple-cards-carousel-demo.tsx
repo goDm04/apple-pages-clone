@@ -74,7 +74,7 @@ const CentrumPojisteniContent = () => {
 const data = (t: (key: string) => string) => [
   {
     category: t('categoryWebsites'),
-    title: "Aenkai",
+    title: "Aenkai thajské masáže",
     src: "/lovable-uploads/aenkai.jpg",
     href: "https://aenkai.cz",
     imageScale: 1,
