@@ -77,6 +77,7 @@ const data = (t: (key: string) => string) => [
     title: "Aenkai",
     src: "/lovable-uploads/aenkai.jpg",
     href: "https://aenkai.cz",
+    imageScale: 1,
     content: <DummyContent t={t} />,
   },
   {
