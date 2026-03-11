@@ -25,6 +25,7 @@ type Card = {
   category: string;
   content: React.ReactNode;
   href?: string;
+  imageScale?: number;
 };
 
 export const CarouselContext = createContext<{
@@ -270,7 +271,8 @@ const handleOpen = () => {
         <BlurImage
           src={card.src}
           alt={card.title}
-          className="absolute inset-0 z-10 object-cover scale-[1.65]"
+          className="absolute inset-0 z-10 object-cover"
+          style={{ transform: `scale(${card.imageScale ?? 1.65})` }}
         />
       </motion.button>
     </>
