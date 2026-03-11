@@ -87,7 +87,7 @@ const translations = {
     stat1: "dokončených projektů",
     stat2: "spokojených klientů", 
     stat3: "roky zkušeností",
-    stat4: "maximální doba dodání webu",
+    stat4: "průměrná doba dodání webu",
     
     // Footer
     footerDesc: "Vytváříme digitální zážitky, které inspirují a spojují značky s jejich publikem. Naše mise je pomáhat firmám růst prostřednictvím kreativity a inovací.",
