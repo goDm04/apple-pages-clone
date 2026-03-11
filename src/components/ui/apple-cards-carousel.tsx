@@ -273,7 +273,7 @@ const handleOpen = () => {
           src={card.src}
           alt={card.title}
           className="absolute inset-0 z-10 object-cover"
-          style={{ transform: `scale(${card.imageScale ?? 1.65})` }}
+          style={{ transform: `scale(${card.imageScale ?? 1.65}) translateX(${card.imagePosition ?? '0%'})` }}
         />
       </motion.button>
     </>
