@@ -71,11 +71,12 @@ const ServicesSection = () => {
                 </p>
               </div>
               <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
-                <img 
-                  src="/lovable-uploads/9ed4c587-2f34-42ea-976e-ea985bd0d0af.png"
-                  alt="Grafický design - plakát na sloupu"
-                  className="h-full w-auto object-cover"
-                />
+              <img 
+                src="/lovable-uploads/9ed4c587-2f34-42ea-976e-ea985bd0d0af.png"
+                alt="Grafický design – plakát a vizuální identita značky"
+                loading="lazy"
+                className="h-full w-auto object-cover"
+              />
               </div>
             </article>
           </div>
