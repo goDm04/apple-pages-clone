@@ -165,10 +165,10 @@ const PricingSection = () => {
                 {card.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <Check className={`h-4 w-4 mt-0.5 shrink-0 ${
-                      card.highlighted ? 'text-white' : 'text-primary'
+                      card.highlighted ? 'text-background' : 'text-primary'
                     }`} />
                     <span className={`text-sm font-sf ${
-                      card.highlighted ? 'text-white/90' : 'text-foreground'
+                      card.highlighted ? 'text-background/90' : 'text-foreground'
                     }`}>
                       {feature}
                     </span>
