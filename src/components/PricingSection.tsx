@@ -84,77 +84,78 @@ const PricingSection = () => {
     <section 
       id="cenik" 
       aria-labelledby="pricing-heading" 
-      className={`py-20 px-8 max-w-7xl mx-auto transition-all duration-700 ${
+      className={`w-full py-20 transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <div className="text-center mb-12">
-        <h2 id="pricing-heading" className="text-3xl md:text-5xl font-bold text-foreground font-sf">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="mb-12">
+        <h2 id="pricing-heading" className="text-xl md:text-5xl font-bold text-foreground font-sf mb-4">
           Ceník webových stránek
         </h2>
-        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto font-sf">
+        <p className="text-muted-foreground text-base md:text-xl font-sf max-w-2xl">
           Vyberte si balíček, který nejlépe vyhovuje vašim potřebám
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-0">
         {pricingCards.map((card, index) => {
           const IconComponent = card.icon;
           return (
             <div
               key={card.name}
-            className={`relative rounded-3xl p-6 flex flex-col transition-all duration-300 hover:scale-105 ${
+            className={`relative rounded-3xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
               card.highlighted 
-                ? 'bg-black text-white shadow-2xl scale-[1.02]' 
+                ? 'bg-foreground text-background shadow-2xl scale-[1.02]' 
                 : 'bg-muted'
             }`}
             >
             {card.highlighted && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 rounded-full text-xs font-medium font-sf">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-background text-foreground px-4 py-1 rounded-full text-xs font-medium font-sf">
                 Nejoblíbenější
               </div>
               )}
 
             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${
-              card.highlighted ? 'bg-white/20' : 'bg-primary/10'
+              card.highlighted ? 'bg-background/20' : 'bg-primary/10'
             }`}>
               <IconComponent className={`h-6 w-6 ${
-                card.highlighted ? 'text-white' : 'text-primary'
+                card.highlighted ? 'text-background' : 'text-primary'
               }`} />
             </div>
 
             <h3 className={`text-2xl font-bold font-sf mb-1 ${
-              card.highlighted ? 'text-white' : 'text-foreground'
+              card.highlighted ? 'text-background' : 'text-foreground'
             }`}>
               {card.name}
             </h3>
 
             <p className={`text-xs uppercase tracking-wider mb-3 font-sf ${
-              card.highlighted ? 'text-white/60' : 'text-muted-foreground'
+              card.highlighted ? 'text-background/60' : 'text-muted-foreground'
             }`}>
               {card.subtitle}
             </p>
               
             <p className={`text-sm mb-4 font-sf ${
-              card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+              card.highlighted ? 'text-background/80' : 'text-muted-foreground'
             }`}>
               {card.description}
             </p>
 
             <div className="mb-6">
               <span className={`text-sm font-sf ${
-                card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+                card.highlighted ? 'text-background/80' : 'text-muted-foreground'
               }`}>
                 od{" "}
               </span>
               <span className={`text-4xl font-bold font-sf ${
-                card.highlighted ? 'text-white' : 'text-foreground'
+                card.highlighted ? 'text-background' : 'text-foreground'
               }`}>
                 {card.price}
               </span>
               <span className={`text-sm font-sf ${
-                card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+                card.highlighted ? 'text-background/80' : 'text-muted-foreground'
               }`}>
                 {" "}Kč
               </span>
@@ -164,10 +165,10 @@ const PricingSection = () => {
                 {card.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <Check className={`h-4 w-4 mt-0.5 shrink-0 ${
-                      card.highlighted ? 'text-white' : 'text-primary'
+                      card.highlighted ? 'text-background' : 'text-primary'
                     }`} />
                     <span className={`text-sm font-sf ${
-                      card.highlighted ? 'text-white/90' : 'text-foreground'
+                      card.highlighted ? 'text-background/90' : 'text-foreground'
                     }`}>
                       {feature}
                     </span>
@@ -176,13 +177,13 @@ const PricingSection = () => {
               </ul>
 
             <div className={`mt-6 pt-4 border-t ${
-              card.highlighted ? 'border-white/20' : 'border-border'
+              card.highlighted ? 'border-background/20' : 'border-border'
             }`}>
               <Button 
                 className={`w-full font-sf rounded-full ${
                   card.highlighted 
-                    ? 'bg-white text-black hover:bg-white/90' 
-                    : 'bg-black text-white hover:bg-black/90'
+                    ? 'bg-background text-foreground hover:bg-background/90' 
+                    : 'bg-foreground text-background hover:bg-foreground/90'
                 }`}
                 variant="default"
                 onClick={() => {
@@ -196,6 +197,7 @@ const PricingSection = () => {
             </div>
           );
         })}
+      </div>
       </div>
     </section>
   );

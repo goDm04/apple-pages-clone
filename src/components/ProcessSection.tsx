@@ -31,23 +31,23 @@ const ProcessSection = () => {
 
   return (
     <section 
-      className={`py-24 px-8 max-w-7xl mx-auto transition-all duration-700 ${
+      className={`w-full py-20 transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <div className="space-y-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
         {/* Section header */}
         <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
           {t("processTitle")}
         </h2>
         
         {/* Process steps grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {processSteps.map((step) => (
-            <div key={step.number} className="space-y-4">
+            <div key={step.number} className="bg-muted rounded-3xl p-8 space-y-4">
               {/* Step number */}
-              <div className="text-6xl font-bold font-sf text-foreground opacity-20">
+              <div className="text-5xl font-bold font-sf text-foreground/15">
                 {step.number}
               </div>
               
@@ -56,7 +56,7 @@ const ProcessSection = () => {
                 <h3 className="text-lg font-bold font-sf text-foreground leading-tight">
                   {step.title}
                 </h3>
-                <p className="text-sm font-sf text-[#1D1D1F] leading-relaxed">
+                <p className="text-sm font-sf text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </div>
