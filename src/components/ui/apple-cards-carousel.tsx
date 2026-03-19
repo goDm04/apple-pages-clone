@@ -151,16 +151,9 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     >
       <div className="relative w-full">
         <div
-          className={cn(
-            "flex w-full overflow-x-scroll overscroll-x-auto py-10 [scrollbar-width:none] md:py-20",
-            isDragging ? "cursor-grabbing scroll-auto" : "cursor-grab scroll-smooth"
-          )}
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 cursor-grab [scrollbar-width:none] md:py-20"
           ref={carouselRef}
           onScroll={checkScrollability}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
         >
           <div
             className={cn(
