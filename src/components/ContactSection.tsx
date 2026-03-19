@@ -121,7 +121,7 @@ const ContactSection = () => {
           </div>
 
           {/* Right side - Form */}
-          <div className="md:bg-background md:rounded-2xl p-4 md:p-8 md:shadow-sm w-full">
+          <div className="bg-background rounded-3xl p-8 md:p-10 shadow-sm w-full">
             <form action="https://formspree.io/f/mwpqydpd" method="POST" onSubmit={handleSubmit} className="space-y-8">
               {/* Hidden fields for email routing */}
               <input type="hidden" name="_to" value="info@tensioncreative.cz" />
