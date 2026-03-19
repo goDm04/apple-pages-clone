@@ -138,7 +138,7 @@ const PricingSection = () => {
             </p>
               
             <p className={`text-sm mb-4 font-sf ${
-              card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+              card.highlighted ? 'text-background/80' : 'text-muted-foreground'
             }`}>
               {card.description}
             </p>
