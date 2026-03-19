@@ -60,12 +60,12 @@ const StatsSection = () => {
     <section
       id="statistiky"
       aria-label="Statistiky"
-      className={`pt-16 md:pt-20 pb-20 px-8 max-w-7xl mx-auto transition-all duration-700 ${
+      className={`w-full py-20 transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <div className="space-y-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((item, idx) => {
             const { suffix } = parseStat(item.value);

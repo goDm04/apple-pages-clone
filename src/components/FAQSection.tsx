@@ -66,6 +66,7 @@ const FAQSection = () => {
             </AccordionItem>
           ))}
         </Accordion>
+        </div>
       </div>
     </section>
   );

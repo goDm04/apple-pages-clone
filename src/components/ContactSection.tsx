@@ -157,7 +157,7 @@ const ContactSection = () => {
                 <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder={t("messagePlaceholder")} rows={6} required className="font-sf" />
               </div>
 
-              <Button type="submit" size="lg" className="w-full md:w-auto font-sf font-semibold bg-black text-white hover:bg-black/90 rounded-full">
+              <Button type="submit" size="lg" className="w-full md:w-auto font-sf font-semibold bg-foreground text-background hover:bg-foreground/90 rounded-full">
                 {t("sendMessage")}
               </Button>
             </form>
