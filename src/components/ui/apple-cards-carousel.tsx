@@ -41,9 +41,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollStart, setScrollStart] = useState(0);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -72,22 +69,61 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX);
-    setScrollStart(carouselRef.current?.scrollLeft ?? 0);
-  };
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollStartRef = useRef(0);
+  const hasDraggedRef = useRef(false);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !carouselRef.current) return;
-    e.preventDefault();
-    const dx = e.pageX - startX;
-    carouselRef.current.scrollLeft = scrollStart - dx;
-  };
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+    const onMouseDown = (e: MouseEvent) => {
+      isDraggingRef.current = true;
+      hasDraggedRef.current = false;
+      startXRef.current = e.pageX;
+      scrollStartRef.current = el.scrollLeft;
+      el.style.userSelect = "none";
+      el.style.cursor = "grabbing";
+      el.style.scrollBehavior = "auto";
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDraggingRef.current) return;
+      e.preventDefault();
+      const dx = e.pageX - startXRef.current;
+      if (Math.abs(dx) > 3) hasDraggedRef.current = true;
+      el.scrollLeft = scrollStartRef.current - dx;
+    };
+
+    const onMouseUp = () => {
+      if (!isDraggingRef.current) return;
+      isDraggingRef.current = false;
+      el.style.userSelect = "";
+      el.style.cursor = "grab";
+      el.style.scrollBehavior = "smooth";
+    };
+
+    // Prevent click on cards after dragging
+    const onClick = (e: MouseEvent) => {
+      if (hasDraggedRef.current) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    };
+
+    el.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+    el.addEventListener("click", onClick, true);
+
+    return () => {
+      el.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+      el.removeEventListener("click", onClick, true);
+    };
+  }, []);
 
   const handleCardClose = (index: number) => {
     if (carouselRef.current) {
@@ -112,16 +148,9 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     >
       <div className="relative w-full">
         <div
-          className={cn(
-            "flex w-full overflow-x-scroll overscroll-x-auto py-10 [scrollbar-width:none] md:py-20",
-            isDragging ? "cursor-grabbing scroll-auto" : "cursor-grab scroll-smooth"
-          )}
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 cursor-grab [scrollbar-width:none] md:py-20"
           ref={carouselRef}
           onScroll={checkScrollability}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
         >
           <div
             className={cn(
