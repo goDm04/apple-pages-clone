@@ -52,11 +52,12 @@ const ServicesSection = () => {
                 </p>
               </div>
               <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
-                <img 
-                  src="/lovable-uploads/8f775cae-f6fa-42e3-9ad4-b8c25abfa1ac.png"
-                  alt="Mobilní telefon zobrazující retro party"
-                  className="h-full w-auto object-cover"
-                />
+              <img 
+                src="/lovable-uploads/8f775cae-f6fa-42e3-9ad4-b8c25abfa1ac.png"
+                alt="Mobilní telefon se správou sociálních sítí – Instagram marketing"
+                loading="lazy"
+                className="h-full w-auto object-cover"
+              />
               </div>
             </article>
 
