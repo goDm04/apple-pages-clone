@@ -76,7 +76,7 @@ const Footer = () => {
             <h3 className="font-semibold text-foreground font-sf">{t("footerContact")}</h3>
             <div className="space-y-2 text-sm text-muted-foreground font-sf">
               <p>info@tensioncreative.cz</p>
-              <p>+420 731 403 437</p>
+              <p>+420 605 426 456</p>
               <p>Zahradní 569, Vlašim</p>
             </div>
           </div>
