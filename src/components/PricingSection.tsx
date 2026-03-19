@@ -145,17 +145,17 @@ const PricingSection = () => {
 
             <div className="mb-6">
               <span className={`text-sm font-sf ${
-                card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+                card.highlighted ? 'text-background/80' : 'text-muted-foreground'
               }`}>
                 od{" "}
               </span>
               <span className={`text-4xl font-bold font-sf ${
-                card.highlighted ? 'text-white' : 'text-foreground'
+                card.highlighted ? 'text-background' : 'text-foreground'
               }`}>
                 {card.price}
               </span>
               <span className={`text-sm font-sf ${
-                card.highlighted ? 'text-white/80' : 'text-muted-foreground'
+                card.highlighted ? 'text-background/80' : 'text-muted-foreground'
               }`}>
                 {" "}Kč
               </span>
