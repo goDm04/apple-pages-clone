@@ -90,11 +90,11 @@ const PricingSection = () => {
       ref={elementRef}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-      <div className="mb-12">
+      <div className="text-center mb-12">
         <h2 id="pricing-heading" className="text-xl md:text-5xl font-bold text-foreground font-sf mb-4">
           Ceník webových stránek
         </h2>
-        <p className="text-muted-foreground text-base md:text-xl font-sf max-w-2xl">
+        <p className="text-muted-foreground text-base md:text-xl font-sf max-w-2xl mx-auto">
           Vyberte si balíček, který nejlépe vyhovuje vašim potřebám
         </p>
       </div>
