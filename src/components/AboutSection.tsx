@@ -12,52 +12,49 @@ const AboutSection = () => {
     <section 
       id="o-nas" 
       aria-labelledby="about-heading" 
-      className={`py-8 px-8 max-w-7xl mx-auto transition-all duration-700 md:bg-transparent bg-muted ${
+      className={`w-full py-20 transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <div className="md:rounded-3xl p-6 md:p-8 md:bg-muted">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <h2 id="about-heading" className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
-                {t("aboutTitle")}
-              </h2>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <h2 id="about-heading" className="text-xl md:text-5xl font-bold text-foreground font-sf mb-8">
+          {t("aboutTitle")}
+        </h2>
 
-            <p className="text-base font-sf text-muted-foreground leading-relaxed">
+        <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[390px] md:min-h-[500px] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden relative">
+          <div className="flex flex-col justify-center space-y-6">
+            <p className="text-muted-foreground text-base md:text-lg font-sf leading-relaxed">
               {t("aboutDesc")}
             </p>
 
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li className="flex items-center gap-3">
-                <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                <span className="font-sf text-foreground">{t("aboutPoint1")}</span>
+                <span className="h-2.5 w-2.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                <span className="font-sf text-foreground text-base md:text-lg">{t("aboutPoint1")}</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                <span className="font-sf text-foreground">{t("aboutPoint2")}</span>
+                <span className="h-2.5 w-2.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                <span className="font-sf text-foreground text-base md:text-lg">{t("aboutPoint2")}</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                <span className="font-sf text-foreground">{t("aboutPoint3")}</span>
+                <span className="h-2.5 w-2.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                <span className="font-sf text-foreground text-base md:text-lg">{t("aboutPoint3")}</span>
               </li>
             </ul>
-
           </div>
 
-          <figure className="flex justify-center">
+          <figure className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
             <img
               src="/lovable-uploads/6c0e56bd-f6db-4b97-bb58-27bfba0bccab.png"
               alt="Memoji profil – tým Tension Creative"
               loading="lazy"
               decoding="async"
-              className="w-full max-w-md aspect-square object-cover"
+              className="h-full w-auto object-cover"
             />
             <figcaption className="sr-only">Tým kreativních profesionálů připravený pomoci vaší značce růst.</figcaption>
           </figure>
-        </div>
+        </article>
       </div>
     </section>
   );
