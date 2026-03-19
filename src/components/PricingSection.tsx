@@ -118,10 +118,10 @@ const PricingSection = () => {
               )}
 
             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${
-              card.highlighted ? 'bg-white/20' : 'bg-primary/10'
+              card.highlighted ? 'bg-background/20' : 'bg-primary/10'
             }`}>
               <IconComponent className={`h-6 w-6 ${
-                card.highlighted ? 'text-white' : 'text-primary'
+                card.highlighted ? 'text-background' : 'text-primary'
               }`} />
             </div>
 
