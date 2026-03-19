@@ -99,7 +99,7 @@ const PricingSection = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-0">
         {pricingCards.map((card, index) => {
           const IconComponent = card.icon;
           return (
