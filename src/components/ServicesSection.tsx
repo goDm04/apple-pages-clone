@@ -33,7 +33,8 @@ const ServicesSection = () => {
             <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
               <img 
                 src="/lovable-uploads/4ca33cb1-6093-49e7-b25d-969eb340f0e4.png"
-                alt="Monitor zobrazující webovou stránku"
+                alt="Monitor zobrazující moderní webovou stránku – ukázka tvorby webů"
+                loading="lazy"
                 className="h-full w-auto object-cover"
               />
             </div>
