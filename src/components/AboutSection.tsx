@@ -1,12 +1,26 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
-
+import { Target, Zap, Heart } from "lucide-react";
 
 const AboutSection = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   const { t } = useLanguage();
+
+  const values = [
+    {
+      icon: Target,
+      title: t("aboutPoint1"),
+    },
+    {
+      icon: Zap,
+      title: t("aboutPoint2"),
+    },
+    {
+      icon: Heart,
+      title: t("aboutPoint3"),
+    },
+  ];
 
   return (
     <section 
@@ -22,39 +36,30 @@ const AboutSection = () => {
           {t("aboutTitle")}
         </h2>
 
-        <article className="bg-muted rounded-3xl p-8 md:p-12 shadow-sm min-h-[390px] md:min-h-[500px] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden relative">
-          <div className="flex flex-col justify-center space-y-6">
-            <p className="text-muted-foreground text-base md:text-lg font-sf leading-relaxed">
-              {t("aboutDesc")}
-            </p>
+        <div className="bg-muted rounded-3xl p-8 md:p-12">
+          <p className="text-muted-foreground text-base md:text-xl font-sf leading-relaxed max-w-3xl mb-12">
+            {t("aboutDesc")}
+          </p>
 
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
-                <span className="font-sf text-foreground text-base md:text-lg">{t("aboutPoint1")}</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
-                <span className="font-sf text-foreground text-base md:text-lg">{t("aboutPoint2")}</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
-                <span className="font-sf text-foreground text-base md:text-lg">{t("aboutPoint3")}</span>
-              </li>
-            </ul>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {values.map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-background rounded-2xl p-6 md:p-8 flex flex-col gap-4 transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <IconComponent className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="font-sf text-foreground text-lg font-medium">
+                    {value.title}
+                  </span>
+                </div>
+              );
+            })}
           </div>
-
-          <figure className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
-            <img
-              src="/lovable-uploads/6c0e56bd-f6db-4b97-bb58-27bfba0bccab.png"
-              alt="Memoji profil – tým Tension Creative"
-              loading="lazy"
-              decoding="async"
-              className="h-full w-auto object-cover"
-            />
-            <figcaption className="sr-only">Tým kreativních profesionálů připravený pomoci vaší značce růst.</figcaption>
-          </figure>
-        </article>
+        </div>
       </div>
     </section>
   );
