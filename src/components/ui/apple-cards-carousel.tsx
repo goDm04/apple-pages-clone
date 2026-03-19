@@ -112,13 +112,20 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       }
     };
 
+    // Prevent native image drag
+    const onDragStart = (e: DragEvent) => {
+      e.preventDefault();
+    };
+
     el.addEventListener("mousedown", onMouseDown);
+    el.addEventListener("dragstart", onDragStart);
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onMouseUp);
     el.addEventListener("click", onClick, true);
 
     return () => {
       el.removeEventListener("mousedown", onMouseDown);
+      el.removeEventListener("dragstart", onDragStart);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseup", onMouseUp);
       el.removeEventListener("click", onClick, true);
