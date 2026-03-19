@@ -75,7 +75,7 @@ const data = (t: (key: string) => string) => [
   {
     category: t('categoryWebsites'),
     title: "Aenkai thajské masáže",
-    src: "/lovable-uploads/aenkai.jpg",
+    src: "/lovable-uploads/aenkai-new.jpg",
     href: "https://aenkai.cz",
     imageScale: 1,
     content: <DummyContent t={t} />,
