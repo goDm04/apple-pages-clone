@@ -33,7 +33,8 @@ const ServicesSection = () => {
             <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
               <img 
                 src="/lovable-uploads/4ca33cb1-6093-49e7-b25d-969eb340f0e4.png"
-                alt="Monitor zobrazující webovou stránku"
+                alt="Monitor zobrazující moderní webovou stránku – ukázka tvorby webů"
+                loading="lazy"
                 className="h-full w-auto object-cover"
               />
             </div>
@@ -51,11 +52,12 @@ const ServicesSection = () => {
                 </p>
               </div>
               <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
-                <img 
-                  src="/lovable-uploads/8f775cae-f6fa-42e3-9ad4-b8c25abfa1ac.png"
-                  alt="Mobilní telefon zobrazující retro party"
-                  className="h-full w-auto object-cover"
-                />
+              <img 
+                src="/lovable-uploads/8f775cae-f6fa-42e3-9ad4-b8c25abfa1ac.png"
+                alt="Mobilní telefon se správou sociálních sítí – Instagram marketing"
+                loading="lazy"
+                className="h-full w-auto object-cover"
+              />
               </div>
             </article>
 
@@ -69,11 +71,12 @@ const ServicesSection = () => {
                 </p>
               </div>
               <div className="absolute right-0 top-0 h-full w-1/2 justify-center items-center hidden lg:flex">
-                <img 
-                  src="/lovable-uploads/9ed4c587-2f34-42ea-976e-ea985bd0d0af.png"
-                  alt="Grafický design - plakát na sloupu"
-                  className="h-full w-auto object-cover"
-                />
+              <img 
+                src="/lovable-uploads/9ed4c587-2f34-42ea-976e-ea985bd0d0af.png"
+                alt="Grafický design – plakát a vizuální identita značky"
+                loading="lazy"
+                className="h-full w-auto object-cover"
+              />
               </div>
             </article>
           </div>
