@@ -112,7 +112,7 @@ const PricingSection = () => {
             }`}
             >
             {card.highlighted && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 rounded-full text-xs font-medium font-sf">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-background text-foreground px-4 py-1 rounded-full text-xs font-medium font-sf">
                 Nejoblíbenější
               </div>
               )}
