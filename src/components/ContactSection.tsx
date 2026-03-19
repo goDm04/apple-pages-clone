@@ -65,15 +65,13 @@ const ContactSection = () => {
       [e.target.name]: e.target.value
     }));
   };
-  return <section id="kontakt" className={`py-20 px-4 md:px-8 transition-all duration-700 ${isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`} style={{
-    backgroundColor: "#F5F5F8"
-  }} ref={elementRef}>
-      <div className="max-w-7xl mx-auto p-4 md:p-8 lg:p-12">
+  return <section id="kontakt" className={`w-full py-20 bg-muted transition-all duration-700 ${isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`} ref={elementRef}>
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start max-w-none">
           {/* Left side - Info */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground font-sf leading-tight">
+              <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf leading-tight">
                 {t("contactTitle")}
               </h2>
             </div>
