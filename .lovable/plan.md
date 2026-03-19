@@ -1,18 +1,25 @@
 
 
-## Plan: Replace Aenkai card image with uploaded photo
+## Plan: Redesign "O nas" section to match site design language
 
-### What
-Replace the current Aenkai portfolio card image with the user's uploaded mockup photo, optimized for smaller file size.
+### Current state
+The About section uses a gray `bg-muted` rounded card with a simple 2-column grid (text left, memoji image right). It feels flat and disconnected from the rest of the site, which uses bolder typography, clean spacing, and more visual hierarchy.
 
-### Steps
+### Design approach
+Match the style of ServicesSection (the strongest visual section on the site) -- large rounded `bg-muted` card with bold headings, clean layout, and the memoji image integrated more naturally.
 
-1. **Copy the uploaded image** to `public/lovable-uploads/aenkai-new.jpg` (overwrite existing)
-2. **Resize/compress the image** using a script to reduce file size for faster loading (target ~200-300KB, scale down to ~800px wide since the card is max 384px on desktop)
-3. **No code changes needed** — the `src` in the data array already points to `/lovable-uploads/aenkai-new.jpg`
+### Changes to `src/components/AboutSection.tsx`
+
+1. **Remove the nested muted wrapper** -- use a single clean `bg-muted rounded-3xl` card like ServicesSection
+2. **Bigger, bolder heading** -- match `text-2xl md:text-5xl` style used elsewhere
+3. **Better spacing and padding** -- use `p-8 md:p-12` like service cards
+4. **Style the bullet points** as subtle feature chips or cleaner list with better visual weight
+5. **Image placement** -- make the memoji image larger and positioned more like the service card images (right-aligned, partially overflowing or filling the space)
+6. **Add more vertical breathing room** -- `py-20` to match other sections
 
 ### Technical details
-- Card dimensions: 384×640px (desktop), 320×320px (mobile)
-- Image will be resized to ~800px wide (2x for retina) and compressed as JPEG
-- The `imageScale: 1` setting is already applied for this card
+- Single file change: `src/components/AboutSection.tsx`
+- Reuse existing Tailwind classes from ServicesSection pattern (`rounded-3xl`, `p-8 md:p-12`, `min-h-[500px]`)
+- Keep all existing translation keys and accessibility attributes
+- Keep intersection observer animation
 
