@@ -105,9 +105,9 @@ const PricingSection = () => {
           return (
             <div
               key={card.name}
-            className={`relative rounded-3xl p-6 flex flex-col transition-all duration-300 hover:scale-105 ${
+            className={`relative rounded-3xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
               card.highlighted 
-                ? 'bg-black text-white shadow-2xl scale-[1.02]' 
+                ? 'bg-foreground text-background shadow-2xl scale-[1.02]' 
                 : 'bg-muted'
             }`}
             >
