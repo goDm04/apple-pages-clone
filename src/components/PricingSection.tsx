@@ -132,7 +132,7 @@ const PricingSection = () => {
             </h3>
 
             <p className={`text-xs uppercase tracking-wider mb-3 font-sf ${
-              card.highlighted ? 'text-white/60' : 'text-muted-foreground'
+              card.highlighted ? 'text-background/60' : 'text-muted-foreground'
             }`}>
               {card.subtitle}
             </p>
