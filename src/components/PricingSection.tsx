@@ -177,13 +177,13 @@ const PricingSection = () => {
               </ul>
 
             <div className={`mt-6 pt-4 border-t ${
-              card.highlighted ? 'border-white/20' : 'border-border'
+              card.highlighted ? 'border-background/20' : 'border-border'
             }`}>
               <Button 
                 className={`w-full font-sf rounded-full ${
                   card.highlighted 
-                    ? 'bg-white text-black hover:bg-white/90' 
-                    : 'bg-black text-white hover:bg-black/90'
+                    ? 'bg-background text-foreground hover:bg-background/90' 
+                    : 'bg-foreground text-background hover:bg-foreground/90'
                 }`}
                 variant="default"
                 onClick={() => {
