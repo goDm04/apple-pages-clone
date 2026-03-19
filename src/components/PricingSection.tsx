@@ -84,16 +84,17 @@ const PricingSection = () => {
     <section 
       id="cenik" 
       aria-labelledby="pricing-heading" 
-      className={`py-20 px-8 max-w-7xl mx-auto transition-all duration-700 ${
+      className={`w-full py-20 transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <div className="text-center mb-12">
-        <h2 id="pricing-heading" className="text-3xl md:text-5xl font-bold text-foreground font-sf">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="mb-12">
+        <h2 id="pricing-heading" className="text-xl md:text-5xl font-bold text-foreground font-sf mb-4">
           Ceník webových stránek
         </h2>
-        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto font-sf">
+        <p className="text-muted-foreground text-base md:text-xl font-sf max-w-2xl">
           Vyberte si balíček, který nejlépe vyhovuje vašim potřebám
         </p>
       </div>
