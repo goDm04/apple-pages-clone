@@ -126,7 +126,7 @@ const PricingSection = () => {
             </div>
 
             <h3 className={`text-2xl font-bold font-sf mb-1 ${
-              card.highlighted ? 'text-white' : 'text-foreground'
+              card.highlighted ? 'text-background' : 'text-foreground'
             }`}>
               {card.name}
             </h3>
