@@ -12,17 +12,17 @@ const AboutSection = () => {
     {
       icon: Target,
       title: t("aboutPoint1"),
-      desc: "Neděláme věci náhodně. Každý projekt začíná strategií – pochopíme vaši značku, cílovou skupinu a cíle, aby výsledek měl skutečný dopad.",
+      desc: t("aboutPoint1Desc"),
     },
     {
       icon: Zap,
       title: t("aboutPoint2"),
-      desc: "Každý pixel a každá interakce slouží jednomu účelu – přivést vám zákazníky. Krásný design, který nefunguje, nás nezajímá.",
+      desc: t("aboutPoint2Desc"),
     },
     {
       icon: Heart,
       title: t("aboutPoint3"),
-      desc: "Žádné čekání měsíce na výsledky. Pracujeme agilně, komunikujeme otevřeně a dodáváme v termínech, na které se můžete spolehnout.",
+      desc: t("aboutPoint3Desc"),
     },
   ];
 
@@ -73,10 +73,10 @@ const AboutSection = () => {
         <div className="bg-foreground rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <h3 className="text-2xl md:text-3xl font-bold font-sf text-background">
-              Máte projekt na mysli?
+              {t("aboutCtaTitle")}
             </h3>
             <p className="text-background/60 font-sf text-base md:text-lg">
-              Ozvěte se nám a probereme, jak vám můžeme pomoct.
+              {t("aboutCtaDesc")}
             </p>
           </div>
           <Button
