@@ -15,7 +15,7 @@ const Emco = () => {
           <div className="space-y-8">
             <div className="flex items-center justify-center gap-3">
               <span className="text-xs font-sf text-muted-foreground border border-border px-4 py-1.5 rounded-full uppercase tracking-widest">Case Study</span>
-              <span className="text-xs font-sf text-muted-foreground border border-border px-4 py-1.5 rounded-full uppercase tracking-widest">2025</span>
+              <span className="text-xs font-sf text-muted-foreground border border-border px-4 py-1.5 rounded-full uppercase tracking-widest">2026</span>
             </div>
             <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold font-sf tracking-tighter leading-[0.9]">
               Největší snídaně<br />
