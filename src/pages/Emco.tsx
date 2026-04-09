@@ -1,6 +1,8 @@
 import React from 'react';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 const Emco = () => {
   return (
