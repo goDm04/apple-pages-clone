@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -15,7 +14,7 @@ const Emco = () => {
           <div className="space-y-8">
             <div className="flex items-center justify-center gap-3">
               <span className="text-xs font-sf text-muted-foreground border border-border px-4 py-1.5 rounded-full uppercase tracking-widest">Case Study</span>
-              <span className="text-xs font-sf text-muted-foreground border border-border px-4 py-1.5 rounded-full uppercase tracking-widest">2025</span>
+              <span className="text-xs font-sf text-muted-foreground border border-border px-4 py-1.5 rounded-full uppercase tracking-widest">2026</span>
             </div>
             <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold font-sf tracking-tighter leading-[0.9]">
               Největší snídaně<br />
@@ -29,7 +28,7 @@ const Emco = () => {
       </header>
 
       {/* Services provided */}
-      <section className="py-16 px-4 md:px-8">
+      <section className="py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {['Microsite design', 'Social media posty', 'Newsletter bannery', 'Landing page'].map((service) => (
@@ -41,15 +40,46 @@ const Emco = () => {
         </div>
       </section>
 
+      {/* About the project */}
+      <section className="py-20 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+            <div className="space-y-6">
+              <h2 className="text-xl md:text-4xl font-bold font-sf">O projektu</h2>
+              <p className="text-muted-foreground font-sf leading-relaxed">
+                Emco nás oslovilo s vizí uspořádat „Největší snídani v Česku" — rekordní akci, 
+                která měla propojit online i offline svět. Naším úkolem bylo vytvořit kompletní 
+                digitální zázemí kampaně.
+              </p>
+              <p className="text-muted-foreground font-sf leading-relaxed">
+                Navrhli jsme interaktivní microsite s generátorem videí, landing page s live 
+                odpočítáváním a registrací, sérii bannerů pro newslettery a grafiku pro sociální sítě.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-xl md:text-4xl font-bold font-sf">Vizuální identita</h2>
+              <p className="text-muted-foreground font-sf leading-relaxed">
+                Celý vizuální styl vychází z hravé identity Emco — červená, béžová, 
+                ručně psané fonty a ilustrace jahod. Důraz byl kladen na konzistenci 
+                napříč všemi kanály a jednoduché UX.
+              </p>
+              <p className="text-muted-foreground font-sf leading-relaxed">
+                Výsledkem je ucelená kampaň, která oslovila tisíce lidí a pomohla 
+                vytvořit nezapomenutelný zážitek kolem značky Emco.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main showcase - Desktop */}
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="space-y-3">
             <h2 className="text-xl md:text-4xl font-bold font-sf">Microsite</h2>
             <p className="text-muted-foreground font-sf max-w-2xl leading-relaxed">
-              Navrhli jsme interaktivní microsite, kde se uživatelé mohli stát „hvězdou videa" — 
-              nahrát svou fotku a vygenerovat personalizované video s produkty Emco. 
-              Design je hravý, ale přitom přehledný a funkční.
+              Interaktivní microsite, kde se uživatelé mohli stát „hvězdou videa" — 
+              nahrát svou fotku a vygenerovat personalizované video s produkty Emco
             </p>
           </div>
           <div className="bg-muted rounded-3xl overflow-hidden p-4 md:p-8">
@@ -67,12 +97,11 @@ const Emco = () => {
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Mobile version */}
             <div className="space-y-6">
               <div className="space-y-3">
                 <h2 className="text-xl md:text-4xl font-bold font-sf">Mobilní verze</h2>
                 <p className="text-muted-foreground font-sf leading-relaxed">
-                  Microsite plně optimalizovaná pro mobilní zařízení — většina uživatelů přicházela právě z telefonu.
+                  Plně optimalizovaná pro mobilní zařízení — většina uživatelů přicházela právě z telefonu
                 </p>
               </div>
               <div className="bg-muted rounded-3xl overflow-hidden p-8 flex items-center justify-center min-h-[500px]">
@@ -85,12 +114,11 @@ const Emco = () => {
               </div>
             </div>
 
-            {/* Landing page */}
             <div className="space-y-6">
               <div className="space-y-3">
                 <h2 className="text-xl md:text-4xl font-bold font-sf">Landing page</h2>
                 <p className="text-muted-foreground font-sf leading-relaxed">
-                  Rekordní landing page s odpočítáváním, registrací emailů a galerií videí od účastníků.
+                  Landing page s odpočítáváním, registrací a galerií videí od účastníků
                 </p>
               </div>
               <div className="bg-muted rounded-3xl overflow-hidden p-4 flex items-start justify-center min-h-[500px]">
@@ -106,74 +134,41 @@ const Emco = () => {
         </div>
       </section>
 
-      {/* Newsletter banner */}
+      {/* Newsletter + Print side by side */}
       <section className="py-16 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <div className="space-y-3">
-            <h2 className="text-xl md:text-4xl font-bold font-sf">Newsletter bannery</h2>
-            <p className="text-muted-foreground font-sf max-w-2xl leading-relaxed">
-              Série bannerů pro emailové kampaně, které zvaly k účasti na rekordu. 
-              Vizuálně navazují na celkový branding akce.
-            </p>
-          </div>
-          <div className="bg-muted rounded-3xl overflow-hidden p-4 md:p-8">
-            <img
-              src="/lovable-uploads/emco-newsletter.png"
-              alt="Emco newsletter banner"
-              className="w-full rounded-2xl"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Print / Flyer */}
-      <section className="py-16 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <div className="space-y-3">
-            <h2 className="text-xl md:text-4xl font-bold font-sf">Tištěné materiály</h2>
-            <p className="text-muted-foreground font-sf max-w-2xl leading-relaxed">
-              Letáky a plakáty A5 pro offline propagaci akce na Street Food Festivalu v Berouně.
-            </p>
-          </div>
-          <div className="bg-muted rounded-3xl overflow-hidden p-4 md:p-8 flex justify-center">
-            <img
-              src="/lovable-uploads/emco-flyer.png"
-              alt="Emco A5 leták - Největší snídaně v Česku"
-              className="max-w-md w-full rounded-2xl"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Summary */}
-      <section className="py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-muted rounded-3xl p-8 md:p-16 space-y-8">
-            <h2 className="text-xl md:text-4xl font-bold font-sf">O projektu</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <h2 className="text-xl md:text-4xl font-bold font-sf">Newsletter bannery</h2>
                 <p className="text-muted-foreground font-sf leading-relaxed">
-                  Emco nás oslovilo s vizí uspořádat „Největší snídani v Česku" — rekordní akci, 
-                  která měla propojit online i offline svět. Naším úkolem bylo vytvořit kompletní 
-                  digitální zázemí kampaně.
-                </p>
-                <p className="text-muted-foreground font-sf leading-relaxed">
-                  Navrhli jsme interaktivní microsite s generátorem videí, landing page s live 
-                  odpočítáváním a registrací, sérii bannerů pro newslettery a grafiku pro sociální sítě.
+                  Série bannerů pro emailové kampaně zvoucí k účasti na rekordu
                 </p>
               </div>
-              <div className="space-y-4">
+              <div className="bg-muted rounded-3xl overflow-hidden p-4 md:p-8">
+                <img
+                  src="/lovable-uploads/emco-newsletter.png"
+                  alt="Emco newsletter banner"
+                  className="w-full rounded-2xl"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <h2 className="text-xl md:text-4xl font-bold font-sf">Tištěné materiály</h2>
                 <p className="text-muted-foreground font-sf leading-relaxed">
-                  Celý vizuální styl vychází z hravé identity Emco — červená, béžová, 
-                  ručně psané fonty a ilustrace jahod. Důraz byl kladen na konzistenci 
-                  napříč všemi kanály a jednoduché UX.
+                  Letáky A5 pro offline propagaci na Street Food Festivalu v Berouně
                 </p>
-                <p className="text-muted-foreground font-sf leading-relaxed">
-                  Výsledkem je ucelená kampaň, která oslovila tisíce lidí a pomohla 
-                  vytvořit nezapomenutelný zážitek kolem značky Emco.
-                </p>
+              </div>
+              <div className="bg-muted rounded-3xl overflow-hidden p-4 md:p-8 flex justify-center">
+                <img
+                  src="/lovable-uploads/emco-flyer.png"
+                  alt="Emco A5 leták"
+                  className="max-w-md w-full rounded-2xl"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
