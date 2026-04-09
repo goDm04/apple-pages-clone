@@ -10,21 +10,19 @@ const Emco = () => {
       <Navigation />
 
       {/* Hero */}
-      <header className="pt-32 pb-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-sf text-muted-foreground bg-muted px-4 py-1.5 rounded-full">Case Study</span>
-              <span className="text-sm font-sf text-muted-foreground bg-muted px-4 py-1.5 rounded-full">2025</span>
+      <header className="pt-40 pb-24 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="space-y-8">
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-xs font-sf text-muted-foreground border border-border px-4 py-1.5 rounded-full uppercase tracking-widest">Case Study</span>
+              <span className="text-xs font-sf text-muted-foreground border border-border px-4 py-1.5 rounded-full uppercase tracking-widest">2025</span>
             </div>
-            <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold font-sf tracking-tight leading-tight">
-              Emco —<br />
+            <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold font-sf tracking-tighter leading-[0.9]">
               Největší snídaně<br />
-              v Česku
+              <span className="text-muted-foreground">v Česku</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground font-sf max-w-2xl leading-relaxed">
-              Komplexní digitální kampaň pro značku Emco a jejich rekordní akci „Největší snídaně v Česku". 
-              Od návrhu microsite přes sociální sítě až po newsletterové bannery.
+            <p className="text-lg md:text-xl text-muted-foreground font-sf max-w-xl mx-auto leading-relaxed">
+              Komplexní digitální kampaň pro značku Emco — od microsite přes sociální sítě až po newslettery
             </p>
           </div>
         </div>
