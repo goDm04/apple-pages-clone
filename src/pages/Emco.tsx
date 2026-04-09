@@ -7,20 +7,7 @@ import Footer from '@/components/Footer';
 const Emco = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="font-sf text-sm">Zpět na hlavní stránku</span>
-          </Link>
-          <img
-            src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png"
-            alt="Tension Creative Logo"
-            className="h-6 w-auto"
-          />
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero */}
       <header className="pt-32 pb-20 px-4 md:px-8">
@@ -209,15 +196,7 @@ const Emco = () => {
         </div>
       </section>
 
-      {/* Simple footer */}
-      <footer className="py-8 px-4 md:px-8 border-t border-border/50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <span className="text-sm text-muted-foreground font-sf">© 2025 Tension Creative</span>
-          <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-sf">
-            tensioncreative.cz
-          </Link>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
