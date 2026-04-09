@@ -76,6 +76,7 @@ const data = (t: (key: string) => string) => [
     category: t('categoryWebsites'),
     title: "Venetto Burger",
     src: "/lovable-uploads/venetto.png",
+    imageScale: 1,
     href: "https://www.venettoburger.cz/",
     content: <DummyContent t={t} />,
   },
