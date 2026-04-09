@@ -34,7 +34,7 @@ const App = () => (
               <Index />
             </LanguageProvider>
           } />
-          <Route path="/emco" element={<Emco />} />
+          <Route path="/emco" element={<LanguageProvider initialLanguage="cs"><Emco /></LanguageProvider>} />
           <Route path="/:lang" element={<LanguageRoute />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
