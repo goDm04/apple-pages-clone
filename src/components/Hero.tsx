@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Spotlight, GridBackground } from "@/components/ui/spotlight";
+import { LogoCloud } from "@/components/ui/logo-cloud";
 
 const Hero = () => {
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
