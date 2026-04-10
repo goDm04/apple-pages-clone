@@ -3,6 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { LogoCloud } from '@/components/ui/logo-cloud';
 
 const Emco = () => {
   return (
