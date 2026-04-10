@@ -68,7 +68,5 @@ const logos = [
   { src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg", alt: "Claude AI Logo" },
   { src: "https://svgl.app/library/clerk-wordmark-light.svg", alt: "Clerk Logo" },
 ];
-  );
-};
 
 export default Hero;
