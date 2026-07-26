@@ -17,7 +17,6 @@ const Navigation = () => {
     { key: "services", name: t("services"), href: "#sluzby" },
     { key: "portfolio", name: t("portfolio"), href: "#portfolio" },
     { key: "about", name: t("about"), href: "#o-nas" },
-    { key: "pricing", name: t("pricing"), href: "#cenik" },
     { key: "contact", name: t("contact"), href: "#kontakt" },
   ];
 
