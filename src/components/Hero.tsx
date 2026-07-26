@@ -50,9 +50,6 @@ const Hero = () => {
           {t("heroSubtitleLine2")}
         </p>
 
-        <div className="w-full max-w-3xl mt-12">
-          <LogoCloud logos={logos} />
-        </div>
       </div>
     </header>
   );
