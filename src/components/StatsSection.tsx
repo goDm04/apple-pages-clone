@@ -3,13 +3,12 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const StatsSection = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
   const stats = [
     { value: "20+", label: t("stat1") },
     { value: "100%", label: t("stat2") },
     { value: "3+", label: t("stat3") },
-    { value: language === 'cs' ? "14 dní" : language === 'de' ? "14 Tage" : "14 days", label: t("stat4") },
   ];
 
   const { elementRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
