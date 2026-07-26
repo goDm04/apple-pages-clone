@@ -65,11 +65,11 @@ const StatsSection = () => {
       ref={elementRef}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
           {stats.map((item, idx) => {
             const { suffix } = parseStat(item.value);
             return (
-              <div key={item.label} className="space-y-3 text-center">
+              <div key={item.label} className="w-full sm:w-auto sm:min-w-[200px] md:min-w-[240px] space-y-3 text-center">
                 <div className="text-6xl md:text-7xl font-bold font-sf text-foreground leading-none tracking-tight">
                   {values[idx]}
                   {suffix}
