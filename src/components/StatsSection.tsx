@@ -3,7 +3,7 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const StatsSection = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
   const stats = [
     { value: "20+", label: t("stat1") },
