@@ -9,7 +9,8 @@ const Hero = () => {
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowText(true), 500);
+    // Keep the entrance perceptible but never on the input path.
+    const timer = setTimeout(() => setShowText(true), 80);
     return () => clearTimeout(timer);
   }, []);
 

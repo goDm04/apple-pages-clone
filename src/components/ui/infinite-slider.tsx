@@ -78,6 +78,7 @@ export function InfiniteSlider({
     isTransitioning,
     direction,
     reverse,
+    reduceMotion,
   ]);
 
   const hoverProps = durationOnHover
