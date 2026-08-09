@@ -25,6 +25,21 @@ export const Spotlight = ({
   duration = 7,
   xOffset = 100,
 }: SpotlightProps = {}) => {
+  // Full-viewport, slow looping oscillation — a vestibular trigger.
+  const reduceMotion = useReducedMotion();
+  const drift = (offset: number) =>
+    reduceMotion
+      ? {}
+      : {
+          animate: { x: [0, offset, 0] },
+          transition: {
+            duration,
+            repeat: Infinity,
+            repeatType: "reverse" as const,
+            ease: "easeInOut" as const,
+          },
+        };
+
   return (
     <motion.div
       initial={{
@@ -34,20 +49,12 @@ export const Spotlight = ({
         opacity: 1,
       }}
       transition={{
-        duration: 1.5,
+        duration: reduceMotion ? 0.2 : 1.5,
       }}
       className="pointer-events-none absolute inset-0 h-full w-full"
     >
       <motion.div
-        animate={{
-          x: [0, xOffset, 0],
-        }}
-        transition={{
-          duration,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",
-        }}
+        {...drift(xOffset)}
         className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none"
       >
         <div
