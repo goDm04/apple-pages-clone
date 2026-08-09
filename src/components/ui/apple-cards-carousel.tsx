@@ -285,20 +285,15 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           >
             {items.map((item, index) => (
               <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.2 * index,
-                  ease: "easeOut",
-                }}
+                initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
+                animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0.2, ease: "easeOut" }
+                    : { type: "spring", bounce: 0, duration: 0.5, delay: 0.08 * index }
+                }
                 key={"card" + index}
+                data-carousel-card
                 className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
               >
                 {item}
@@ -308,20 +303,23 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         </div>
         <div className="mr-10 flex justify-end gap-2">
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-muted disabled:opacity-50"
+            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-transform duration-100 ease-out active:scale-90 disabled:opacity-50 disabled:active:scale-100"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
+            aria-label="Předchozí projekt"
           >
             <IconArrowNarrowLeft className="h-6 w-6 text-muted-foreground" />
           </button>
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-muted disabled:opacity-50"
+            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-transform duration-100 ease-out active:scale-90 disabled:opacity-50 disabled:active:scale-100"
             onClick={scrollRight}
             disabled={!canScrollRight}
+            aria-label="Další projekt"
           >
             <IconArrowNarrowRight className="h-6 w-6 text-muted-foreground" />
           </button>
         </div>
+
       </div>
     </CarouselContext.Provider>
   );
