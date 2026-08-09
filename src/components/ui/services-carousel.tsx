@@ -86,6 +86,52 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     }
   };
 
+  // Browser `behavior: "smooth"` can't be interrupted mid-flight, so a second
+  // tap feels ignored. This critically damped spring redirects instantly.
+  const rafRef = useRef<number | null>(null);
+  const springStateRef = useRef({ value: 0, velocity: 0, target: 0 });
+
+  const springScrollTo = (target: number) => {
+    const el = carouselRef.current;
+    if (!el) return;
+    if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.scrollLeft = target;
+      checkScrollability();
+      return;
+    }
+
+    const state = springStateRef.current;
+    // Inherit the in-flight velocity instead of restarting from zero.
+    state.value = el.scrollLeft;
+    state.target = target;
+    const omega = (2 * Math.PI) / 0.45;
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 1 / 30);
+      last = now;
+      const displacement = state.value - state.target;
+      state.velocity += (-omega * omega * displacement - 2 * omega * state.velocity) * dt;
+      state.value += state.velocity * dt;
+      el.scrollLeft = state.value;
+      if (Math.abs(displacement) < 0.5 && Math.abs(state.velocity) < 10) {
+        el.scrollLeft = state.target;
+        state.velocity = 0;
+        rafRef.current = null;
+        checkScrollability();
+        return;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+  };
+
+  useEffect(() => () => {
+    if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+  }, []);
+
   const scrollToIndex = (index: number, paddingOverride?: number) => {
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 380 : 900;
@@ -101,14 +147,12 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
       const maxScroll = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
       const scrollPosition = Math.max(0, Math.min(target, maxScroll));
 
-      carouselRef.current.scrollTo({
-        left: scrollPosition,
-        behavior: "smooth",
-      });
+      springScrollTo(scrollPosition);
       setCurrentIndex(index);
       checkScrollability();
     }
   };
+
 
   const handleCardClose = (index: number) => {
     scrollToIndex(index);
@@ -124,7 +168,7 @@ export const ServicesCarousel = ({ items, initialScroll = 0 }: CarouselProps) =>
     >
       <div className="relative w-full">
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20 snap-x snap-mandatory"
+          className="flex w-full overflow-x-scroll overscroll-x-auto py-10 [scrollbar-width:none] md:py-20 snap-x snap-mandatory"
           ref={carouselRef}
           onScroll={checkScrollability}
         >
@@ -274,7 +318,7 @@ export const ServicesCard = ({
               </motion.p>
               <motion.p
                 layoutId={layout ? `title-${card.title}` : undefined}
-                className="mt-4 text-2xl font-bold text-foreground md:text-5xl"
+                className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-5xl"
               >
                 {card.title}
               </motion.p>

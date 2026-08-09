@@ -45,7 +45,7 @@ const FAQSection = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto">
         <div className="mb-12">
-          <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf leading-tight">
+          <h2 className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf leading-tight">
             {t("faqTitle")}
           </h2>
         </div>

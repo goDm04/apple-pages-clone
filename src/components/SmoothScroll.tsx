@@ -3,6 +3,11 @@ import Lenis from '@studio-freight/lenis';
 
 export default function SmoothScroll() {
   useEffect(() => {
+    // Smooth/hijacked scrolling is a vestibular trigger — never run it when
+    // the user asked for reduced motion.
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (query.matches) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -11,14 +16,13 @@ export default function SmoothScroll() {
       touchMultiplier: 2,
     });
 
-    function raf(time: number) {
+    let frame = requestAnimationFrame(function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+      frame = requestAnimationFrame(raf);
+    });
 
     return () => {
+      cancelAnimationFrame(frame);
       lenis.destroy();
     };
   }, []);

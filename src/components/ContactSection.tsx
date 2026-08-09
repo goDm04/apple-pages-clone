@@ -71,7 +71,7 @@ const ContactSection = () => {
           {/* Left side - Info */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf leading-tight">
+              <h2 className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf leading-tight">
                 {t("contactTitle")}
               </h2>
             </div>

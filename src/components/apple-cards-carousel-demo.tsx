@@ -18,7 +18,7 @@ export default function AppleCardsCarouselDemo() {
       }`}
       ref={elementRef}
     >
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-foreground font-sf">
+      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf">
         {t('portfolioTitle')}
       </h2>
       <Carousel items={cards} />

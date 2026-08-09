@@ -15,7 +15,7 @@ const ServicesSection = () => {
       ref={elementRef}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf mb-8">
+        <h2 className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf mb-8">
           {t("servicesTitle")}
         </h2>
 

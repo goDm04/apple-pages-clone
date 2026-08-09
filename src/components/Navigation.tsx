@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -21,11 +22,16 @@ const Navigation = () => {
   ];
 
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // The section anchors only exist on the homepage (and its /:lang variants).
+  const isHome = /^\/(en|de)?$/.test(location.pathname);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setShowNavbar(true), 300);
-    const timer2 = setTimeout(() => setShowLinks(true), 800);
-    const timer3 = setTimeout(() => setShowLogoButton(true), 1200);
+    const timer1 = setTimeout(() => setShowNavbar(true), 60);
+    const timer2 = setTimeout(() => setShowLinks(true), 140);
+    const timer3 = setTimeout(() => setShowLogoButton(true), 200);
     return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); };
   }, []);
 
@@ -45,15 +51,22 @@ const Navigation = () => {
     }, { root: null, rootMargin: "-40% 0px -50% 0px", threshold: 0.01 });
     sections.forEach(sec => observer.observe(sec));
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
 
   const handleNavClick = (e: React.MouseEvent, href: string, key: string) => {
     e.preventDefault();
     const id = href.replace('#', '');
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setActiveItem(key);
     setOpen(false);
+
+    // Off the homepage the anchors don't exist — go home first, never dead-end.
+    if (!isHome) {
+      navigate(`/${href}`);
+      return;
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
@@ -66,7 +79,7 @@ const Navigation = () => {
 
   return <>
     {/* Mobile navbar */}
-    <header className={`fixed top-0 left-0 right-0 z-[100] block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full' : 'opacity-100 transform translate-y-0'}`}>
+    <header data-material className={`fixed top-0 left-0 right-0 z-[100] block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full' : 'opacity-100 transform translate-y-0'}`}>
       <div className="mx-auto max-w-7xl px-4">
         <div className="h-16 flex items-center justify-between">
           <a href="#hero" onClick={e => handleNavClick(e, "#hero", "home")} className="flex items-center">
@@ -103,7 +116,7 @@ const Navigation = () => {
 
     {/* Desktop navbar */}
     <header className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] hidden lg:block transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full scale-95' : 'opacity-100 transform translate-y-0 scale-100'}`}>
-      <div className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'}`}>
+      <div data-material className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'}`}>
         <div className="flex items-center w-full relative">
           <a href="#hero" onClick={e => handleNavClick(e, "#hero", "home")}
             className={`flex items-center transition-all duration-300 ${showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>

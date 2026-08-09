@@ -136,4 +136,68 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Instant, non-vestibular press feedback on every interactive element. */
+  a,
+  button,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Reduced motion: keep comprehension cues, drop vestibular motion.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 200ms !important;
+    transition-property: opacity, background-color, border-color, color, fill,
+      stroke !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* No slides, parallax or elastic overshoot — cross-fade instead. */
+  .animate-fade-in,
+  .animate-fade-out,
+  .animate-scale-in,
+  .animate-scale-out,
+  .animate-enter,
+  .animate-exit,
+  .animate-slide-in-right,
+  .animate-slide-out-right {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Full-viewport moving backgrounds and looping oscillations. */
+  [data-motion-decorative] {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Frostier, not blurrier, when transparency is reduced. */
+@media (prefers-reduced-transparency: reduce) {
+  [data-material] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: hsl(var(--background)) !important;
+  }
+}
+
+/* Near-solid surfaces with a defined border in high contrast. */
+@media (prefers-contrast: more) {
+  [data-material] {
+    background-color: hsl(var(--background)) !important;
+    border-color: hsl(var(--foreground)) !important;
+  }
 }
