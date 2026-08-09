@@ -38,7 +38,7 @@ const AboutSection = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-8">
         {/* Header area */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <h2 id="about-heading" className="text-xl md:text-5xl font-bold text-foreground font-sf leading-tight">
+          <h2 id="about-heading" className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf leading-tight">
             {t("aboutTitle")}
           </h2>
           <p className="text-muted-foreground text-base md:text-xl font-sf leading-relaxed self-end">

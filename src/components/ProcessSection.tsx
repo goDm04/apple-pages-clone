@@ -38,7 +38,7 @@ const ProcessSection = () => {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
         {/* Section header */}
-        <h2 className="text-xl md:text-5xl font-bold text-foreground font-sf">
+        <h2 className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf">
           {t("processTitle")}
         </h2>
         

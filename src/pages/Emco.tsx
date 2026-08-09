@@ -46,7 +46,7 @@ const Emco = () => {
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="space-y-3">
-            <h2 className="text-xl md:text-4xl font-bold font-sf">Microsite</h2>
+            <h2 className="text-xl md:text-4xl font-bold md:tracking-tight font-sf">Microsite</h2>
             <p className="text-muted-foreground font-sf max-w-2xl leading-relaxed">
               Navrhli jsme interaktivní microsite, kde se uživatelé mohli stát „hvězdou videa" — 
               nahrát svou fotku a vygenerovat personalizované video s produkty Emco. 
@@ -71,7 +71,7 @@ const Emco = () => {
             {/* Mobile version */}
             <div className="space-y-6">
               <div className="space-y-3">
-                <h2 className="text-xl md:text-4xl font-bold font-sf">Mobilní verze</h2>
+                <h2 className="text-xl md:text-4xl font-bold md:tracking-tight font-sf">Mobilní verze</h2>
                 <p className="text-muted-foreground font-sf leading-relaxed">
                   Microsite plně optimalizovaná pro mobilní zařízení — většina uživatelů přicházela právě z telefonu.
                 </p>
@@ -89,7 +89,7 @@ const Emco = () => {
             {/* Landing page */}
             <div className="space-y-6">
               <div className="space-y-3">
-                <h2 className="text-xl md:text-4xl font-bold font-sf">Landing page</h2>
+                <h2 className="text-xl md:text-4xl font-bold md:tracking-tight font-sf">Landing page</h2>
                 <p className="text-muted-foreground font-sf leading-relaxed">
                   Rekordní landing page s odpočítáváním, registrací emailů a galerií videí od účastníků.
                 </p>
@@ -111,7 +111,7 @@ const Emco = () => {
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="space-y-3">
-            <h2 className="text-xl md:text-4xl font-bold font-sf">Newsletter bannery</h2>
+            <h2 className="text-xl md:text-4xl font-bold md:tracking-tight font-sf">Newsletter bannery</h2>
             <p className="text-muted-foreground font-sf max-w-2xl leading-relaxed">
               Série bannerů pro emailové kampaně, které zvaly k účasti na rekordu. 
               Vizuálně navazují na celkový branding akce.
@@ -132,7 +132,7 @@ const Emco = () => {
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="space-y-3">
-            <h2 className="text-xl md:text-4xl font-bold font-sf">Tištěné materiály</h2>
+            <h2 className="text-xl md:text-4xl font-bold md:tracking-tight font-sf">Tištěné materiály</h2>
             <p className="text-muted-foreground font-sf max-w-2xl leading-relaxed">
               Letáky a plakáty A5 pro offline propagaci akce na Street Food Festivalu v Berouně.
             </p>
@@ -152,7 +152,7 @@ const Emco = () => {
       <section className="py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="bg-muted rounded-3xl p-8 md:p-16 space-y-8">
-            <h2 className="text-xl md:text-4xl font-bold font-sf">O projektu</h2>
+            <h2 className="text-xl md:text-4xl font-bold md:tracking-tight font-sf">O projektu</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <p className="text-muted-foreground font-sf leading-relaxed">
@@ -184,7 +184,7 @@ const Emco = () => {
       {/* Footer CTA */}
       <section className="py-20 px-4 md:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-6">
-          <h2 className="text-xl md:text-4xl font-bold font-sf">Chcete podobný projekt?</h2>
+          <h2 className="text-xl md:text-4xl font-bold md:tracking-tight font-sf">Chcete podobný projekt?</h2>
           <p className="text-muted-foreground font-sf">Ozvěte se nám a probereme to.</p>
           <Link 
             to="/#kontakt" 

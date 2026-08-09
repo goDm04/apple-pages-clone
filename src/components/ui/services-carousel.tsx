@@ -274,7 +274,7 @@ export const ServicesCard = ({
               </motion.p>
               <motion.p
                 layoutId={layout ? `title-${card.title}` : undefined}
-                className="mt-4 text-2xl font-bold text-foreground md:text-5xl"
+                className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-5xl"
               >
                 {card.title}
               </motion.p>
