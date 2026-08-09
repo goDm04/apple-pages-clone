@@ -402,22 +402,30 @@ const handleOpen = () => {
         {open && (
           <div className="fixed inset-0 z-50 h-screen overflow-auto">
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 h-full w-full bg-black/80 backdrop-blur-lg"
+              initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+              animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
+              exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+              transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+              className="fixed inset-0 h-full w-full bg-black/80"
             />
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.92 }}
+              animate={reduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.92 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0.2, ease: "easeOut" }
+                  : { type: "spring", bounce: 0, duration: 0.4 }
+              }
+              style={{ transformOrigin: origin }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
               className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-background p-4 font-sf md:p-10"
             >
               <button
-                className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-foreground"
+                className="sticky top-4 right-0 ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-foreground transition-transform duration-100 ease-out active:scale-90"
                 onClick={handleClose}
+                aria-label="Zavřít"
               >
                 <IconX className="h-6 w-6 text-background" />
               </button>
@@ -429,7 +437,7 @@ const handleOpen = () => {
               </motion.p>
               <motion.p
                 layoutId={layout ? `title-${card.title}` : undefined}
-                className="mt-4 text-2xl font-bold text-foreground md:text-5xl"
+                className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-5xl"
               >
                 {card.title}
               </motion.p>
@@ -439,10 +447,12 @@ const handleOpen = () => {
         )}
       </AnimatePresence>
       <motion.button
+        ref={triggerRef}
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-80 flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted md:h-[40rem] md:w-96"
+        className="relative z-10 flex h-80 w-80 flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted transition-transform duration-100 ease-out active:scale-[0.97] md:h-[40rem] md:w-96"
       >
+
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
           <motion.p
