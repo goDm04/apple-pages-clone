@@ -89,6 +89,13 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
     const max = el.scrollWidth - el.clientWidth;
     const clamped = Math.max(0, Math.min(max, target));
+
+    if (reduceMotion) {
+      el.scrollLeft = clamped;
+      checkScrollability();
+      return;
+    }
+
     const state = animStateRef.current;
     state.value = el.scrollLeft;
     state.velocity = initialVelocity;
