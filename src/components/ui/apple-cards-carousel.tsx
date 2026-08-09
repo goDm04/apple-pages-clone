@@ -372,9 +372,14 @@ export const Card = ({
 const handleOpen = () => {
   // Enable modal open for FINPRO21 Reality and Centrum pojištění Vlašim
   if (card.title === "FINPRO21 Reality" || card.title === "Centrum pojištění Vlašim") {
+    const rect = triggerRef.current?.getBoundingClientRect();
+    if (rect) {
+      setOrigin(`${rect.left + rect.width / 2}px ${rect.top + rect.height / 2}px`);
+    }
     setOpen(true);
     return;
   }
+  
   
   // For other cards, open external link if provided
   if (card.href) {
