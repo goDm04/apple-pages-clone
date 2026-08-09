@@ -158,6 +158,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       (dimension + RUBBERBAND_CONSTANT * Math.abs(overshoot));
 
     const onPointerDown = (e: PointerEvent) => {
+      // Touch already has native inertial scrolling + rubber-banding: leave it alone.
+      if (e.pointerType === "touch") return;
       if (e.pointerType === "mouse" && e.button !== 0) return;
       // Grabbing a moving carousel must take it over immediately.
       stopAnimation();
