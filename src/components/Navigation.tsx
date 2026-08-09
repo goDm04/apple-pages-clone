@@ -79,7 +79,7 @@ const Navigation = () => {
 
   return <>
     {/* Mobile navbar */}
-    <header className={`fixed top-0 left-0 right-0 z-[100] block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full' : 'opacity-100 transform translate-y-0'}`}>
+    <header data-material className={`fixed top-0 left-0 right-0 z-[100] block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full' : 'opacity-100 transform translate-y-0'}`}>
       <div className="mx-auto max-w-7xl px-4">
         <div className="h-16 flex items-center justify-between">
           <a href="#hero" onClick={e => handleNavClick(e, "#hero", "home")} className="flex items-center">
@@ -116,7 +116,7 @@ const Navigation = () => {
 
     {/* Desktop navbar */}
     <header className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] hidden lg:block transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full scale-95' : 'opacity-100 transform translate-y-0 scale-100'}`}>
-      <div className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'}`}>
+      <div data-material className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'}`}>
         <div className="flex items-center w-full relative">
           <a href="#hero" onClick={e => handleNavClick(e, "#hero", "home")}
             className={`flex items-center transition-all duration-300 ${showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
