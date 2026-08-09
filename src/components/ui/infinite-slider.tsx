@@ -28,8 +28,16 @@ export function InfiniteSlider({
   const translation = useMotionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [key, setKey] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    // A slow looping oscillation across a wide surface — stop it entirely
+    // when the user prefers reduced motion.
+    if (reduceMotion) {
+      translation.set(0);
+      return;
+    }
+
     let controls;
     const size = direction === 'horizontal' ? width : height;
     const contentSize = size + gap;
