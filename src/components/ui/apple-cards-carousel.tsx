@@ -344,6 +344,10 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const reduceMotion = useReducedMotion();
+  // Anchor the sheet to the card that opened it, so it emerges from where it came.
+  const [origin, setOrigin] = useState("50% 50%");
   const { onCardClose, currentIndex } = useContext(CarouselContext);
 
   useEffect(() => {
