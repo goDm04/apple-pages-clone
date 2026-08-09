@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { useMotionValue, animate, motion } from 'framer-motion';
+import { useMotionValue, animate, motion, useReducedMotion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import useMeasure from 'react-use-measure';
 
