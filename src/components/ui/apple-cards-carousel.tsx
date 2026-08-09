@@ -57,51 +57,167 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   };
 
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+  const getCardStep = () => {
+    const el = carouselRef.current;
+    const card = el?.querySelector<HTMLElement>("[data-carousel-card]");
+    if (!card) return 320;
+    const gap = 16;
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  // Interruptible, velocity-aware scroll animation (no CSS smooth scroll).
+  const rafRef = useRef<number | null>(null);
+  const animStateRef = useRef({ value: 0, velocity: 0, target: 0 });
+
+  const stopAnimation = () => {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
     }
   };
 
+  /**
+   * Critically damped spring (damping 1.0) animating from the *current*
+   * on-screen value with the handed-off velocity, so it can be grabbed
+   * and redirected at any moment.
+   */
+  const springTo = (target: number, initialVelocity = 0, response = 0.4) => {
+    const el = carouselRef.current;
+    if (!el) return;
+    stopAnimation();
+
+    const max = el.scrollWidth - el.clientWidth;
+    const clamped = Math.max(0, Math.min(max, target));
+    const state = animStateRef.current;
+    state.value = el.scrollLeft;
+    state.velocity = initialVelocity;
+    state.target = clamped;
+
+    const omega = (2 * Math.PI) / response; // damping ratio = 1.0
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 1 / 30);
+      last = now;
+
+      const displacement = state.value - state.target;
+      const accel = -omega * omega * displacement - 2 * omega * state.velocity;
+      state.velocity += accel * dt;
+      state.value += state.velocity * dt;
+
+      el.scrollLeft = state.value;
+
+      if (Math.abs(state.value - state.target) < 0.5 && Math.abs(state.velocity) < 10) {
+        el.scrollLeft = state.target;
+        rafRef.current = null;
+        checkScrollability();
+        return;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+  };
+
+  /** Apple's momentum projection (Designing Fluid Interfaces sample code). */
+  const project = (initialVelocity: number, decelerationRate = 0.998) =>
+    (initialVelocity / 1000) * decelerationRate / (1 - decelerationRate);
+
+  const nearestSnap = (position: number) => {
+    const step = getCardStep();
+    return Math.round(position / step) * step;
+  };
+
+  const scrollLeft = () => {
+    const el = carouselRef.current;
+    if (!el) return;
+    springTo(nearestSnap(el.scrollLeft - getCardStep()), 0, 0.4);
+  };
+
   const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
-    }
+    const el = carouselRef.current;
+    if (!el) return;
+    springTo(nearestSnap(el.scrollLeft + getCardStep()), 0, 0.4);
   };
 
   const isDraggingRef = useRef(false);
   const startXRef = useRef(0);
   const scrollStartRef = useRef(0);
   const hasDraggedRef = useRef(false);
+  const historyRef = useRef<{ x: number; t: number }[]>([]);
 
   useEffect(() => {
     const el = carouselRef.current;
     if (!el) return;
 
-    const onMouseDown = (e: MouseEvent) => {
+    const DRAG_THRESHOLD = 10; // hysteresis before committing to a drag
+    const RUBBERBAND_CONSTANT = 0.55;
+
+    const rubberband = (overshoot: number, dimension: number) =>
+      (overshoot * dimension * RUBBERBAND_CONSTANT) /
+      (dimension + RUBBERBAND_CONSTANT * Math.abs(overshoot));
+
+    const onPointerDown = (e: PointerEvent) => {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      // Grabbing a moving carousel must take it over immediately.
+      stopAnimation();
       isDraggingRef.current = true;
       hasDraggedRef.current = false;
-      startXRef.current = e.pageX;
+      startXRef.current = e.clientX;
       scrollStartRef.current = el.scrollLeft;
-      el.style.userSelect = "none";
+      historyRef.current = [{ x: e.clientX, t: e.timeStamp }];
+      el.setPointerCapture(e.pointerId);
       el.style.cursor = "grabbing";
-      el.style.scrollBehavior = "auto";
     };
 
-    const onMouseMove = (e: MouseEvent) => {
+    const onPointerMove = (e: PointerEvent) => {
       if (!isDraggingRef.current) return;
+      const dx = e.clientX - startXRef.current;
+
+      if (!hasDraggedRef.current) {
+        if (Math.abs(dx) < DRAG_THRESHOLD) return;
+        hasDraggedRef.current = true;
+        el.style.userSelect = "none";
+      }
       e.preventDefault();
-      const dx = e.pageX - startXRef.current;
-      if (Math.abs(dx) > 3) hasDraggedRef.current = true;
-      el.scrollLeft = scrollStartRef.current - dx;
+
+      // Keep a short velocity history rather than a single point.
+      historyRef.current.push({ x: e.clientX, t: e.timeStamp });
+      if (historyRef.current.length > 6) historyRef.current.shift();
+
+      const max = el.scrollWidth - el.clientWidth;
+      const raw = scrollStartRef.current - dx;
+
+      if (raw < 0) {
+        el.scrollLeft = -rubberband(-raw, el.clientWidth);
+      } else if (raw > max) {
+        el.scrollLeft = max + rubberband(raw - max, el.clientWidth);
+      } else {
+        el.scrollLeft = raw;
+      }
     };
 
-    const onMouseUp = () => {
+    const endDrag = (e: PointerEvent) => {
       if (!isDraggingRef.current) return;
       isDraggingRef.current = false;
       el.style.userSelect = "";
       el.style.cursor = "grab";
-      el.style.scrollBehavior = "smooth";
+      if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+
+      const history = historyRef.current;
+      const first = history[0];
+      const last = history[history.length - 1];
+      const dt = last && first ? last.t - first.t : 0;
+      // px/s of the scroll position (inverse of pointer direction)
+      const velocity = dt > 0 ? (-(last.x - first.x) / dt) * 1000 : 0;
+
+      if (!hasDraggedRef.current) return;
+
+      const max = el.scrollWidth - el.clientWidth;
+      const projected = el.scrollLeft + project(velocity);
+      const target = Math.max(0, Math.min(max, nearestSnap(projected)));
+      // Hand the release velocity to the spring: no seam between drag and animation.
+      springTo(target, velocity, Math.abs(velocity) > 50 ? 0.5 : 0.35);
     };
 
     // Prevent click on cards after dragging
@@ -117,20 +233,24 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       e.preventDefault();
     };
 
-    el.addEventListener("mousedown", onMouseDown);
+    el.addEventListener("pointerdown", onPointerDown);
+    el.addEventListener("pointermove", onPointerMove);
+    el.addEventListener("pointerup", endDrag);
+    el.addEventListener("pointercancel", endDrag);
     el.addEventListener("dragstart", onDragStart);
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
     el.addEventListener("click", onClick, true);
 
     return () => {
-      el.removeEventListener("mousedown", onMouseDown);
+      stopAnimation();
+      el.removeEventListener("pointerdown", onPointerDown);
+      el.removeEventListener("pointermove", onPointerMove);
+      el.removeEventListener("pointerup", endDrag);
+      el.removeEventListener("pointercancel", endDrag);
       el.removeEventListener("dragstart", onDragStart);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
       el.removeEventListener("click", onClick, true);
     };
   }, []);
+
 
   const handleCardClose = (index: number) => {
     if (carouselRef.current) {
