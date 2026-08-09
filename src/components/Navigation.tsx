@@ -22,11 +22,16 @@ const Navigation = () => {
   ];
 
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // The section anchors only exist on the homepage (and its /:lang variants).
+  const isHome = /^\/(en|de)?$/.test(location.pathname);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setShowNavbar(true), 300);
-    const timer2 = setTimeout(() => setShowLinks(true), 800);
-    const timer3 = setTimeout(() => setShowLogoButton(true), 1200);
+    const timer1 = setTimeout(() => setShowNavbar(true), 60);
+    const timer2 = setTimeout(() => setShowLinks(true), 140);
+    const timer3 = setTimeout(() => setShowLogoButton(true), 200);
     return () => { clearTimeout(timer1); clearTimeout(timer2); clearTimeout(timer3); };
   }, []);
 
@@ -46,15 +51,22 @@ const Navigation = () => {
     }, { root: null, rootMargin: "-40% 0px -50% 0px", threshold: 0.01 });
     sections.forEach(sec => observer.observe(sec));
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
 
   const handleNavClick = (e: React.MouseEvent, href: string, key: string) => {
     e.preventDefault();
     const id = href.replace('#', '');
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setActiveItem(key);
     setOpen(false);
+
+    // Off the homepage the anchors don't exist — go home first, never dead-end.
+    if (!isHome) {
+      navigate(`/${href}`);
+      return;
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
