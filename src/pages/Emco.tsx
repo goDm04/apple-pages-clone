@@ -187,7 +187,7 @@ const Emco = () => {
           <h2 className="text-xl md:text-4xl font-bold font-sf">Chcete podobný projekt?</h2>
           <p className="text-muted-foreground font-sf">Ozvěte se nám a probereme to.</p>
           <Link 
-            to="/#contact" 
+            to="/#kontakt" 
             className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-3 rounded-full font-sf font-medium hover:opacity-90 transition-opacity"
           >
             Kontaktujte nás
