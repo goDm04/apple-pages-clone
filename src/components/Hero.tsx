@@ -23,8 +23,6 @@ const Hero = () => {
       {/* Grid Background */}
       <GridBackground />
       
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-48 bg-gradient-to-b from-transparent to-hero" />
-
       <div className="relative z-10 mx-auto flex min-h-[92svh] w-full max-w-6xl flex-col items-center justify-center px-4 pb-32 pt-28 text-center md:min-h-screen md:pb-36 md:pt-36">
         {/* Small logo above heading */}
         <img
