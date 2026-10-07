@@ -302,7 +302,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                 }
                 key={"card" + index}
                 data-carousel-card
-                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
+                className="rounded-xl last:pr-[5%] md:last:pr-[33%]"
               >
                 {item}
               </motion.div>
@@ -311,7 +311,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         </div>
         <div className="mr-10 flex justify-end gap-2">
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-transform duration-100 ease-out active:scale-90 disabled:opacity-50 disabled:active:scale-100"
+            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background transition-colors hover:bg-accent hover:text-accent-foreground active:scale-90 disabled:opacity-50 disabled:active:scale-100"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
             aria-label="Předchozí projekt"
@@ -319,7 +319,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             <IconArrowNarrowLeft className="h-6 w-6 text-muted-foreground" />
           </button>
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-transform duration-100 ease-out active:scale-90 disabled:opacity-50 disabled:active:scale-100"
+            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background transition-colors hover:bg-accent hover:text-accent-foreground active:scale-90 disabled:opacity-50 disabled:active:scale-100"
             onClick={scrollRight}
             disabled={!canScrollRight}
             aria-label="Další projekt"
@@ -420,14 +420,14 @@ const handleOpen = () => {
               style={{ transformOrigin: origin }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-background p-4 font-sf md:p-10"
+              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-xl border border-border bg-card p-4 font-sf shadow-2xl md:p-10"
             >
               <button
-                className="sticky top-4 right-0 ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-foreground transition-transform duration-100 ease-out active:scale-90"
+                className="sticky right-0 top-4 ml-auto flex h-11 w-11 items-center justify-center rounded-full border border-border bg-secondary transition-colors hover:bg-accent active:scale-90"
                 onClick={handleClose}
                 aria-label="Zavřít"
               >
-                <IconX className="h-6 w-6 text-background" />
+                <IconX className="h-6 w-6 text-foreground" />
               </button>
               <motion.p
                 layoutId={layout ? `category-${card.title}` : undefined}
@@ -450,20 +450,20 @@ const handleOpen = () => {
         ref={triggerRef}
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-80 flex-col items-start justify-start overflow-hidden rounded-3xl bg-muted transition-transform duration-100 ease-out active:scale-[0.97] md:h-[40rem] md:w-96"
+        className="relative z-10 flex h-80 w-80 flex-col items-start justify-start overflow-hidden rounded-xl border border-border bg-card transition-all duration-100 ease-out hover:border-primary/50 active:scale-[0.97] md:h-[40rem] md:w-96"
       >
 
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-background/90 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-sf text-sm font-medium text-white md:text-base"
+            className="text-left font-sf text-sm font-medium text-foreground md:text-base"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="mt-2 max-w-xs text-left font-sf text-xl font-bold [text-wrap:balance] text-white md:text-3xl"
+            className="mt-2 max-w-xs text-left font-display text-xl font-bold [text-wrap:balance] text-foreground md:text-3xl"
           >
             {card.title}
           </motion.p>
