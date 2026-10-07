@@ -6,7 +6,7 @@ const Footer = () => {
   const { t, language } = useLanguage();
 
   const navLinks = [
-    { name: t("home"), href: "#domu" },
+    { name: t("home"), href: "#hero" },
     { name: t("services"), href: "#sluzby" },
     { name: t("portfolio"), href: "#portfolio" },
     { name: t("about"), href: "#o-nas" },
@@ -26,7 +26,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-muted/50 border-t border-border">
+    <footer className="border-t border-background/15 bg-foreground text-background">
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo and description */}
@@ -38,7 +38,7 @@ const Footer = () => {
                 className="h-8 w-auto"
               />
             </div>
-            <p className="text-muted-foreground font-sf text-sm leading-relaxed max-w-md">
+            <p className="max-w-md font-sf text-sm leading-relaxed text-background/60">
               {t("footerDesc")}
             </p>
             <div className="flex space-x-4 pt-2">
@@ -46,7 +46,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 bg-background rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 text-background/60 transition-colors hover:bg-background hover:text-foreground"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -57,13 +57,13 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground font-sf">{t("footerNav")}</h3>
+            <h3 className="font-sf font-semibold text-background">{t("footerNav")}</h3>
             <nav className="space-y-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-sm text-muted-foreground hover:text-foreground font-sf transition-colors"
+                  className="block font-sf text-sm text-background/60 transition-colors hover:text-background"
                 >
                   {link.name}
                 </a>
@@ -73,8 +73,8 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground font-sf">{t("footerContact")}</h3>
-            <div className="space-y-2 text-sm text-muted-foreground font-sf">
+            <h3 className="font-sf font-semibold text-background">{t("footerContact")}</h3>
+            <div className="space-y-2 font-sf text-sm text-background/60">
               <p>info@tensioncreative.cz</p>
               <p>+420 605 426 456</p>
               <p>Zahradní 569, Vlašim</p>
@@ -83,11 +83,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-muted-foreground font-sf">
+        <div className="mt-12 flex flex-col items-center justify-between space-y-4 border-t border-background/15 pt-8 md:flex-row md:space-y-0">
+          <p className="font-sf text-sm text-background/50">
             © {currentYear} {t("footerCopyright")}
           </p>
-          <p className="text-sm text-muted-foreground font-sf">
+          <p className="font-sf text-sm text-background/50">
             IČO: 22657908
           </p>
         </div>

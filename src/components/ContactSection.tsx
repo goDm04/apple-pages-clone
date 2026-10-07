@@ -65,63 +65,63 @@ const ContactSection = () => {
       [e.target.name]: e.target.value
     }));
   };
-  return <section id="kontakt" className={`w-full py-20 bg-muted transition-all duration-700 ${isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`} ref={elementRef}>
+  return <section id="kontakt" className={`w-full bg-foreground py-24 text-background transition-all duration-700 md:py-32 ${isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`} ref={elementRef}>
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-none">
+        <div className="grid max-w-none items-start gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           {/* Left side - Info */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf leading-tight">
+              <h2 className="font-sf text-4xl font-bold leading-tight tracking-normal text-background md:text-6xl">
                 {t("contactTitle")}
               </h2>
             </div>
 
-            <p className="text-base font-sf text-muted-foreground leading-relaxed">
+            <p className="max-w-lg font-sf text-base leading-relaxed text-background/60 md:text-lg">
               {t("contactDesc")}
             </p>
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-background/20 bg-background/5">
+                  <svg className="h-5 w-5 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold font-sf text-foreground">{t("email")}</h3>
-                  <p className="text-muted-foreground font-sf">info@tensioncreative.cz</p>
+                  <h3 className="font-sf font-semibold text-background">{t("email")}</h3>
+                  <p className="font-sf text-background/60">info@tensioncreative.cz</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-background/20 bg-background/5">
+                  <svg className="h-5 w-5 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold font-sf text-foreground">{t("phone")}</h3>
-                  <p className="text-muted-foreground font-sf">+420 605 426 456</p>
+                  <h3 className="font-sf font-semibold text-background">{t("phone")}</h3>
+                  <p className="font-sf text-background/60">+420 605 426 456</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-background/20 bg-background/5">
+                  <svg className="h-5 w-5 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold font-sf text-foreground">{t("address")}</h3>
-                  <p className="text-muted-foreground font-sf">Zahradní 569, Vlašim</p>
+                  <h3 className="font-sf font-semibold text-background">{t("address")}</h3>
+                  <p className="font-sf text-background/60">Zahradní 569, Vlašim</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right side - Form */}
-          <div className="bg-background rounded-3xl p-8 md:p-10 shadow-sm w-full">
+          <div className="w-full rounded-lg border border-background/15 bg-background p-7 md:p-10">
             <form action="https://formspree.io/f/mwpqydpd" method="POST" onSubmit={handleSubmit} className="space-y-8">
               {/* Hidden fields for email routing */}
               <input type="hidden" name="_to" value="info@tensioncreative.cz" />
@@ -132,14 +132,14 @@ const ContactSection = () => {
                   <label htmlFor="name" className="text-sm font-medium font-sf text-foreground">
                     {t("name")} *
                   </label>
-                  <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder={t("namePlaceholder")} required className="font-sf" />
+                  <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder={t("namePlaceholder")} required className="h-12 rounded-md font-sf" />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium font-sf text-foreground">
                     {t("email")} *
                   </label>
-                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder={t("emailPlaceholder")} required className="font-sf" />
+                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder={t("emailPlaceholder")} required className="h-12 rounded-md font-sf" />
                 </div>
               </div>
 
@@ -147,14 +147,14 @@ const ContactSection = () => {
                 <label htmlFor="subject" className="text-sm font-medium font-sf text-foreground">
                   {t("subject")}
                 </label>
-                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder={t("subjectPlaceholder")} className="font-sf" />
+                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder={t("subjectPlaceholder")} className="h-12 rounded-md font-sf" />
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium font-sf text-foreground">
                   {t("message")} *
                 </label>
-                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder={t("messagePlaceholder")} rows={6} required className="font-sf" />
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder={t("messagePlaceholder")} rows={6} required className="rounded-md font-sf" />
               </div>
 
               <Button type="submit" size="lg" className="w-full md:w-auto font-sf font-semibold bg-foreground text-background hover:bg-foreground/90 rounded-full">
