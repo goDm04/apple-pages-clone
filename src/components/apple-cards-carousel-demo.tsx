@@ -73,6 +73,13 @@ const CentrumPojisteniContent = () => {
 
 const data = (t: (key: string) => string) => [
   {
+    category: "Microsite · Social · Newsletter · Print",
+    title: "Emco – Největší snídaně v Česku",
+    src: "/lovable-uploads/emco-desktop.png",
+    href: "/emco",
+    content: <DummyContent t={t} />,
+  },
+  {
     category: t('categoryWebsites'),
     title: "Aenkai thajské masáže",
     src: "/lovable-uploads/aenkai-new.jpg",

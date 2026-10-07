@@ -6,6 +6,8 @@ import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
+import WebsiteTestSection from "@/components/WebsiteTestSection";
+import DeliverablesSection from "@/components/DeliverablesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -35,9 +37,11 @@ const Index = () => {
       <Hero />
       <StatsSection />
       <ServicesSection />
+      <DeliverablesSection />
       <ProcessSection />
       <CustomBanner />
       <AppleCardsCarouselDemo />
+      <WebsiteTestSection />
       <AboutSection />
       <FAQSection />
       <ContactSection />

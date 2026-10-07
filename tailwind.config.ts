@@ -28,6 +28,7 @@ export default {
 				'sf': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
+				score: { good: 'hsl(var(--score-good))', mid: 'hsl(var(--score-mid))', bad: 'hsl(var(--score-bad))' },
 				hero: {
 					DEFAULT: 'hsl(var(--hero))',
 					foreground: 'hsl(var(--hero-foreground))',
