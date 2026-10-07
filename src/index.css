@@ -168,6 +168,11 @@ All colors MUST be HSL.
     color-scheme: dark;
   }
 
+  .homepage-dark section[id],
+  .homepage-dark [id="portfolio"] {
+    scroll-margin-top: 6.5rem;
+  }
+
   .homepage-grid {
     background-image:
       linear-gradient(to right, hsl(var(--border) / 0.42) 1px, transparent 1px),
