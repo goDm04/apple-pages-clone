@@ -20,6 +20,8 @@ const ContactSection = () => {
     name: "",
     email: "",
     subject: "",
+    projectType: "",
+    budget: "",
     message: ""
   });
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,6 +36,8 @@ const ContactSection = () => {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
+          projectType: formData.projectType,
+          budget: formData.budget,
           message: formData.message,
           _to: "info@tensioncreative.cz",
           _cc: "tomca@gmail.com",
@@ -59,12 +63,18 @@ const ContactSection = () => {
       });
     }
   };
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
+  const L = {
+    cs: { type: "Typ projektu", budget: "Orientační rozpočet", pick: "Vyberte", types: ["Webové stránky", "E-shop", "Branding a grafika", "Sociální sítě", "Jiné"], budgets: ["do 20 000 Kč", "20 000–50 000 Kč", "50 000–100 000 Kč", "nad 100 000 Kč", "Zatím nevím"] },
+    en: { type: "Project type", budget: "Estimated budget", pick: "Select", types: ["Website", "E-shop", "Branding & graphics", "Social media", "Other"], budgets: ["up to €800", "€800–2,000", "€2,000–4,000", "over €4,000", "Not sure yet"] },
+    de: { type: "Projektart", budget: "Ungefähres Budget", pick: "Auswählen", types: ["Website", "Onlineshop", "Branding & Grafik", "Social Media", "Sonstiges"], budgets: ["bis 800 €", "800–2.000 €", "2.000–4.000 €", "über 4.000 €", "Noch unklar"] },
+  }[language];
+  const selectCls = "h-12 w-full rounded-md border border-input bg-background px-3 font-sf text-sm text-foreground";
   return <section id="kontakt" className={`w-full bg-gradient-ink py-24 text-background transition-all duration-700 md:py-32 ${isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`} ref={elementRef}>
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid max-w-none items-start gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
@@ -140,6 +150,23 @@ const ContactSection = () => {
                     {t("email")} *
                   </label>
                   <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder={t("emailPlaceholder")} required className="h-12 rounded-md font-sf" />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="projectType" className="text-sm font-medium font-sf text-foreground">{L.type}</label>
+                  <select id="projectType" name="projectType" value={formData.projectType} onChange={handleChange} className={selectCls}>
+                    <option value="">{L.pick}</option>
+                    {L.types.map(o => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="budget" className="text-sm font-medium font-sf text-foreground">{L.budget}</label>
+                  <select id="budget" name="budget" value={formData.budget} onChange={handleChange} className={selectCls}>
+                    <option value="">{L.pick}</option>
+                    {L.budgets.map(o => <option key={o} value={o}>{o}</option>)}
+                  </select>
                 </div>
               </div>
 

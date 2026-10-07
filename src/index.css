@@ -41,6 +41,9 @@ All colors MUST be HSL.
     --hero-muted: 240 5% 74%;
     --hero-border: 0 0% 100%;
 
+    --score-good: 142 70% 50%;
+    --score-mid: 38 92% 55%;
+    --score-bad: 0 80% 62%;
     --ink-1: 0 0% 2%;
     --ink-2: 240 4% 9%;
     --ink-3: 240 4% 15%;
