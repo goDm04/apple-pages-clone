@@ -55,7 +55,7 @@ const AboutSection = () => {
                 key={index}
                 className="group flex flex-col gap-6 border-b border-border py-8 transition-colors duration-300 last:border-b-0 md:border-b-0 md:border-r md:px-8 md:py-10 md:last:border-r-0 md:first:pl-0 md:last:pr-0"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-muted transition-colors group-hover:bg-foreground">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-muted transition-colors group-hover:bg-gradient-ink">
                   <IconComponent className="h-5 w-5 text-foreground transition-colors group-hover:text-background" />
                 </div>
                 <h3 className="font-sf text-xl font-semibold text-foreground">

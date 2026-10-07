@@ -294,7 +294,7 @@ export const ServicesCard = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 h-full w-full bg-black/80 backdrop-blur-lg"
+              className="fixed inset-0 h-full w-full bg-gradient-hero-glass backdrop-blur-lg"
             />
             <motion.div
               initial={{ opacity: 0 }}
@@ -305,7 +305,7 @@ export const ServicesCard = ({
               className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-background p-4 font-sf md:p-10"
             >
               <button
-                className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-foreground"
+                className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-gradient-ink hover:bg-gradient-ink-hover"
                 onClick={handleClose}
               >
                 <IconX className="h-6 w-6 text-background" />
