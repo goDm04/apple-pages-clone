@@ -13,14 +13,15 @@ export default function AppleCardsCarouselDemo() {
   return (
     <div 
       id="portfolio" 
-      className={`w-full h-full py-20 transition-all duration-700 ${
+      className={`h-full w-full border-b border-border py-24 transition-all duration-700 md:py-32 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf">
-        {t('portfolioTitle')}
-      </h2>
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <span className="section-kicker">03 / Selected work</span>
+        <h2 className="font-display text-4xl font-bold text-foreground md:text-7xl">{t('portfolioTitle')}</h2>
+      </div>
       <Carousel items={cards} />
     </div>
   );
@@ -33,7 +34,7 @@ const DummyContent = ({ t }: { t: (key: string) => string }) => {
         return (
           <div
             key={"dummy-content" + index}
-            className="bg-muted p-8 md:p-14 rounded-3xl mb-4"
+            className="mb-4 rounded-xl border border-border bg-background p-8 md:p-14"
           >
             <p className="text-muted-foreground text-base md:text-2xl font-sf max-w-3xl mx-auto">
               <span className="font-bold text-foreground">
@@ -55,7 +56,7 @@ const DummyContent = ({ t }: { t: (key: string) => string }) => {
 
 const CentrumPojisteniContent = () => {
   return (
-    <div className="bg-muted p-8 md:p-14 rounded-3xl mb-4 flex flex-col h-full">
+    <div className="mb-4 flex h-full flex-col rounded-xl border border-border bg-background p-8 md:p-14">
       <p className="text-muted-foreground text-base md:text-2xl font-sf max-w-3xl mx-auto mb-8">
         <span className="font-bold text-foreground">
           Pojištěno i na sociálních sítích.

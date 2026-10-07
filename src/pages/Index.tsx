@@ -28,7 +28,7 @@ const Index = () => {
   }, [hash]);
 
   return (
-    <div className="min-h-screen bg-background animate-fade-in">
+    <div className="homepage-dark min-h-screen bg-background text-foreground animate-fade-in">
       <SmoothScroll />
       <Navigation />
 
