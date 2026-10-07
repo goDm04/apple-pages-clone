@@ -14,6 +14,7 @@ import Hero from "@/components/Hero";
 import StatsSection from "@/components/StatsSection";
 import CustomBanner from "@/components/CustomBanner";
 import SmoothScroll from "@/components/SmoothScroll";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 const Index = () => {
   const { hash } = useLocation();
@@ -34,18 +35,25 @@ const Index = () => {
       <SmoothScroll />
       <Navigation />
 
-      <Hero />
-      <StatsSection />
+      <div className="continuous-gradient bg-gradient-hero">
+        <Hero />
+        <StatsSection />
+      </div>
       <ServicesSection />
       <DeliverablesSection />
-      <ProcessSection />
-      <CustomBanner />
+      <div className="continuous-gradient bg-gradient-ink">
+        <ProcessSection />
+        <CustomBanner />
+      </div>
       <AppleCardsCarouselDemo />
       <WebsiteTestSection />
       <AboutSection />
+      <TestimonialsSection />
       <FAQSection />
-      <ContactSection />
-      <Footer />
+      <div className="continuous-gradient bg-gradient-ink">
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 };
