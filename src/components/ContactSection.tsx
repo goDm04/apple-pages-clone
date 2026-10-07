@@ -163,14 +163,19 @@ const ContactSection = () => {
                     {L.types.map(o => <option key={o} value={o}>{o}</option>)}
                   </select>
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="budget" className="text-sm font-medium font-sf text-foreground">{L.budget}</label>
-                  <select id="budget" name="budget" value={formData.budget} onChange={handleChange} className={selectCls}>
-                    <option value="">{L.pick}</option>
-                    {L.budgets.map(o => <option key={o} value={o}>{o}</option>)}
-                  </select>
-                </div>
               </div>
+
+              <fieldset className="space-y-3">
+                <legend className="text-sm font-medium font-sf text-foreground">{L.budget}</legend>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {L.budgets.map(o => (
+                    <label key={o} className="flex cursor-pointer items-center gap-3 rounded-md border border-input bg-background px-4 py-3 font-sf text-sm text-foreground">
+                      <input type="radio" name="budget" value={o} checked={formData.budget === o} onChange={handleChange} className="h-4 w-4 accent-foreground" />
+                      {o}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
 
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium font-sf text-foreground">
