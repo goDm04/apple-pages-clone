@@ -406,7 +406,7 @@ const handleOpen = () => {
               animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
               exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
               transition={{ type: "spring", bounce: 0, duration: 0.35 }}
-              className="fixed inset-0 h-full w-full bg-black/80"
+              className="fixed inset-0 h-full w-full bg-hero/80"
             />
             <motion.div
               initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.92 }}
@@ -457,13 +457,13 @@ const handleOpen = () => {
         <div className="relative z-40 p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-sf text-sm font-medium text-white md:text-base"
+            className="text-left font-sf text-sm font-medium text-hero-foreground md:text-base"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="mt-2 max-w-xs text-left font-sf text-xl font-bold [text-wrap:balance] text-white md:text-3xl"
+            className="mt-2 max-w-xs text-left font-sf text-xl font-bold [text-wrap:balance] text-hero-foreground md:text-3xl"
           >
             {card.title}
           </motion.p>
