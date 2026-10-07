@@ -34,7 +34,7 @@ const Hero = () => {
         />
 
         {/* Main headline */}
-        <h1 className={`max-w-6xl font-sf text-5xl font-bold leading-[0.96] tracking-normal text-center text-hero-foreground sm:text-6xl md:text-8xl transition-all duration-700 ease-out ${
+        <h1 className={`max-w-6xl text-balance font-sf text-4xl font-bold leading-[1.02] tracking-normal text-center text-hero-foreground sm:text-6xl md:text-8xl transition-all duration-700 ease-out ${
           showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           {t("heroTitle")}<br />

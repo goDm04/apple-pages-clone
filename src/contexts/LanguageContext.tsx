@@ -27,7 +27,7 @@ const translations = {
     heroTitle: "Váš byznys si zaslouží",
     heroTitleLine2: "web, který prodává",
     heroSubtitle: "Od strategie a designu přes funkční SEO až po měření výsledků.",
-    heroSubtitleLine2: "Vy se věnujete byznysu, my se postaráme o zbytek.",
+    heroSubtitleLine2: "Vy se staráte o byznys, my o zbytek.",
     
     // Services
     servicesTitle: "Naše služby",
@@ -177,7 +177,7 @@ const translations = {
     heroTitle: "Your business deserves",
     heroTitleLine2: "a website that sells",
     heroSubtitle: "From strategy and design to working SEO and measurable results.",
-    heroSubtitleLine2: "You run the business, we take care of the rest.",
+    heroSubtitleLine2: "You run the business, we handle the rest.",
     
     // Services
     servicesTitle: "Our services",
@@ -327,7 +327,7 @@ const translations = {
     heroTitle: "Ihr Unternehmen verdient",
     heroTitleLine2: "eine Website, die verkauft",
     heroSubtitle: "Von Strategie und Design über wirksames SEO bis zu messbaren Ergebnissen.",
-    heroSubtitleLine2: "Sie kümmern sich um Ihr Geschäft, wir um den Rest.",
+    heroSubtitleLine2: "Sie führen Ihr Geschäft, wir den Rest.",
     
     // Services
     servicesTitle: "Unsere Dienstleistungen",
