@@ -13,12 +13,12 @@ export default function AppleCardsCarouselDemo() {
   return (
     <div 
       id="portfolio" 
-      className={`w-full h-full py-20 transition-all duration-700 ${
+      className={`w-full h-full py-24 md:py-32 transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf">
+      <h2 className="mx-auto max-w-7xl px-4 font-sf text-4xl font-bold leading-tight tracking-normal text-foreground md:px-8 md:text-6xl">
         {t('portfolioTitle')}
       </h2>
       <Carousel items={cards} />

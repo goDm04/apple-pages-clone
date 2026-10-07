@@ -22,6 +22,12 @@ export default {
 				'sf': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
+				hero: {
+					DEFAULT: 'hsl(var(--hero))',
+					foreground: 'hsl(var(--hero-foreground))',
+					muted: 'hsl(var(--hero-muted))',
+					border: 'hsl(var(--hero-border))'
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
