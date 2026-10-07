@@ -3,11 +3,11 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const StatsSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const stats = [
-    { value: "20+", label: t("stat1") },
-    { value: "100%", label: t("stat2") },
+    { value: "30+", label: t("stat1") },
+    { value: "2–4", label: { cs: "týdny na zhotovení webu", en: "weeks to build a website", de: "Wochen für Ihre Website" }[language], fixed: true },
     { value: "3+", label: t("stat3") },
   ];
 
@@ -71,8 +71,7 @@ const StatsSection = () => {
             return (
               <div key={item.label} className="space-y-3 border-b border-hero-foreground/10 px-5 py-8 text-center last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 md:py-10">
                 <div className="font-sf text-5xl font-bold leading-none tracking-normal text-hero-foreground md:text-6xl">
-                  {values[idx]}
-                  {suffix}
+                  {item.fixed ? item.value : `${values[idx]}${suffix}`}
                 </div>
                 <p className="text-sm leading-relaxed text-hero-muted md:text-base">{item.label}</p>
               </div>
