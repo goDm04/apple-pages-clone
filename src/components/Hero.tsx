@@ -34,7 +34,7 @@ const Hero = () => {
         />
 
         {/* Main headline */}
-        <h1 className={`max-w-6xl text-balance font-sf text-4xl font-bold leading-[1.02] tracking-normal text-center text-hero-foreground sm:text-6xl md:text-8xl transition-all duration-700 ease-out ${
+        <h1 className={`max-w-6xl text-balance font-sf text-[clamp(2.25rem,8.5vw,5.5rem)] font-bold leading-[1.05] tracking-normal text-center text-hero-foreground transition-all duration-700 ease-out ${
           showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           {t("heroTitle")}<br />
@@ -42,7 +42,7 @@ const Hero = () => {
         </h1>
 
         {/* Subheading */}
-        <p className={`mx-auto mt-8 max-w-2xl text-balance text-base leading-relaxed text-hero-muted sm:text-lg md:text-xl transition-all duration-700 ease-out delay-200 ${
+        <p className={`mx-auto mt-8 max-w-2xl text-balance text-base leading-relaxed text-hero-muted sm:text-lg md:max-w-3xl md:text-xl transition-all duration-700 ease-out delay-200 ${
           showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           {t("heroSubtitle")}<br />
