@@ -38,7 +38,7 @@ All colors MUST be HSL.
 
     --hero: 0 0% 2%;
     --hero-foreground: 0 0% 100%;
-    --hero-muted: 240 4% 65%;
+    --hero-muted: 240 5% 74%;
     --hero-border: 0 0% 100%;
 
     --gradient-hero: linear-gradient(145deg, hsl(var(--hero)) 0%, hsl(var(--foreground)) 58%, hsl(var(--hero)) 100%);
