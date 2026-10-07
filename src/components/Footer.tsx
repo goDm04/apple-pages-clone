@@ -33,8 +33,8 @@ const Footer = () => {
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
-                alt="Logo" 
+                src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" 
+                alt="Tension Creative" 
                 className="h-8 w-auto"
               />
             </div>

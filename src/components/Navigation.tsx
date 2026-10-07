@@ -79,7 +79,7 @@ const Navigation = () => {
 
   return <>
     {/* Mobile navbar */}
-    <header className={`fixed left-3 right-3 top-3 z-[100] block lg:hidden transition-all duration-300 ${isModalOpen ? 'pointer-events-none -translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
+    <header className={`fixed left-3 right-3 top-3 z-[100] block lg:hidden transition-all duration-300 ${isModalOpen || open ? 'pointer-events-none -translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
       <div data-material className={`${isHome ? 'border-hero-foreground/15 bg-hero/75' : 'border-border bg-background/80'} mx-auto max-w-7xl rounded-full border px-3 shadow-lg backdrop-blur-2xl supports-[backdrop-filter]:bg-opacity-70`}>
         <div className="flex h-14 items-center justify-between">
           <a href="#hero" onClick={e => handleNavClick(e, "#hero", "home")} className="flex items-center">
@@ -89,7 +89,7 @@ const Navigation = () => {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className={isHome ? "text-hero-foreground hover:bg-hero-foreground/10 hover:text-hero-foreground" : undefined} aria-label="Otevřít menu"><Menu className="h-6 w-6" /></Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-64">
+            <SheetContent side="right" className="w-[82vw] max-w-sm border-border bg-background p-8">
               <SheetHeader><SheetTitle>Menu</SheetTitle></SheetHeader>
               <nav className="mt-8">
                 <ul className="space-y-4">
