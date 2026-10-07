@@ -382,6 +382,10 @@ const handleOpen = () => {
   
   
   // For other cards, open external link if provided
+  if (card.href?.startsWith("/")) {
+    window.location.href = card.href;
+    return;
+  }
   if (card.href) {
     const url = card.href.startsWith("http") ? card.href : `https://${card.href}`;
     window.open(url, "_blank", "noopener,noreferrer");
