@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
 
 const copy = {
   cs: { title: "Otestujte svůj web", desc: "Zadejte adresu a během chvíle uvidíte, jak si váš web stojí v rychlosti, SEO a přístupnosti. Měří to Google PageSpeed na mobilu.", btn: "Otestovat", loading: "Měřím… (cca 20–40 s)", perf: "Rychlost", seo: "SEO", a11y: "Přístupnost", bp: "Osvědčené postupy", cta: "Chci lepší výsledek", err: "Web se nepodařilo změřit. Zkontrolujte adresu nebo to zkuste znovu.", ph: "např. vasefirma.cz" },
@@ -19,6 +20,7 @@ export default function WebsiteTestSection() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [notConfigured, setNotConfigured] = useState(false);
   const [scores, setScores] = useState<Scores | null>(null);
 
   const run = async (e: React.FormEvent) => {
@@ -26,19 +28,19 @@ export default function WebsiteTestSection() {
     const target = url.trim();
     if (!target) return;
     const full = /^https?:\/\//.test(target) ? target : `https://${target}`;
-    setLoading(true); setError(false); setScores(null);
+    setLoading(true); setError(false); setNotConfigured(false); setScores(null);
     try {
-      const qs = ["performance", "seo", "accessibility", "best-practices"].map((k) => `category=${k}`).join("&");
-      const res = await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(full)}&strategy=mobile&${qs}`);
-      if (!res.ok) throw new Error(String(res.status));
-      const json = await res.json();
-      const cat = json.lighthouseResult.categories;
-      setScores({
-        performance: Math.round(cat.performance.score * 100),
-        seo: Math.round(cat.seo.score * 100),
-        accessibility: Math.round(cat.accessibility.score * 100),
-        "best-practices": Math.round(cat["best-practices"].score * 100),
-      });
+      const { data, error: requestError } = await supabase.functions.invoke("website-test", { body: { url: full } });
+      if (requestError) {
+        const context = "context" in requestError ? requestError.context : undefined;
+        if (context instanceof Response) {
+          const details = await context.json();
+          if (details.error === "not_configured") setNotConfigured(true);
+        }
+        throw requestError;
+      }
+      if (!data?.scores) throw new Error("Missing scores");
+      setScores(data.scores);
     } catch {
       setError(true);
     } finally {
@@ -61,7 +63,7 @@ export default function WebsiteTestSection() {
             {loading ? c.loading : c.btn}
           </Button>
         </form>
-        {error && <p className="mt-6 text-background/70">{c.err}</p>}
+        {error && <p role="alert" className="mt-6 text-background/70">{notConfigured ? { cs: "Měření je dočasně nedostupné. Kontaktujte nás pro kontrolu vašeho webu.", en: "Testing is temporarily unavailable. Contact us for a website review.", de: "Die Messung ist vorübergehend nicht verfügbar. Kontaktieren Sie uns für eine Website-Prüfung." }[language] : c.err}</p>}
         {scores && (
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
             {items.map(([k, label]) => (
