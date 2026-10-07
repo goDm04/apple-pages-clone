@@ -70,7 +70,7 @@ const AboutSection = () => {
         </div>
 
         {/* Bottom CTA band */}
-        <div className="flex flex-col items-center justify-between gap-8 rounded-lg bg-foreground p-8 md:flex-row md:p-12">
+        <div className="flex flex-col items-center justify-between gap-8 rounded-lg bg-gradient-ink p-8 md:flex-row md:p-12">
           <div className="space-y-2 text-center md:text-left">
             <h3 className="text-2xl md:text-3xl font-bold font-sf text-background">
               {t("aboutCtaTitle")}

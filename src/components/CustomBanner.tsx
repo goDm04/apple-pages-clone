@@ -8,7 +8,7 @@ export default function CustomBanner() {
   };
 
   return (
-    <div className="w-full bg-foreground pb-24 md:pb-32">
+    <div className="w-full bg-gradient-ink pb-24 md:pb-32">
       <div className="max-w-7xl mx-auto border-t border-background/20 px-4 pt-16 text-center md:px-8 md:pt-20">
         <h3 className="mb-4 font-sf text-3xl font-bold text-background md:text-5xl">
           {t("bannerTitle")}

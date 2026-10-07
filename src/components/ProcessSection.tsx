@@ -31,7 +31,7 @@ const ProcessSection = () => {
 
   return (
     <section 
-      className={`w-full bg-foreground py-24 text-background transition-all duration-700 md:py-32 ${
+      className={`w-full bg-gradient-ink py-24 text-background transition-all duration-700 md:py-32 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}

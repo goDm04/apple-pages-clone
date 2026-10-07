@@ -18,6 +18,12 @@ export default {
 			}
 		},
 		extend: {
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-ink': 'var(--gradient-ink)',
+				'gradient-ink-hover': 'var(--gradient-ink-hover)',
+				'gradient-hero-glass': 'var(--gradient-hero-glass)',
+			},
 			fontFamily: {
 				'sf': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 			},

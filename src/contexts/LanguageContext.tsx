@@ -32,7 +32,7 @@ const translations = {
     // Services
     servicesTitle: "Naše služby",
     websitesTitle: "Webové stránky",
-    websitesDesc: "Navrhneme a vytvoříme web přesně podle vašich potřeb. Postaráme se o strukturu, design, obsah i technické řešení, aby byl připraven k okamžitému použití.",
+    websitesDesc: "Navrhneme a vytvoříme web, který nejen skvěle vypadá, ale také funguje. Postaráme se o promyšlenou strukturu, funkční SEO, rychlost, měření návštěvnosti, přístupnost i bezpečné technické řešení.",
     socialMediaTitle: "Sociální sítě", 
     socialMediaDesc: "Připravíme plán, obsah i vizuály. Zajistíme pravidelné publikování a postaráme se, aby vaše profily byly aktuální a působily jednotně.",
     graphicsTitle: "Grafika",
@@ -182,7 +182,7 @@ const translations = {
     // Services
     servicesTitle: "Our services",
     websitesTitle: "Websites",
-    websitesDesc: "We design and create websites exactly according to your needs. We take care of structure, design, content and technical solutions so it's ready for immediate use.",
+    websitesDesc: "We design and build websites that not only look great, but work properly too. We take care of clear structure, effective SEO, speed, analytics, accessibility and a secure technical foundation.",
     socialMediaTitle: "Social Media",
     socialMediaDesc: "We prepare the plan, content and visuals. We ensure regular publishing and make sure your profiles are current and consistent.",
     graphicsTitle: "Graphics",
@@ -332,7 +332,7 @@ const translations = {
     // Services
     servicesTitle: "Unsere Dienstleistungen",
     websitesTitle: "Webseiten",
-    websitesDesc: "Wir entwerfen und erstellen Webseiten genau nach Ihren Bedürfnissen. Wir kümmern uns um Struktur, Design, Inhalt und technische Lösungen, damit sie sofort einsatzbereit sind.",
+    websitesDesc: "Wir gestalten und entwickeln Webseiten, die nicht nur gut aussehen, sondern auch zuverlässig funktionieren. Wir kümmern uns um klare Struktur, wirksames SEO, Geschwindigkeit, Analyse, Barrierefreiheit und eine sichere technische Basis.",
     socialMediaTitle: "Social Media",
     socialMediaDesc: "Wir bereiten Plan, Inhalt und Visuals vor. Wir sorgen für regelmäßige Veröffentlichungen und stellen sicher, dass Ihre Profile aktuell und einheitlich sind.",
     graphicsTitle: "Grafik",

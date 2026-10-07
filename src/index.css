@@ -41,6 +41,11 @@ All colors MUST be HSL.
     --hero-muted: 240 4% 65%;
     --hero-border: 0 0% 100%;
 
+    --gradient-hero: linear-gradient(145deg, hsl(var(--hero)) 0%, hsl(var(--foreground)) 58%, hsl(var(--hero)) 100%);
+    --gradient-ink: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--primary)) 55%, hsl(var(--hero)) 100%);
+    --gradient-ink-hover: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--foreground)) 52%, hsl(var(--hero)) 100%);
+    --gradient-hero-glass: linear-gradient(135deg, hsl(var(--hero) / 0.82), hsl(var(--foreground) / 0.72));
+
     --radius: 0.5rem;
 
     /* Aurora background variables */
