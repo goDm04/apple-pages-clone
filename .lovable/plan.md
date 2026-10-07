@@ -1,25 +1,40 @@
+## Plán: Modernější a plynulejší hlavní stránka
 
+### Zvolený směr
+- Rozpracovat variantu **Modern minimalist dark**.
+- Zachovat stávající logo Tension Creative, černobílou paletu, fonty, texty a funkce.
+- Navigaci posílit výraznějším rozostřením pozadí a tenkými světlými okraji.
+- Celou stránku spojit do jednoho vizuálního příběhu místo série oddělených karet.
 
-## Plan: Redesign "O nas" section to match site design language
+### Úpravy
+1. **Úvod a navigace**
+   - Přesně převést zvolenou tmavou kompozici: jemná mřížka, velká editorial typografie, skutečné logo a nenápadný ukazatel pokračování.
+   - Zachovat současné překlady, odkazy, mobilní menu a chování navigace mezi stránkami.
+   - Sjednotit desktopovou a mobilní navigaci do lehkého průsvitného materiálu s vysokým blur efektem a jemným borderem.
 
-### Current state
-The About section uses a gray `bg-muted` rounded card with a simple 2-column grid (text left, memoji image right). It feels flat and disconnected from the rest of the site, which uses bolder typography, clean spacing, and more visual hierarchy.
+2. **Statistiky a služby**
+   - Statistiky vizuálně napojit přímo na konec úvodu, bez dojmu samostatného bloku.
+   - Služby ponechat obsahově stejné, ale zpřesnit měřítko, rytmus, obrazové výřezy a kontrast ploch.
 
-### Design approach
-Match the style of ServicesSection (the strongest visual section on the site) -- large rounded `bg-muted` card with bold headings, clean layout, and the memoji image integrated more naturally.
+3. **Proces a výzva ke kontaktu**
+   - Proces změnit z izolovaných dlaždic na souvislou horizontální osu na desktopu a čitelnou vertikální osu na mobilu.
+   - Zachovat stávající čtyři kroky a obsah banneru, pouze je lépe propojit s okolními sekcemi.
 
-### Changes to `src/components/AboutSection.tsx`
+4. **Portfolio**
+   - Zachovat současný interaktivní karusel, karty, odkazy a modální detaily.
+   - Upravit okolní prostor, nadpis, navigační ovladače a hrany karet tak, aby odpovídaly zvolenému směru.
 
-1. **Remove the nested muted wrapper** -- use a single clean `bg-muted rounded-3xl` card like ServicesSection
-2. **Bigger, bolder heading** -- match `text-2xl md:text-5xl` style used elsewhere
-3. **Better spacing and padding** -- use `p-8 md:p-12` like service cards
-4. **Style the bullet points** as subtle feature chips or cleaner list with better visual weight
-5. **Image placement** -- make the memoji image larger and positioned more like the service card images (right-aligned, partially overflowing or filling the space)
-6. **Add more vertical breathing room** -- `py-20` to match other sections
+5. **O nás, FAQ a kontakt**
+   - O nás zjednodušit na silnější editorial kompozici s menším počtem vizuálně těžkých ploch.
+   - FAQ rozšířit do vyváženého dvousloupcového rozložení s jasnou hierarchií.
+   - Kontakt pojmout jako závěrečnou část příběhu; formulář i kontaktní údaje zůstanou beze změny funkce.
 
-### Technical details
-- Single file change: `src/components/AboutSection.tsx`
-- Reuse existing Tailwind classes from ServicesSection pattern (`rounded-3xl`, `p-8 md:p-12`, `min-h-[500px]`)
-- Keep all existing translation keys and accessibility attributes
-- Keep intersection observer animation
+6. **Patička a přechody**
+   - Patičku vizuálně spojit s kontaktem a opravit její odkazy tak, aby používaly stejné sekce jako hlavní navigace.
+   - Zachovat rychlé a přerušitelné animace i režim omezeného pohybu.
 
+### Technické detaily
+- Vizuální tokeny zůstanou centralizované v globálním stylu; komponenty budou používat pouze sémantické barvy.
+- Změny se dotknou hlavní stránky a jejích sekcí, ne obsahu ani vzhledu microsite `/emco`.
+- Formulář, překlady, portfolio odkazy, modal a scrollování zůstanou funkčně zachované.
+- Výsledek ověřím na desktopu i mobilu, včetně menu, karuselu, FAQ, kontaktního formuláře a chyb v konzoli.
