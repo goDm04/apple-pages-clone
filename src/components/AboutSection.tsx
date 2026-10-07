@@ -30,36 +30,38 @@ const AboutSection = () => {
     <section 
       id="o-nas" 
       aria-labelledby="about-heading" 
-      className={`w-full border-b border-border py-24 transition-all duration-700 md:py-32 ${
+      className={`w-full py-20 transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-14">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-8">
         {/* Header area */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div><span className="section-kicker">04 / About</span><h2 id="about-heading" className="font-display text-4xl font-bold leading-tight text-foreground md:text-7xl">{t("aboutTitle")}</h2></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <h2 id="about-heading" className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf leading-tight">
+            {t("aboutTitle")}
+          </h2>
           <p className="text-muted-foreground text-base md:text-xl font-sf leading-relaxed self-end">
             {t("aboutDesc")}
           </p>
         </div>
 
         {/* Value cards */}
-        <div className="grid grid-cols-1 border-l border-t border-border md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {values.map((value, index) => {
             const IconComponent = value.icon;
             return (
               <div
                 key={index}
-                className="group flex flex-col gap-6 border-b border-r border-border bg-card p-8 transition-colors duration-300 hover:bg-muted md:p-10"
+                className="group bg-muted rounded-3xl p-8 md:p-10 flex flex-col gap-5 transition-all duration-300 hover:bg-foreground hover:scale-[1.02]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-primary/10">
-                  <IconComponent className="h-6 w-6 text-primary" />
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-background/20 transition-colors">
+                  <IconComponent className="h-7 w-7 text-primary group-hover:text-background transition-colors" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-foreground">
+                <h3 className="font-sf text-foreground text-xl font-semibold group-hover:text-background transition-colors">
                   {value.title}
                 </h3>
-                <p className="font-sf text-sm leading-relaxed text-muted-foreground md:text-base">
+                <p className="font-sf text-muted-foreground text-sm md:text-base leading-relaxed group-hover:text-background/70 transition-colors">
                   {value.desc}
                 </p>
               </div>
@@ -68,18 +70,18 @@ const AboutSection = () => {
         </div>
 
         {/* Bottom CTA band */}
-        <div className="flex flex-col items-center justify-between gap-6 border border-primary/40 bg-primary p-8 md:flex-row md:p-12">
+        <div className="bg-foreground rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
-            <h3 className="font-display text-2xl font-bold text-primary-foreground md:text-3xl">
+            <h3 className="text-2xl md:text-3xl font-bold font-sf text-background">
               {t("aboutCtaTitle")}
             </h3>
-            <p className="font-sf text-base text-primary-foreground/70 md:text-lg">
+            <p className="text-background/60 font-sf text-base md:text-lg">
               {t("aboutCtaDesc")}
             </p>
           </div>
           <Button
             size="lg"
-            className="shrink-0 gap-2 rounded-full bg-background px-8 font-sf text-foreground hover:bg-background/90"
+            className="rounded-full bg-background text-foreground hover:bg-background/90 font-sf px-8 gap-2 shrink-0"
             onClick={() => {
               document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
             }}

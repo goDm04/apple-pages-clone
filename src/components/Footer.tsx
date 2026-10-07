@@ -26,15 +26,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="bg-muted/50 border-t border-border">
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo and description */}
           <div className="md:col-span-2 space-y-4">
-             <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" 
-                alt="Tension Creative" 
+                src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" 
+                alt="Logo" 
                 className="h-8 w-auto"
               />
             </div>

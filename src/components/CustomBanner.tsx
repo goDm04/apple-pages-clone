@@ -8,16 +8,16 @@ export default function CustomBanner() {
   };
 
   return (
-    <div className="w-full border-b border-border bg-card py-20">
+    <div className="w-full bg-foreground py-20">
       <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
-        <h3 className="mb-4 font-display text-3xl font-bold text-foreground md:text-5xl">
+        <h3 className="text-2xl md:text-3xl font-bold text-background font-sf mb-4">
           {t("bannerTitle")}
         </h3>
-        <p className="mx-auto mb-8 hidden max-w-2xl font-sf text-base text-muted-foreground md:block md:text-lg">
+        <p className="text-base md:text-lg text-background/70 mb-8 max-w-2xl mx-auto font-sf hidden md:block">
           {t("bannerDesc")}
         </p>
         <Button variant="outline" size="lg" onClick={scrollToContact}
-          className="rounded-full border-primary bg-primary px-8 font-sf text-primary-foreground hover:bg-primary/90">
+          className="bg-background text-foreground hover:bg-background/90 border-background px-8 rounded-full font-sf">
           {t("contactUs")}
         </Button>
       </div>

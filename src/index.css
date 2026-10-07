@@ -145,53 +145,6 @@ All colors MUST be HSL.
   }
 }
 
-@layer components {
-  .homepage-dark {
-    --background: 0 0% 2%;
-    --foreground: 60 15% 95%;
-    --card: 240 4% 7%;
-    --card-foreground: 60 15% 95%;
-    --popover: 240 4% 7%;
-    --popover-foreground: 60 15% 95%;
-    --primary: 84 100% 62%;
-    --primary-foreground: 0 0% 2%;
-    --secondary: 240 4% 12%;
-    --secondary-foreground: 60 15% 95%;
-    --muted: 240 4% 10%;
-    --muted-foreground: 240 4% 58%;
-    --accent: 84 100% 62%;
-    --accent-foreground: 0 0% 2%;
-    --border: 240 4% 18%;
-    --input: 240 4% 20%;
-    --ring: 84 100% 62%;
-    font-family: "DM Sans", system-ui, sans-serif;
-    color-scheme: dark;
-  }
-
-  .homepage-dark section[id],
-  .homepage-dark [id="portfolio"] {
-    scroll-margin-top: 6.5rem;
-  }
-
-  .homepage-grid {
-    background-image:
-      linear-gradient(to right, hsl(var(--border) / 0.42) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.42) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse 75% 65% at 50% 48%, black 58%, transparent 100%);
-  }
-
-  .section-kicker {
-    @apply mb-5 inline-flex items-center gap-2 font-sf text-xs font-semibold uppercase text-primary;
-    letter-spacing: 0.14em;
-  }
-
-  .section-kicker::before {
-    content: "";
-    @apply h-px w-8 bg-primary;
-  }
-}
-
 /* ---------------------------------------------------------------
    Reduced motion: keep comprehension cues, drop vestibular motion.
    --------------------------------------------------------------- */

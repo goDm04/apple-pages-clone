@@ -37,28 +37,27 @@ const FAQSection = () => {
 
   return (
     <section 
-      className={`w-full border-b border-border py-24 transition-all duration-700 md:py-32 ${
+      className={`w-full py-20 transition-all duration-700 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="mx-auto max-w-4xl">
+        <div className="max-w-3xl mx-auto">
         <div className="mb-12">
-          <span className="section-kicker">05 / FAQ</span>
-          <h2 className="font-display text-4xl font-bold leading-tight text-foreground md:text-7xl">
+          <h2 className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf leading-tight">
             {t("faqTitle")}
           </h2>
         </div>
 
-        <Accordion type="single" collapsible defaultValue="item-0" className="w-full border-t border-border">
+        <Accordion type="single" collapsible defaultValue="item-0" className="w-full space-y-6">
           {faqs.map((faq, index) => (
             <AccordionItem 
               key={index} 
               value={`item-${index}`}
-              className="border-b border-border py-2"
+              className="border-b border-muted-foreground/20 pb-2"
             >
-              <AccordionTrigger className="py-5 text-left font-display text-lg font-medium text-foreground hover:no-underline md:text-xl">
+              <AccordionTrigger className="text-left font-sf font-medium text-foreground hover:no-underline py-4 text-lg">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground font-sf leading-relaxed pb-4">

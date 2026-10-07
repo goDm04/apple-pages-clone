@@ -24,10 +24,10 @@ const translations = {
     ctaButton: "Mám zájem",
     
     // Hero section
-    heroTitle: "Proměníme vaši značku v",
-    heroTitleLine2: "první volbu zákazníků",
-    heroSubtitle: "Web, obsah a vizuální identita, které vypadají skvěle",
-    heroSubtitleLine2: "a hlavně přivádějí nové zákazníky.",
+    heroTitle: "Dostaňte svůj",
+    heroTitleLine2: "byznys z nuly na trend.",
+    heroSubtitle: "Pomáháme značkám růst. Od prvního nápadu až",
+    heroSubtitleLine2: "po moment, kdy se stanou těmi, o kterých se mluví.",
     
     // Services
     servicesTitle: "Naše služby",
@@ -174,10 +174,10 @@ const translations = {
     ctaButton: "Get started",
     
     // Hero section
-    heroTitle: "We turn your brand into",
-    heroTitleLine2: "your customers’ first choice",
-    heroSubtitle: "Web, content, and visual identity that look exceptional",
-    heroSubtitleLine2: "and, most importantly, bring in new customers.",
+    heroTitle: "Get your",
+    heroTitleLine2: "business from zero to trending.",
+    heroSubtitle: "We help brands grow. From the first idea",
+    heroSubtitleLine2: "to the moment they become the ones everyone talks about.",
     
     // Services
     servicesTitle: "Our services",
@@ -324,10 +324,10 @@ const translations = {
     ctaButton: "Loslegen",
     
     // Hero section
-    heroTitle: "Wir machen Ihre Marke zur",
-    heroTitleLine2: "ersten Wahl Ihrer Kunden",
-    heroSubtitle: "Web, Content und visuelle Identität, die hervorragend aussehen",
-    heroSubtitleLine2: "und vor allem neue Kunden gewinnen.",
+    heroTitle: "Bringen Sie Ihr",
+    heroTitleLine2: "Business von null auf Trend.",
+    heroSubtitle: "Wir helfen Marken zu wachsen. Von der ersten Idee",
+    heroSubtitleLine2: "bis zu dem Moment, in dem sie zu denen werden, über die alle sprechen.",
     
     // Services
     servicesTitle: "Unsere Dienstleistungen",
