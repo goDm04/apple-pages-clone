@@ -216,3 +216,14 @@ All colors MUST be HSL.
     border-color: hsl(var(--foreground)) !important;
   }
 }
+
+@layer components {
+  .glass-dark {
+    @apply border border-background/15 bg-background/[0.06] backdrop-blur-xl;
+    box-shadow: inset 0 1px 0 hsl(var(--background) / 0.12), 0 20px 60px -30px hsl(var(--foreground) / 0.6);
+  }
+  .glass-light {
+    @apply border border-background/40 bg-background/90 backdrop-blur-2xl;
+    box-shadow: inset 0 1px 0 hsl(var(--background) / 0.9), 0 30px 80px -40px hsl(var(--foreground) / 0.7);
+  }
+}
