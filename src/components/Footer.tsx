@@ -1,9 +1,13 @@
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t, language } = useLanguage();
+  const { pathname } = useLocation();
+  const homePath = language === "cs" ? "/" : `/${language}`;
+  const isHome = /^\/(en|de)?$/.test(pathname);
 
   const navLinks = [
     { name: t("home"), href: "#hero" },
@@ -62,7 +66,7 @@ const Footer = () => {
               {navLinks.map((link) => (
                 <a
                   key={link.name}
-                  href={link.href}
+                  href={isHome ? link.href : `${homePath}${link.href}`}
                   className="block font-sf text-sm text-background/60 transition-colors hover:text-background"
                 >
                   {link.name}
