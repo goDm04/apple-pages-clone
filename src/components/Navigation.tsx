@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
@@ -79,12 +79,10 @@ const Navigation = () => {
 
   return <>
     {/* Mobile navbar */}
-    <header data-material className={`fixed top-0 left-0 right-0 z-[100] block lg:hidden bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-border transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full' : 'opacity-100 transform translate-y-0'}`}>
+    <header data-material className={`fixed left-3 right-3 top-3 z-[100] block rounded-full border border-border bg-background/80 backdrop-blur-xl transition-all duration-300 lg:hidden ${isModalOpen ? 'opacity-0 pointer-events-none -translate-y-full' : 'opacity-100 translate-y-0'}`}>
       <div className="mx-auto max-w-7xl px-4">
         <div className="h-16 flex items-center justify-between">
-          <a href="#hero" onClick={e => handleNavClick(e, "#hero", "home")} className="flex items-center">
-            <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
-          </a>
+          <span className="font-display text-xs font-bold uppercase text-foreground" style={{ letterSpacing: "0.12em" }}>Tension Creative</span>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon"><Menu className="h-6 w-6" /></Button>
@@ -103,7 +101,7 @@ const Navigation = () => {
                   ))}
                 </ul>
                 <div className="mt-8">
-                  <Button className="w-full bg-black text-white hover:bg-black/90" onClick={(e) => handleNavClick(e, "#kontakt", "contact")}>
+                  <Button className="w-full rounded-full" onClick={(e) => handleNavClick(e, "#kontakt", "contact")}>
                     {t("ctaButton")}
                   </Button>
                 </div>
@@ -115,26 +113,26 @@ const Navigation = () => {
     </header>
 
     {/* Desktop navbar */}
-    <header className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] hidden lg:block transition-all duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none transform -translate-y-full scale-95' : 'opacity-100 transform translate-y-0 scale-100'}`}>
-      <div data-material className={`backdrop-blur-md border border-white/20 rounded-full px-8 py-3 shadow-lg bg-white/[0.84] transition-all duration-500 ease-out ${showNavbar ? 'w-[950px] opacity-100' : 'w-4 opacity-0'}`}>
+    <header className={`fixed left-1/2 top-6 z-[100] hidden -translate-x-1/2 transform transition-all duration-300 lg:block ${isModalOpen ? 'opacity-0 pointer-events-none -translate-y-full scale-95' : 'opacity-100 translate-y-0 scale-100'}`}>
+      <div data-material className={`rounded-full border border-border bg-background/70 px-5 py-2.5 shadow-sm backdrop-blur-xl transition-all duration-500 ease-out ${showNavbar ? 'w-[900px] opacity-100' : 'w-4 opacity-0'}`}>
         <div className="flex items-center w-full relative">
-          <a href="#hero" onClick={e => handleNavClick(e, "#hero", "home")}
-            className={`flex items-center transition-all duration-300 ${showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
-            <img src="/lovable-uploads/39da56aa-bd85-4407-af5b-e2e3f662ee12.png" alt="Logo" className="h-6 w-auto" />
-          </a>
+          <Button className={`rounded-full bg-foreground px-5 text-background hover:bg-foreground/90 ${showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+            onClick={(e) => handleNavClick(e, "#kontakt", "contact")}>
+            {t("ctaButton")} <ArrowUpRight className="h-4 w-4" />
+          </Button>
           <nav className={`flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 ${showLinks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
             {navItems.map((item, index) => (
               <a key={item.key} href={item.href} onClick={e => handleNavClick(e, item.href, item.key)}
-                className={`text-sm font-medium transition-all duration-300 ${activeItem === item.key ? "text-black" : "text-black/80 hover:text-black"} ${showLinks ? 'opacity-100' : 'opacity-0'}`}
+                className={`font-sf text-xs font-semibold uppercase transition-all duration-300 ${activeItem === item.key ? "text-primary" : "text-muted-foreground hover:text-foreground"} ${showLinks ? 'opacity-100' : 'opacity-0'}`}
                 style={{ transitionDelay: showLinks ? `${index * 100}ms` : '0ms' }}>
                 {item.name}
               </a>
             ))}
           </nav>
-          <Button className={`rounded-full px-6 bg-black text-white hover:bg-black/90 transition-all duration-300 ml-auto ${showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
-            onClick={(e) => handleNavClick(e, "#kontakt", "contact")}>
-            {t("ctaButton")}
-          </Button>
+          <a href="#hero" onClick={e => handleNavClick(e, "#hero", "home")}
+            className={`ml-auto flex items-center transition-all duration-300 ${showLogoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
+            <img src="/lovable-uploads/08bd3a2e-1841-421d-a162-79292032a5a6.png" alt="Tension Creative" className="h-5 w-auto" />
+          </a>
         </div>
       </div>
     </header>
