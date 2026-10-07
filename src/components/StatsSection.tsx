@@ -65,7 +65,7 @@ const StatsSection = () => {
       ref={elementRef}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 border-y border-hero-foreground/10 sm:grid-cols-3">
+        <div className="grid grid-cols-1 overflow-hidden rounded-3xl glass-dark sm:grid-cols-3">
           {stats.map((item, idx) => {
             const { suffix } = parseStat(item.value);
             return (
