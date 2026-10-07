@@ -52,6 +52,8 @@ const ContactSection = () => {
           name: "",
           email: "",
           subject: "",
+          projectType: "",
+          budget: "",
           message: ""
         });
       } else {
