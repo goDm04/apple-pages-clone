@@ -406,7 +406,7 @@ const handleOpen = () => {
               animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
               exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
               transition={{ type: "spring", bounce: 0, duration: 0.35 }}
-              className="fixed inset-0 h-full w-full bg-hero/80"
+              className="fixed inset-0 h-full w-full bg-gradient-hero-glass"
             />
             <motion.div
               initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.92 }}
@@ -423,7 +423,7 @@ const handleOpen = () => {
               className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-background p-4 font-sf md:p-10"
             >
               <button
-                className="sticky top-4 right-0 ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-foreground transition-transform duration-100 ease-out active:scale-90"
+                className="sticky top-4 right-0 ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-gradient-ink transition-transform duration-100 ease-out hover:bg-gradient-ink-hover active:scale-90"
                 onClick={handleClose}
                 aria-label="Zavřít"
               >

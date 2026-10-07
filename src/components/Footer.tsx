@@ -26,7 +26,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t border-background/15 bg-foreground text-background">
+    <footer className="border-t border-background/15 bg-gradient-ink text-background">
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo and description */}

@@ -17,7 +17,7 @@ const Hero = () => {
   return (
     <header 
       id="hero" 
-      className="relative flex min-h-[92svh] w-full overflow-hidden bg-hero text-hero-foreground md:min-h-screen" 
+      className="relative flex min-h-[92svh] w-full overflow-hidden bg-gradient-hero text-hero-foreground md:min-h-screen" 
       aria-label="Hero sekce"
     >
       {/* Grid Background */}

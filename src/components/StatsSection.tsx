@@ -59,7 +59,7 @@ const StatsSection = () => {
     <section
       id="statistiky"
       aria-label="Statistiky"
-      className={`relative z-10 w-full bg-hero pb-20 pt-0 text-hero-foreground transition-all duration-700 md:pb-28 ${
+      className={`relative z-10 w-full bg-gradient-hero pb-20 pt-0 text-hero-foreground transition-all duration-700 md:pb-28 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}

@@ -65,7 +65,7 @@ const ContactSection = () => {
       [e.target.name]: e.target.value
     }));
   };
-  return <section id="kontakt" className={`w-full bg-foreground py-24 text-background transition-all duration-700 md:py-32 ${isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`} ref={elementRef}>
+  return <section id="kontakt" className={`w-full bg-gradient-ink py-24 text-background transition-all duration-700 md:py-32 ${isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`} ref={elementRef}>
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid max-w-none items-start gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           {/* Left side - Info */}
@@ -157,7 +157,7 @@ const ContactSection = () => {
                 <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder={t("messagePlaceholder")} rows={6} required className="rounded-md font-sf" />
               </div>
 
-              <Button type="submit" size="lg" className="w-full md:w-auto font-sf font-semibold bg-foreground text-background hover:bg-foreground/90 rounded-full">
+              <Button type="submit" size="lg" className="w-full rounded-full bg-gradient-ink font-sf font-semibold text-background hover:bg-gradient-ink-hover md:w-auto">
                 {t("sendMessage")}
               </Button>
             </form>
