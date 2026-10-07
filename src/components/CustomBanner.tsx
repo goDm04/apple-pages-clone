@@ -8,12 +8,12 @@ export default function CustomBanner() {
   };
 
   return (
-    <div className="w-full bg-foreground py-20">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
-        <h3 className="text-2xl md:text-3xl font-bold text-background font-sf mb-4">
+    <div className="w-full bg-foreground pb-24 md:pb-32">
+      <div className="max-w-7xl mx-auto border-t border-background/20 px-4 pt-16 text-center md:px-8 md:pt-20">
+        <h3 className="mb-4 font-sf text-3xl font-bold text-background md:text-5xl">
           {t("bannerTitle")}
         </h3>
-        <p className="text-base md:text-lg text-background/70 mb-8 max-w-2xl mx-auto font-sf hidden md:block">
+        <p className="mx-auto mb-8 hidden max-w-2xl font-sf text-base text-background/60 md:block md:text-lg">
           {t("bannerDesc")}
         </p>
         <Button variant="outline" size="lg" onClick={scrollToContact}

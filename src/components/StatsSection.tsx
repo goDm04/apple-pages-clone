@@ -59,22 +59,22 @@ const StatsSection = () => {
     <section
       id="statistiky"
       aria-label="Statistiky"
-      className={`w-full py-20 transition-all duration-700 ${
+      className={`relative z-10 w-full bg-hero pb-20 pt-0 text-hero-foreground transition-all duration-700 md:pb-28 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+        <div className="grid grid-cols-1 border-y border-hero-foreground/10 sm:grid-cols-3">
           {stats.map((item, idx) => {
             const { suffix } = parseStat(item.value);
             return (
-              <div key={item.label} className="w-full sm:w-auto sm:min-w-[200px] md:min-w-[240px] space-y-3 text-center">
-                <div className="text-6xl md:text-7xl font-bold font-sf text-foreground leading-none tracking-tight">
+              <div key={item.label} className="space-y-3 border-b border-hero-foreground/10 px-5 py-8 text-center last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 md:py-10">
+                <div className="font-sf text-5xl font-bold leading-none tracking-normal text-hero-foreground md:text-6xl">
                   {values[idx]}
                   {suffix}
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{item.label}</p>
+                <p className="text-sm leading-relaxed text-hero-muted md:text-base">{item.label}</p>
               </div>
             );
           })}

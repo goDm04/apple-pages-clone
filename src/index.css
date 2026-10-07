@@ -36,6 +36,11 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
+    --hero: 0 0% 2%;
+    --hero-foreground: 0 0% 100%;
+    --hero-muted: 240 4% 65%;
+    --hero-border: 0 0% 100%;
+
     --radius: 0.5rem;
 
     /* Aurora background variables */
@@ -135,6 +140,11 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  ::selection {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
   }
 
   /* Instant, non-vestibular press feedback on every interactive element. */

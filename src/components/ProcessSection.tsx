@@ -31,32 +31,32 @@ const ProcessSection = () => {
 
   return (
     <section 
-      className={`w-full py-20 transition-all duration-700 ${
+      className={`w-full bg-foreground py-24 text-background transition-all duration-700 md:py-32 ${
         isInView ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'
       }`}
       ref={elementRef}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
         {/* Section header */}
-        <h2 className="text-xl md:text-5xl font-bold md:tracking-tight text-foreground font-sf">
+        <h2 className="max-w-3xl font-sf text-4xl font-bold leading-tight tracking-normal text-background md:text-6xl">
           {t("processTitle")}
         </h2>
         
         {/* Process steps grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="relative grid border-t border-background/20 md:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step) => (
-            <div key={step.number} className="bg-muted rounded-3xl p-8 space-y-4">
+            <div key={step.number} className="relative space-y-8 border-b border-background/20 py-8 md:border-r md:px-8 lg:border-b-0 first:md:pl-0 last:md:border-r-0 last:md:pr-0">
               {/* Step number */}
-              <div className="text-5xl font-bold font-sf text-foreground/15">
+              <div className="font-sf text-sm font-semibold text-background/50">
                 {step.number}
               </div>
               
               {/* Step content */}
               <div className="space-y-3">
-                <h3 className="text-lg font-bold font-sf text-foreground leading-tight">
+                <h3 className="font-sf text-xl font-bold leading-tight text-background">
                   {step.title}
                 </h3>
-                <p className="text-sm font-sf text-muted-foreground leading-relaxed">
+                <p className="font-sf text-sm leading-relaxed text-background/60">
                   {step.description}
                 </p>
               </div>
